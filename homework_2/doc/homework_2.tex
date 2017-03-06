@@ -44,7 +44,7 @@
   \paragraph{2} Using the Taylor expansion $\sin x = x + O(x^2)$ around $x = 0$ we obtain the linearized version of~\eqref{eq:problem} as $$\phi^{\prime\prime} = - \mu \phi$$
   which has the solutions $\phi(s) = \sin(\sqrt{\mu}s)$ which satisfies the boundary condition at $s = 1$ if and only if $\mu = n^2\pi^2$ for $n \in \mathbb{N}.$
 
-  \paragraph{3} Let $n$ be the number of segments, $h := 1 / n$ the mesh-width and $\phi_j$ an approximation to $\phi(x_j)$ for $x_j = jh.$ We have $\phi_0 = \phi_n = 0,$ so the finite difference equations read
+  \paragraph{3} Let $n$ be the number of segments, $h := 1 / n$ the mesh-width and $\phi_j$ an approximation to $\phi(x_j)$ for $x_j = (j-\tfrac{1}{2})h$ for all $j = 1, \dots, n.$ We have $\phi_{-1/2} = \phi_{n + 1/2} = 0,$ so the finite difference equations read
   \begin{equation}
     \phi_{i-1} - 2 \phi_i + \phi_{i + 1} + h^2 \mu \sin \phi_i = 0 \text{ for } i = 1, \dots, n - 1
   \end{equation}
@@ -53,4 +53,6 @@
     \phi_{i-1} + (-2 + h^2 \mu)\phi_i + \phi_{i + 1} = 0 \text{ for } i = 1, \dots, n - 1
   \end{equation}
   for the linearized case.
+
+  \paragraph{4}
 \end{document}
