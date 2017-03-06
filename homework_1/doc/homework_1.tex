@@ -1,0 +1,186 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+
+
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\definecolor{light-gray}{gray}{0.7}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\author{H.T. Stoppels (University of Groningen)}
+\title{{\sc nbalss} homework 1}
+
+\lstdefinestyle{myCustomMatlabStyle}{
+  language=Matlab,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\begin{document}
+  \maketitle
+  
+  \paragraph{1} The model problem
+  \begin{equation*}
+  \begin{aligned}
+    u^{\prime\prime}(x) &= \exp(x) \text{ on } (0, 1) \\
+    u^\prime(1) &= e \\
+    u(0) &= 1.
+  \end{aligned}
+  \end{equation*}
+  clearly has the solution $u(x) = \exp(x).$
+
+  \paragraph{2} Let $N$ be the number of segments, define the mesh-width $h := 1/N$ and the grid points $x_i := ih$ for $i = 0, 1, \dots, N.$ Let $u_i$ be the finite difference approximation to $u(x_i).$ Central difference discretization yields the approximation
+  \begin{equation}\label{eq:local_approx}
+    u^{\prime\prime}(x_i) = \frac{u_{i - 1} - 2u_i + u_{i+1}}{h^2} + O(h^2) \text{ as } h \to 0
+  \end{equation}
+  so that for the interior grid points we require
+  \begin{equation}\label{eq:finite-diff-interior}
+    u_{i-1} - 2u_i + u_{i+1} = h^2 \exp(x_i) \quad \text{ for } i = 2, \dots, N - 1.
+  \end{equation}
+  The Dirichlet boundary condition can of course be substituted
+  \begin{equation}\label{eq:finite-diff-dirichlet}
+  \begin{aligned}
+    u_0 &= 1 \\
+    -2u_1 + u_2 &= h^2 \exp(x_1) - 1.
+  \end{aligned}
+  \end{equation}
+  The discretized Neumann boundary condition reads $$\frac{u_{N+1} - u_{N-1}}{2h} = e$$ so that the off-grid node $u_{N+1} := u_{N-1} + 2he$ can be substituted in \eqref{eq:finite-diff-interior} for $i = N,$ which gives the last equation
+  \begin{equation}\label{eq:finite-diff-neumann}
+    2u_{N - 1} - 2u_N = h^2\exp(x_N) - 2he.
+  \end{equation}
+
+  \paragraph{3} Combining~\eqref{eq:finite-diff-interior},~\eqref{eq:finite-diff-dirichlet} and~\eqref{eq:finite-diff-neumann} in matrix form
+  \begin{equation*}
+    \begin{bmatrix}
+      1 \\
+      & -2 & 1 &   &   &    \\
+      &1 & -2 & 1 &   &    \\
+      & & \ddots & \ddots & \ddots \\
+      &  & & 1 & -2 & 1 &    \\
+      & & & & 2 & -2
+    \end{bmatrix}
+    \begin{bmatrix}
+      x_0 \\ x_1 \\ x_2 \\ \vdots \\ x_{N - 1} \\ x_N
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      1 \\ h^2 \exp(x_1) - 1 \\ h^2 \exp(x_2) \\ \vdots \\ h^2 \exp(x_{N - 1}) \\ h^2 \exp(x_N) - 2he
+    \end{bmatrix}
+  \end{equation*}
+  In practice one would omit the dummy unknown $x_0.$
+
+  \paragraph{4} Using the following blueprint for central differences of a second derivative
+
+  \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
+  \lstset{frame=tblr,rulecolor=\color{light-gray}}
+
+  \begin{lstlisting}
+function A = central_diff(n)
+  e = ones(n, 1);
+  A = spdiags([e, -2 * e, e], -1 : 1, n, n);
+end
+  \end{lstlisting}
+  Applied to this specific problem
+  \begin{lstlisting}
+function [A, b, x_grid] = discretize(rhs, n)
+  % Discretizes the problem using n rather than n + 1
+  % grid points, omitting the dirichlet grid point at x_0.
+
+  h = 1 / n;
+  x_grid = linspace(0, 1, n + 1)';
+  ys = rhs(x_grid);
+
+  % Central difference matrix A + r.h.s. b
+  A = central_diff(n);
+  b = h * h * ys(2 : end);
+  
+  % Dirichlet left
+  b(1) = b(1) - 1;
+
+  % Neumann right
+  b(end) = b(end) - 2 * h * exp(1);
+  A(n, n - 1) = 2;
+end
+  \end{lstlisting}
+  With these tools one can write
+  \begin{lstlisting}
+function ex1_4
+  % Exact solution
+  exact = @(x) exp(x);
+
+  % Solve for one value of N to plot the error
+  [A, b, x_grid] = discretize(@(x) exp(x), 32);
+  
+  % Solve Ax = b and prepend the Dirichlet grid point.
+  numerical = [1; A \ b];
+
+  err = numerical - exact(x_grid);
+
+  figure;
+  plot(x_grid, abs(err));
+  title('Local error')
+  xlabel('x')
+  ylabel('error')
+
+  fprintf('Global error (inf norm) = %f\n', norm(err, Inf));
+end
+  \end{lstlisting}
+  Which outputs {\tt Global error (inf norm) = 0.000361} for the global error and produces the plot of {\bf Figure~\ref{fig:ex4}}.
+
+  \paragraph{5} To show that central differences is a second-order approximation one should note that equation~\eqref{eq:local_approx} shows a \emph{local} second-order error in $h,$ however, here we show empirically that it has second-order convergence globally as well---in the sense that $\norm{u - u_h}_\infty = O(h^2)$ as $h \to 0$ where $u$ is the exact solution in the grid points and $u_h$ the finite differences approximation.
+
+  Using the functions of above, we produce a plot for various values of $N$ via the following code
+  \begin{lstlisting}
+function ex1_5
+  es = [];
+  ns = 2 .^ (3 : 11);
+  exact = @(x) exp(x);
+
+  % Show experimentally 2nd-order convergence
+  for n = ns
+    [A, b, x_grid] = discretize(@(x) exp(x), n);
+
+    % Solve Ax = b and prepend the Dirichlet grid point.
+    numerical = [1; A \ b];
+
+    % Compute the normed error (max norm)
+    es(end + 1) = norm(numerical - exact(x_grid), Inf);
+  end
+
+  figure;
+  loglog(ns, es, 'b'); hold on;
+  loglog(ns, ns .^ -2, '-.'); hold off;
+  grid
+  title('Convergence rate central differences');
+  xlabel('N');
+  ylabel('Global error in inf norm');
+  legend('Error', '1 / N^2')
+end
+  \end{lstlisting}
+  which produces the plot seen in Figure~\ref{fig:ex5}, where one clearly sees the global error is second order in $h$ as well.
+
+  \begin{figure}[b]
+    \centering
+    \begin{subfigure}[c]{0.47\textwidth}
+      \caption{Local error for $N = 32$}
+      \input{ex4.tikz}
+      \label{fig:ex4}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.47\textwidth}
+      \caption{Convergence rate}
+      \input{ex5.tikz}
+      \label{fig:ex5}
+    \end{subfigure}
+  \end{figure}
+\end{document}

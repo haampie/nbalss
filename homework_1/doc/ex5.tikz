@@ -1,0 +1,64 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.8\textwidth,
+height=0.6*\textwidth,
+at={(0.758in,0.481in)},
+scale only axis,
+xmode=log,
+xmin=1,
+xmax=10000,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={$N$},
+ymode=log,
+ymin=1e-08,
+ymax=0.1,
+yminorticks=true,
+% ylabel style={font=\color{white!15!black}},
+% ylabel={$\norm{u - u_h}_\infty$},
+axis background/.style={fill=white},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=blue, mark=*, mark options={solid}, mark size=0.85]
+  table[row sep=crcr]{%
+8 0.00577410736781836\\
+16  0.00144402706770697\\
+32  0.000361038046735818\\
+64  9.0261466867414e-05\\
+128 2.25654890164684e-05\\
+256 5.6413795559429e-06\\
+512 1.41034716349964e-06\\
+1024  3.52584069052142e-07\\
+2048  8.813638574523e-08\\
+};
+\addlegendentry{$\norm{u - u_h}_\infty$}
+
+\addplot [color=mycolor1, dashdotted]
+  table[row sep=crcr]{%
+8 0.015625\\
+16  0.00390625\\
+32  0.0009765625\\
+64  0.000244140625\\
+128 6.103515625e-05\\
+256 1.52587890625e-05\\
+512 3.814697265625e-06\\
+1024  9.5367431640625e-07\\
+2048  2.38418579101562e-07\\
+};
+\addlegendentry{$1 / N^2$}
+
+\end{axis}
+\end{tikzpicture}%

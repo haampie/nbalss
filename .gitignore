@@ -1,0 +1,7 @@
+matlab2tikz
+*.log
+*.pdf
+*.fls
+*.synctex.gz
+*.fdb_latexmk
+*.aux
