@@ -8,6 +8,7 @@ function ex1_4
   % Solve Ax = b and prepend the Dirichlet grid point.
   numerical = [1; A \ b];
 
+  % Local error.
   err = numerical - exact(x_grid);
 
   figure;

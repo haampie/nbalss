@@ -1,11 +1,18 @@
 function ex1_5
+  % Show experimentally 2nd-order convergence for the
+  % global error.
+
+  % Errors
   es = [];
+
+  % Number of discretization points
   ns = 2 .^ (3 : 11);
+
+  % Exact solution
   exact = @(x) exp(x);
 
-  % Show experimentally 2nd-order convergence
   for n = ns
-    
+    % Discretize with n points.
     [A, b, x_grid] = discretize(@(x) exp(x), n);
 
     % Solve Ax = b and prepend the Dirichlet grid point.
