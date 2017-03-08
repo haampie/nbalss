@@ -1,0 +1,63 @@
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.85\linewidth,
+height=0.5\linewidth,
+at={(0.772in,0.516in)},
+scale only axis,
+xmode=log,
+xmin=1,
+xmax=1000000000000,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={$\varepsilon^{-1}$},
+ymode=log,
+ymin=1e-25,
+ymax=1,
+yminorticks=true,
+axis background/.style={fill=white},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1, mark=+, mark options={solid, mycolor1}]
+  table[row sep=crcr]{%
+10	0.01\\
+100	0.0001\\
+1000	1e-06\\
+10000	1e-08\\
+100000	1e-10\\
+1000000	1e-12\\
+10000000	1e-14\\
+100000000	1e-16\\
+1000000000	1e-18\\
+10000000000	1e-20\\
+100000000000	1e-22\\
+1000000000000	1e-24\\
+};
+\addlegendentry{$\varepsilon^2$}
+
+\addplot [color=mycolor2, mark=+, mark options={solid, mycolor2}]
+  table[row sep=crcr]{%
+10	0.00605709447273181\\
+100	6.05626647845522e-05\\
+1000	6.05618465945497e-07\\
+10000	6.05639314430789e-09\\
+100000	6.05686991120942e-11\\
+1000000	1.89571633311603e-12\\
+10000000	1.08449017713603e-12\\
+100000000	6.9539705802595e-13\\
+1000000000	1.67883800867209e-12\\
+10000000000	1.2269149419109e-12\\
+100000000000	1.12686013860168e-12\\
+1000000000000	1.40820104633013e-12\\
+};
+\addlegendentry{$r(\varepsilon)$}
+
+\end{axis}
+\end{tikzpicture}%

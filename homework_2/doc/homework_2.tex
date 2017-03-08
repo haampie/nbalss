@@ -16,6 +16,7 @@
 \definecolor{light-gray}{gray}{0.7}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\diag}{diag}
 
 \author{H.T. Stoppels (University of Groningen)}
 \title{{\sc nbalss} homework 2}
@@ -27,10 +28,13 @@
   showstringspaces=false
 }
 
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
+\lstset{frame=tblr,rulecolor=\color{light-gray}}
+
 \begin{document}
   \maketitle
   
-  The buckling problem for $\phi = \phi(s)$ is the non-linear ODE
+  \noindent The buckling problem for $\phi = \phi(s)$ is the non-linear ODE
   \begin{equation}\label{eq:problem}
   \begin{aligned}
     \phi^{\prime\prime} + \mu \sin \phi &= 0 \text{ on } (0, 1) \\
@@ -42,17 +46,138 @@
   \paragraph{1} For any $\mu \in \mathbb{R}$ it is clear that the trivial solution $\phi \equiv 0$ satisfies~\eqref{eq:problem}.
 
   \paragraph{2} Using the Taylor expansion $\sin x = x + O(x^2)$ around $x = 0$ we obtain the linearized version of~\eqref{eq:problem} as $$\phi^{\prime\prime} = - \mu \phi$$
-  which has the solutions $\phi(s) = \sin(\sqrt{\mu}s)$ which satisfies the boundary condition at $s = 1$ if and only if $\mu = n^2\pi^2$ for $n \in \mathbb{N}.$
-
-  \paragraph{3} Let $n$ be the number of segments, $h := 1 / n$ the mesh-width and $\phi_j$ an approximation to $\phi(x_j)$ for $x_j = (j-\tfrac{1}{2})h$ for all $j = 1, \dots, n.$ We have $\phi_{-1/2} = \phi_{n + 1/2} = 0,$ so the finite difference equations read
+  which has the solutions $\phi(s) = \sin(\sqrt{\mu}s)$ satisfying the boundary condition at $s = 1$ if and only if $\mu = n^2\pi^2$ for $n \in \mathbb{N}.$ These solutions to the linearized equations are of relevance to the non-linear equation as can be seen from the following formulation of the problem: let $u(s) := \phi^\prime(s)$ and $v(s) := \phi(s)$ so that~\eqref{eq:problem} is equivalent to
   \begin{equation}
-    \phi_{i-1} - 2 \phi_i + \phi_{i + 1} + h^2 \mu \sin \phi_i = 0 \text{ for } i = 1, \dots, n - 1
+    \frac{d}{ds} \begin{bmatrix}
+      u \\ v
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      -\mu \sin v \\
+      u
+    \end{bmatrix}
   \end{equation}
-  for the non-linear case, and
+  for which $u \equiv v \equiv 0$ is an equilibrium point. Its Jacobian matrix at this equilibrium is
   \begin{equation}
-    \phi_{i-1} + (-2 + h^2 \mu)\phi_i + \phi_{i + 1} = 0 \text{ for } i = 1, \dots, n - 1
+    \begin{bmatrix}
+      0 & -\mu \\
+      1 & 0
+    \end{bmatrix}
   \end{equation}
-  for the linearized case.
+  which is hyperbolic for the $\mu$'s we consider, so that the Hartman--Grobman theorem applies. This theorem formally states that the linearization provides qualitative information about the non-linear system.
 
-  \paragraph{4}
+  \paragraph{3} Let $n + 1$ be the number of segments, $h := 1 / (n + 1)$ the mesh-width and $\phi^h_j$ an approximation to $\phi(x_j)$ for $x_j = jh$ and $j = 0, \dots, n + 1.$ The boundary conditions give $\phi^h_0 = \phi^h_{n+1} = 0,$ so we exclude them from the computational domain. Define the matrix and vector
+  \begin{equation}
+    A = \begin{bmatrix}
+      -2 & 1  &   &        & \\
+      1  & -2 & 1 &  & \\
+         & \ddots & \ddots & \ddots \\
+         &        & 1      & -2 & 1\\
+         &        &        & 1  & -2
+    \end{bmatrix} \text{ and }
+    \phi^h = \begin{bmatrix}
+      \phi^h_1 \\ \phi^h_2 \\ \vdots \\ \phi^h_{n-1} \\ \phi^h_n
+    \end{bmatrix}
+  \end{equation}
+  Then we obtain the difference equations
+  \begin{equation}\label{eq:nonlinear-discretized}
+    f(\phi^h) := A\phi^h + h^2\mu \sin \phi^h = 0
+  \end{equation}
+  for the non-linear case where $\sin \phi^h$ is understood element-wise, and
+  \begin{equation}\label{eq:linearized}
+    (A + h^2\mu I)\phi^h = 0
+  \end{equation}
+  for the linearized case. The elements on the diagonal of~\eqref{eq:linearized} are given by $-2 + h^2\mu$ and its off-diagonal elements are just $1,$ so for all relevant $\mu = n^2\pi^2$ with $n\in \mathbb{N}$ the matrix $A + \mu I$ loses diagonal dominance.
+
+  \paragraph{4} Solving~\eqref{eq:nonlinear-discretized} with Newton's method requires the Jacobian of $f(\phi^h)$ which is of course easily determined as $J(\phi^h) = A + \mu \diag \cos \phi^h$ where $\cos \phi^h$ is again element-wise, and $\diag$ maps a vector to a diagonal matrix of the corresponding values. This allows us to write the following implementations:
+
+  \begin{lstlisting}
+function f = fBuck(theta, n, mu)
+  A = linBuck(n);
+  h_inv = (n + 1)^2;
+  f = A * theta + mu * sin(theta) / h_inv;
+end
+
+function J = JacBuck(theta, n, mu)
+  A = linBuck(n);
+  h_inv = (n + 1)^2;
+  J = A + spdiags(mu * cos(theta) / h_inv, 0, n, n);
+end
+
+function A = linBuck(n)
+  e = ones(n, 1);
+  A = spdiags([e, -2 * e, e], -1 : 1, n, n);
+end
+  \end{lstlisting}
+  Next, it should hold that $$f(\phi^h + \varepsilon v) = f(\phi^h) + \varepsilon J(\phi)v + O(\varepsilon^2) \text{ as } \varepsilon \to 0$$ in any norm on $\mathbb{R}^n$, for $\phi^h$ fixed, a unit vector $v \in \mathbb{R}^n$ and $0 < \varepsilon \ll 1.$ As a sanity check we generate $v$ as an element-wise uniformly randomly distributed (between $-0.5$ and $0.5$) vector which is then normalized in the 2-norm. Next, we iterate $\varepsilon$ through $\{10^{-1}, 10^{-2}, \dots, 10^{-12}\}$ and measure the normed residual 
+  \begin{equation}\label{eq:normed-res}
+    r(\varepsilon) = \norm{f(\phi^h + \varepsilon v) - f(\phi^h) - \varepsilon J(\phi)v}_2.
+  \end{equation} 
+  In Figure~\ref{fig:normed-res} (on the last page) we plot $r(\varepsilon)$ for $\phi^h_j = \sin \pi x_j$ and $v$ as mentioned above for $n = 40$. The residual reduces quadratically as $\varepsilon \to 0,$ which is to be expected; yet is halted when $\varepsilon \le 10^{-6}.$ At this point the error in the matrix-vector products dominates the perturbation in $\phi^h.$ The code for generating this plot is the following:
+  \newpage
+\begin{lstlisting}
+function ex2_4(n, mu)
+  h = 1 / (n + 1);
+  xs = linspace(h, 1 - h, n).';
+  theta = sin(sqrt(mu) * xs);
+
+  v = rand(n, 1) - 0.5;
+  v = v / norm(v);
+
+  epsilons = 10 .^ -(1 : 12);
+  errors = [];
+  J = JacBuck(theta, n, mu);
+
+  for epsilon = epsilons
+    func = fBuck(theta + epsilon * v, n, mu);
+    approx = fBuck(theta, n, mu) + epsilon * J * v;
+    errors(end + 1) = norm(func - approx, Inf);
+  end
+
+  figure;
+  loglog(1 ./ epsilons, epsilons .^ 2, '-+'); hold on;
+  loglog(1 ./ epsilons, errors, '-+'); hold off;
+end
+\end{lstlisting}
+  And is called via
+  \begin{lstlisting}
+ex2_4(40, pi ^ 2)
+  \end{lstlisting}
+
+  \begin{figure}[b]
+    \caption{Normed residual of equation~\eqref{eq:normed-res} for $n = 40.$ }
+    \label{fig:normed-res}
+    \input{images/error_linear_approx.tikz}
+  \end{figure}
+
+  \paragraph{5} Newton's method is easily implemented with the following snippet (without {\tt feval} and explicit parameters):
+\begin{lstlisting}
+function x = newton(f, df, x, tol, varargin)
+  incr = inf;
+
+  while norm(incr, 2) > tol
+    incr = df(x, varargin{:}) \ f(x, varargin{:});
+    x = x - incr;
+  end
+end
+\end{lstlisting}
+  As an example, solving $x^2 -1 = 0$ for $x$ can be done as follows:
+\begin{lstlisting}
+  newton(@(x) x^2 - 1, @(x) 2 * x, 0.1, 1e-4)
+\end{lstlisting}
+  which returns {\rm 1.000000000013990} in a handful of iterations.
+  \paragraph{6} A program setup that computes the zero of $f(\theta^h)$ for some initial guess of the form $\hat{\theta}^h_j = \sin \sqrt{\mu} x_j$ is along the following lines
+\begin{lstlisting}
+function theta_zero = zerofBuck(n, mu, tol)
+  h = 1 / (n + 1);
+  xs = linspace(h, 1 - h, n).';
+  theta_start = sin(sqrt(mu) * xs);
+  theta_zero = newton(@fBuck, @JacBuck, theta_start, tol, n, mu);
+
+  % figure
+  % plot(xs, theta_zero); hold on;
+  % plot(xs, theta_start); hold off;
+  % legend('Approximate solution', 'Initial guess')
+end
+\end{lstlisting}
 \end{document}
