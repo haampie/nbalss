@@ -1,0 +1,126 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+
+
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\definecolor{light-gray}{gray}{0.7}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\diag}{diag}
+
+\author{H.T. Stoppels (University of Groningen)}
+\title{{\sc nbalss} homework 3}
+
+\lstdefinestyle{myCustomMatlabStyle}{
+  language=Matlab,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false
+}
+
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
+\lstset{frame=tblr,rulecolor=\color{light-gray}}
+
+\begin{document}
+  \maketitle
+  
+  \noindent We consider the buckling problem again for $\phi = \phi(s):$
+  \begin{equation}\label{eq:problem}
+  \begin{aligned}
+    \phi^{\prime\prime} + \mu \sin \phi &= 0 \text{ on } (0, 1) \\
+    \phi(0) &= 0 \\
+    \phi(1) &= 0.
+  \end{aligned}
+  \end{equation}
+  The eigenpairs $(\mu_k, \phi_k)$ for the linearized problem $\phi^{\prime\prime} = -\mu \phi$ are $$\mu_k = k^2\pi^2 \text { and } \phi_k(s) = \sin(\sqrt{\mu_k}s).$$
+
+  \paragraph{1} We approximate~\eqref{eq:problem} using the first two terms of the Taylor expansion of $\sin x = x - \tfrac{1}{6}x^3 + O(x^4)$ resulting in a new problem:
+  \begin{equation}\label{eq:higher-order}
+    L\phi := \phi^{\prime\prime} + \mu (\phi - \tfrac{1}{6}\phi^3) = 0.
+  \end{equation}
+  Let $V_k := \{\varepsilon\phi_k \,|\, \varepsilon \in \mathbb{R}\}$ be a closed, linear subspace of $L^2([0, 1]),$ which is a real Hilbert space endowed with the standard inner product $\langle u, v\rangle = \int_0^1uv \, ds.$ Let's solve~\eqref{eq:higher-order} in the Galerkin sense for a fixed $k$. Take $\mu = (1 + \gamma)\mu_k$ for some $\gamma \in \mathbb{R}.$ The Galerkin condition is
+  \begin{equation}
+    \langle Lu, v \rangle = 0 \text{ for } u \in V_k \text{ and all } v \in V_k.
+  \end{equation}
+  Equivalently, let $\phi = \varepsilon \phi_k,$ so the condition reads
+  \begin{equation}
+    \left\langle \varepsilon\phi_k^{\prime\prime} + \mu_k(1 + \gamma)(\varepsilon \phi_k - \tfrac{1}{6}\varepsilon^3\phi_k^3), \phi_k \right\rangle = 0.
+  \end{equation}
+  Noting that $\phi_k^{\prime\prime} + \mu_k \phi_k = 0$ this equation implies
+  \begin{equation}\label{eq:last-step}
+    \gamma \norm{\phi_k}^2_{L^2} = \tfrac{1}{6}(1 + \gamma)\varepsilon^2 \norm{\phi_k^2}^2_{L^2}
+  \end{equation}
+  Some calculus shows $\norm{\phi_k}^2_{L^2} = \tfrac{1}{2}$ and $\norm{\phi_k^2}^2_{L^2} = \tfrac{3}{8}$ for integer values of $k$. Substituting this in~\eqref{eq:last-step} finally shows the relation
+  \begin{equation}
+    \varepsilon^2 = \frac{8 \gamma}{1 + \gamma} \text{ or } \gamma = \frac{\varepsilon^2}{8 - \varepsilon^2 }
+  \end{equation}
+  independently from $k.$
+
+  \paragraph{2} There is one detail here to be clarified. We assume $\phi_k(s) = \sin k\pi s$ s.t. $\norm{\phi_k}^2_{L^2} = \tfrac{1}{2}.$ However, Matlab returns normalized eigenvectors in the 2-norm. To correct this note
+  \begin{equation}
+    \tfrac{1}{2} = \norm{\phi_k}^2_{L^2} = \int_0^1 \phi_k^2 dx \approx h \sum_{i = 0}^n \left[\phi_k(hi)\right]^2 = h \norm{\phi_k}^2_2.
+  \end{equation}
+  where in the last norm $\phi_k$ is considered as a vector (function restricted to grid points). So if Matlab returns $\tilde{\phi}_k = c \phi_k$ s.t. $\norm{\tilde{\phi}_k}_2 = 1,$ then we find the correction factor $c$ to be $$c \approx \frac{1}{\sqrt{2h}} = \sqrt{\frac{n+1}{2}}.$$
+
+  With that in mind, I came up with the following setup, with two additional parameters {\tt n} and {\tt tol} as they must be specified somewhere:
+  \begin{lstlisting}
+function thetas = init(k, n, tol)
+  % larger n -> more accurate eigenpairs.
+  h = 1 / (n + 1);
+
+  % Find eigenpairs.
+  A = linBuck(n);
+  [V, D] = eig(full(A));
+  eigen = diag(D);
+  [~, I] = sort(abs(eigen));
+  eigen = eigen(I);
+  V = V(:, I);
+  mus = eigen / -h ^ 2;
+
+  % Given epsilon, compute gamma
+  % and the initial theta's with
+  % corresponding mu's.
+  correction = sqrt((n + 1) / 2);
+  epsilon = 1e-1;
+  gamma = epsilon ^ 2 / (8 - epsilon ^ 2);
+  thetas_0 = epsilon * correction * V;
+  mus_0 = mus * (1 + gamma);
+
+  % Do the Newton iterations.
+  % Let the user add the Dirichlet boundaries :).
+  thetas = zeros(n, k);
+  for idx = 1 : k
+    thetas(:, idx) = zeroOfBuck(n, mus_0(idx), tol, thetas_0(:, idx));
+  end
+end
+  \end{lstlisting}
+  Note that we could use {\tt eigs(A, k, 'sm')} over {\tt eig(full(A))} since that is way more efficient; but maybe it is less accurate than {\tt eig}.
+  \newpage
+  \paragraph{3} And for this exercise I used to following setup, also with and additional parameter {\tt tol}:
+  \begin{lstlisting}
+function cont(mu, theta, mu_end, steps, tol)
+  mus = linspace(mu, mu_end, steps);
+
+  legend_entries = {};
+  
+  figure;
+  hold on;
+  for mu = mus
+    theta = zeroOfBuck(length(theta), mu, tol, theta);
+    legend_entries{end + 1} = ['mu = ' num2str(mu)];
+    plot(theta);
+  end
+  legend(legend_entries)
+end
+  \end{lstlisting}
+\end{document}
