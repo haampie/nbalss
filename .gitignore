@@ -5,3 +5,4 @@ matlab2tikz
 *.synctex.gz
 *.fdb_latexmk
 *.aux
+.DS_Store
