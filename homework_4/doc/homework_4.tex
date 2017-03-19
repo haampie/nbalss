@@ -9,6 +9,7 @@
 \usepackage{subcaption}
 \usepackage{fontspec}
 \usepackage{minted}
+\usepackage{fullpage}
 \setmonofont{DejaVu Sans Mono}
 
 \pgfplotsset{compat=newest}
@@ -16,30 +17,18 @@
 \usetikzlibrary{arrows.meta}
 \usepgfplotslibrary{patchplots}
 
-\definecolor{light-gray}{gray}{0.7}
-
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \DeclareMathOperator{\diag}{diag}
 
 \author{H.T. Stoppels (University of Groningen)}
 \title{{\sc nbalss} homework 4}
 
-% \lstdefinestyle{myCustomMatlabStyle}{
-%   language=Julia,
-%   tabsize=4,
-%   showspaces=false,
-%   showstringspaces=false
-% }
-
-% \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
-% \lstset{frame=tblr,rulecolor=\color{light-gray}}
-
 \begin{document}
   \maketitle 
 
-  We consider again the familiar equation. We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.
+  \noindent Some more stuff.
 
-  \paragraph{a} In Figure~\ref{fig:solutions} we see three non-trivial solutions at $\mu = 200,$ together with their norms as $\mu$ gets larger.
+  \paragraph{1} In Figure~\ref{fig:solutions} we see three non-trivial solutions at $\mu = 200,$ together with their norms as $\mu$ gets larger.
 
 
   \begin{figure}[h]
@@ -55,8 +44,20 @@
     \label{fig:solutions}
   \end{figure}
 
-  \newpage
-  \begin{minted}[fontsize=\scriptsize,breaklines=true]{julia}
+  \paragraph{4} Here we get
+
+  \begin{figure}[h]
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/ex4.tikz}
+      \caption{Using the non-zero right-hand side, we get on the branch of non-trivial solutions only via continuation between $\mu = 0$ to $\mu = 50.$}
+    \end{subfigure}~
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/newton_iters_4-3.tikz}
+      \caption{Number of Newton iterations in $\mu = 0$ to $\mu = 50.$}
+    \end{subfigure}
+  \end{figure}
+
+  \begin{minted}[fontsize=\scriptsize]{julia}
 function buckling_plus_ɛ(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
   n = length(θ);
   h = 1 / (n + 1);

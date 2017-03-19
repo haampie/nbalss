@@ -76,9 +76,6 @@ function plot_solutions(;n::Int64 = 1000, k::Int64 = 6, μ_end::Float64 = 300., 
     θ_end = [0; continue_on_branch(θs[:, idx], μs[idx], μ_end, μ_steps); 0];
     x = cumsum(sin(θ_end)) / (n + 1);
     y = cumsum(cos(θ_end)) / (n + 1);
-    if idx == 3
-      x *= -1;
-    end
     Plots.plot!(x, y, label = "$idx");
   end
 
@@ -99,11 +96,38 @@ end
 function ex4_3(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.1, tol::Float64 = 1e-8)
   θ = zeros(n);
 
-  for μ = linspace(0, 50, 100)
-    (θ, its) = newton(x -> buckling_plus_ɛ(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+  iterations = Int64[];
+  μs = linspace(0, 50, 100);
 
-    println(length(its))
+  for μ = μs
+    (θ, its) = newton(x -> buckling_plus_ɛ(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+    push!(iterations, length(its));
   end
 
-  return θ;
+  return (θ, iterations, μs);
+end
+
+## Exercise 4.4
+
+function buckling_plus_poly(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
+  n = length(θ);
+  h = 1 / (n + 1);
+  A = Poisson1D(n);
+  s = linspace(h, 1 - h, n);
+  rhs = ɛ * s .* (1 - s);
+  return A * θ + (μ * sin(θ) - rhs) * h ^ 2;
+end
+
+function ex4_4(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.01, tol::Float64 = 1e-8)
+  θ = zeros(n);
+
+  iterations = Int64[];
+  μs = linspace(0, 50, 50);
+
+  for μ = μs
+    (θ, its) = newton(x -> buckling_plus_poly(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+    push!(iterations, length(its));
+  end
+
+  return (θ, iterations, μs);
 end
