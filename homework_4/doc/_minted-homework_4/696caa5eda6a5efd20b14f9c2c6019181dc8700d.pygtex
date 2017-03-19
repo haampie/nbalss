@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ buckling\PYGdefaultZus{}plus\PYGdefaultZus{}}\PYGdefault{err}{ɛ}\PYGdefault{p}{(}\PYGdefault{err}{θ}\PYGdefault{p}{::}\PYGdefault{n}{Vector}\PYGdefault{p}{\PYGdefaultZob{}}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{\PYGdefaultZcb{},} \PYGdefault{err}{μ}\PYGdefault{p}{::}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{,} \PYGdefault{err}{ɛ}\PYGdefault{p}{::}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{,} \PYGdefault{n}{k}\PYGdefault{p}{::}\PYGdefault{k+kt}{Int64}\PYGdefault{p}{)}
+  \PYGdefault{n}{n} \PYGdefault{o}{=} \PYGdefault{n}{length}\PYGdefault{p}{(}\PYGdefault{err}{θ}\PYGdefault{p}{);}
+  \PYGdefault{n}{h} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1} \PYGdefault{o}{/} \PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{);}
+  \PYGdefault{n}{A} \PYGdefault{o}{=} \PYGdefault{n}{Poisson1D}\PYGdefault{p}{(}\PYGdefault{n}{n}\PYGdefault{p}{);}
+  \PYGdefault{n}{rhs} \PYGdefault{o}{=} \PYGdefault{err}{ɛ} \PYGdefault{o}{*} \PYGdefault{n}{sin}\PYGdefault{p}{(}\PYGdefault{n}{k} \PYGdefault{o}{*} \PYGdefault{n+nb}{pi} \PYGdefault{o}{*} \PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{n}{h}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{1} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{h}\PYGdefault{p}{,} \PYGdefault{n}{n}\PYGdefault{p}{));}
+  \PYGdefault{k}{return} \PYGdefault{n}{A} \PYGdefault{o}{*} \PYGdefault{err}{θ} \PYGdefault{o}{+} \PYGdefault{p}{(}\PYGdefault{err}{μ} \PYGdefault{o}{*} \PYGdefault{n}{sin}\PYGdefault{p}{(}\PYGdefault{err}{θ}\PYGdefault{p}{)} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{rhs}\PYGdefault{p}{)} \PYGdefault{o}{*} \PYGdefault{n}{h} \PYGdefault{o}{\PYGdefaultZca{}} \PYGdefault{l+m+mi}{2}\PYGdefault{p}{;}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ ex4\PYGdefaultZus{}3}\PYGdefault{p}{(;} \PYGdefault{n}{n}\PYGdefault{p}{::}\PYGdefault{k+kt}{Int64} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1000}\PYGdefault{p}{,} \PYGdefault{n}{k}\PYGdefault{p}{::}\PYGdefault{k+kt}{Int64} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{,} \PYGdefault{err}{ɛ}\PYGdefault{p}{::}\PYGdefault{k+kt}{Float64} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{0.1}\PYGdefault{p}{,} \PYGdefault{n}{tol}\PYGdefault{p}{::}\PYGdefault{k+kt}{Float64} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{1e\PYGdefaultZhy{}8}\PYGdefault{p}{)}
+  \PYGdefault{err}{θ} \PYGdefault{o}{=} \PYGdefault{n}{zeros}\PYGdefault{p}{(}\PYGdefault{n}{n}\PYGdefault{p}{);}
+
+  \PYGdefault{k}{for} \PYGdefault{err}{μ} \PYGdefault{o}{=} \PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{l+m+mi}{0}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{50}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{100}\PYGdefault{p}{)}
+    \PYGdefault{p}{(}\PYGdefault{err}{θ}\PYGdefault{p}{,} \PYGdefault{n}{its}\PYGdefault{p}{)} \PYGdefault{o}{=} \PYGdefault{n}{newton}\PYGdefault{p}{(}\PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{n}{buckling\PYGdefaultZus{}plus\PYGdefaultZus{}}\PYGdefault{err}{ɛ}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{err}{μ}\PYGdefault{p}{,} \PYGdefault{err}{ɛ}\PYGdefault{p}{,} \PYGdefault{n}{k}\PYGdefault{p}{),} \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{err}{∂}\PYGdefault{n}{buckling}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{err}{μ}\PYGdefault{p}{),} \PYGdefault{err}{θ}\PYGdefault{p}{,} \PYGdefault{n}{tol}\PYGdefault{p}{);}
+
+    \PYGdefault{n}{println}\PYGdefault{p}{(}\PYGdefault{n}{length}\PYGdefault{p}{(}\PYGdefault{n}{its}\PYGdefault{p}{))}
+  \PYGdefault{k}{end}
+
+  \PYGdefault{k}{return} \PYGdefault{err}{θ}\PYGdefault{p}{;}
+\PYGdefault{k}{end}
+\end{Verbatim}

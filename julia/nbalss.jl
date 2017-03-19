@@ -1,10 +1,9 @@
-function newton(f::Function, ∂f::Function, x, ɛ::Float64, args...)
-
+function newton(f::Function, ∂f::Function, x, ɛ::Float64)
   Δx_norm = Inf;
   history = Float64[];
 
   while Δx_norm > ɛ
-    Δx = ∂f(x, args...) \ f(x, args...);
+    Δx = ∂f(x) \ f(x);
     x = x - Δx;
     Δx_norm = norm(Δx);
     push!(history, Δx_norm);
@@ -13,68 +12,98 @@ function newton(f::Function, ∂f::Function, x, ɛ::Float64, args...)
   return (x, history);
 end
 
-function poisson1d(n)
+function Poisson1D(n)
   return SymTridiagonal(-2 * ones(n), ones(n - 1));
 end
 
 function buckling(θ::Vector{Float64}, μ::Float64)
   n = length(θ);
-  A = poisson1d(n);
+  A = Poisson1D(n);
   return A * θ + μ * sin(θ) / (n + 1) ^ 2;
 end
 
 function ∂buckling(θ::Vector{Float64}, μ::Float64)
   n = length(θ);
-  A = poisson1d(n);
+  A = Poisson1D(n);
   return A + Diagonal(μ * cos(θ) / (n + 1) ^ 2);
 end
 
-function branch_off(k::Int64, n::Int64, tol::Float64 = 1e-8)
-  # Last k eigenvalues & eigenvectors
-  eigen = eigfact(poisson1d(n) * -(n + 1) ^ 2, 1 : k);
-
-  # Reverse order of eigen pairs (from small magnitude to large)
-  θs = eigen[:vectors];
-  μs = eigen[:values];
+function branch_off(k::Int64, n::Int64, tol::Float64 = 1e-8; γ::Float64 = 0.1)
+  # First k eigenvalues & eigenvectors
+  eigen = eigfact(Poisson1D(n) * -(n + 1) ^ 2, 1 : k);
 
   correction = √((n + 1) / 2);
-  γ = 0.1;
   ɛ = 8 * γ / (1 + γ);
-
-  θs *= ɛ * correction;
-  μs *= 1 + γ;
+  θs = ɛ * correction * eigen[:vectors];
+  μs = (1 + γ) * eigen[:values];
 
   for idx = 1 : k
-    (θs[:, idx], _) = newton(buckling, ∂buckling, θs[:, idx], tol, μs[idx]);
+    (θs[:, idx], _) = newton(x -> buckling(x, μs[idx]), x -> ∂buckling(x, μs[idx]), θs[:, idx], tol);
   end
 
   return (θs, μs);
 end
 
-function step_along_branch(θ::Vector{Float64}, μ_start::Float64, μ_end::Float64, steps::Int64, tol::Float64 = 1e-8)
+function continue_on_branch(θ::Vector{Float64}, μ_start::Float64, μ_end::Float64, steps::Int64, tol::Float64 = 1e-8)
   for μ = linspace(μ_start, μ_end, steps)
-    (θ, _) = newton(buckling, ∂buckling, θ, tol, μ);
+    (θ, _) = newton(x -> buckling(x, μ), x -> ∂buckling(x, μ), θ, tol);
   end
 
   return θ;
 end
 
-function run_example()
-  idx = 5;
-  k = 6;
-  n = 200;
-  (θs, μs) = branch_off(k, n);
+function two_norm_of_solution(;k = 1, n = 200)
+  (θs, bifurcation_points) = branch_off(k, n);
+  θ = θs[:, k];
+  
+  μs = linspace(bifurcation_points[k], bifurcation_points[k] * 20, 600);
+  two_norms = Float64[];
 
-  my_θ = θs[:, idx];
-
-  Plots.plot();
-
-  anim = @animate for μ = linspace(μs[idx], μs[idx] + 100, 20)
-    (my_θ, _) = newton(buckling, ∂buckling, my_θ, 1e-8, μ);
-    x = cumsum(sin([0;my_θ;0])) / (n + 1);
-    y = cumsum(cos([0;my_θ;0])) / (n + 1);
-    Plots.plot(x, y, title = "$μ");
+  for μ = μs
+    (θ, _) = newton(x -> buckling(x, μ), x -> ∂buckling(x, μ), θ, 1e-8);
+    push!(two_norms, norm(θ) / √(n + 1));
   end
 
-  gif(anim, "./anim_fps15.gif", fps = 15);
+  Plots.plot!(μs, two_norms, label = "$k");
+end
+
+function plot_solutions(;n::Int64 = 1000, k::Int64 = 6, μ_end::Float64 = 300., μ_steps::Int64 = 100)
+  (θs, μs) = branch_off(k, n);
+
+  p = Plots.plot();
+
+  for idx = 1 : k
+    θ_end = [0; continue_on_branch(θs[:, idx], μs[idx], μ_end, μ_steps); 0];
+    x = cumsum(sin(θ_end)) / (n + 1);
+    y = cumsum(cos(θ_end)) / (n + 1);
+    if idx == 3
+      x *= -1;
+    end
+    Plots.plot!(x, y, label = "$idx");
+  end
+
+  return p;
+end
+
+
+## Exercise 4.3
+
+function buckling_plus_ɛ(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
+  n = length(θ);
+  h = 1 / (n + 1);
+  A = Poisson1D(n);
+  rhs = ɛ * sin(k * pi * linspace(h, 1 - h, n));
+  return A * θ + (μ * sin(θ) - rhs) * h ^ 2;
+end
+
+function ex4_3(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.1, tol::Float64 = 1e-8)
+  θ = zeros(n);
+
+  for μ = linspace(0, 50, 100)
+    (θ, its) = newton(x -> buckling_plus_ɛ(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+
+    println(length(its))
+  end
+
+  return θ;
 end

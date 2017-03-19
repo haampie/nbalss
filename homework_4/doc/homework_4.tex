@@ -1,3 +1,4 @@
+%!TEX options = -shell-escape
 \documentclass[a4paper]{article}
 
 \usepackage{amsmath, amssymb}
@@ -6,7 +7,9 @@
 \usepackage{color}
 \usepackage{pgfplots}
 \usepackage{subcaption}
-
+\usepackage{fontspec}
+\usepackage{minted}
+\setmonofont{DejaVu Sans Mono}
 
 \pgfplotsset{compat=newest}
 \usetikzlibrary{plotmarks}
@@ -21,18 +24,57 @@
 \author{H.T. Stoppels (University of Groningen)}
 \title{{\sc nbalss} homework 4}
 
-\lstdefinestyle{myCustomMatlabStyle}{
-  language=Matlab,
-  tabsize=4,
-  showspaces=false,
-  showstringspaces=false
-}
+% \lstdefinestyle{myCustomMatlabStyle}{
+%   language=Julia,
+%   tabsize=4,
+%   showspaces=false,
+%   showstringspaces=false
+% }
 
-\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
-\lstset{frame=tblr,rulecolor=\color{light-gray}}
+% \lstset{basicstyle=\footnotesize\ttfamily,breaklines=true,style=myCustomMatlabStyle}
+% \lstset{frame=tblr,rulecolor=\color{light-gray}}
 
 \begin{document}
   \maketitle 
 
-  Hello world
+  We consider again the familiar equation. We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.We consider again the familiar equation.
+
+  \paragraph{a} In Figure~\ref{fig:solutions} we see three non-trivial solutions at $\mu = 200,$ together with their norms as $\mu$ gets larger.
+
+
+  \begin{figure}[h]
+    \begin{subfigure}[b]{0.5\textwidth}
+      \input{images/two_norm.tikz}
+      \caption{Two-norm}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \input{images/three_solutions.tikz}
+      \caption{First three non-trivial solutions at $\mu = 200$}
+    \end{subfigure}
+    \caption{First non-trivial solutions}
+    \label{fig:solutions}
+  \end{figure}
+
+  \newpage
+  \begin{minted}[fontsize=\scriptsize,breaklines=true]{julia}
+function buckling_plus_ɛ(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
+  n = length(θ);
+  h = 1 / (n + 1);
+  A = Poisson1D(n);
+  rhs = ɛ * sin(k * pi * linspace(h, 1 - h, n));
+  return A * θ + (μ * sin(θ) - rhs) * h ^ 2;
+end
+
+function ex4_3(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.1, tol::Float64 = 1e-8)
+  θ = zeros(n);
+
+  for μ = linspace(0, 50, 100)
+    (θ, its) = newton(x -> buckling_plus_ɛ(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+
+    println(length(its))
+  end
+
+  return θ;
+end
+  \end{minted}
 \end{document}
