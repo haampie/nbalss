@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ ex4\PYGdefaultZus{}1\PYGdefaultZus{}beam}\PYGdefault{p}{(;}\PYGdefault{n}{n} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1000}\PYGdefault{p}{,} \PYGdefault{n}{k} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{3}\PYGdefault{p}{,} \PYGdefault{n}{μ\PYGdefaultZus{}end} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{200.}\PYGdefault{p}{,} \PYGdefault{n}{μ\PYGdefaultZus{}steps} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{100}\PYGdefault{p}{)}
+  \PYGdefault{p}{(}\PYGdefault{n}{θs}\PYGdefault{p}{,} \PYGdefault{n}{μs}\PYGdefault{p}{)} \PYGdefault{o}{=} \PYGdefault{n}{branch\PYGdefaultZus{}off}\PYGdefault{p}{(}\PYGdefault{n}{k}\PYGdefault{p}{,} \PYGdefault{n}{n}\PYGdefault{p}{);}
+
+  \PYGdefault{n}{p} \PYGdefault{o}{=} \PYGdefault{n}{Plots}\PYGdefault{o}{.}\PYGdefault{n}{plot}\PYGdefault{p}{();}
+
+  \PYGdefault{k}{for} \PYGdefault{n}{idx} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1} \PYGdefault{p}{:} \PYGdefault{n}{k}
+    \PYGdefault{n}{θ} \PYGdefault{o}{=} \PYGdefault{p}{[}\PYGdefault{l+m+mi}{0}\PYGdefault{p}{;} \PYGdefault{n}{continue\PYGdefaultZus{}on\PYGdefaultZus{}branch}\PYGdefault{p}{(}\PYGdefault{n}{θs}\PYGdefault{p}{[:,} \PYGdefault{n}{idx}\PYGdefault{p}{],} \PYGdefault{n}{μs}\PYGdefault{p}{[}\PYGdefault{n}{idx}\PYGdefault{p}{],} \PYGdefault{n}{μ\PYGdefaultZus{}end}\PYGdefault{p}{,} \PYGdefault{n}{μ\PYGdefaultZus{}steps}\PYGdefault{p}{);} \PYGdefault{l+m+mi}{0}\PYGdefault{p}{];}
+    \PYGdefault{n}{x} \PYGdefault{o}{=} \PYGdefault{n}{cumsum}\PYGdefault{p}{(}\PYGdefault{n}{sin}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{))} \PYGdefault{o}{/} \PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{);}
+    \PYGdefault{n}{y} \PYGdefault{o}{=} \PYGdefault{n}{cumsum}\PYGdefault{p}{(}\PYGdefault{n}{cos}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{))} \PYGdefault{o}{/} \PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{);}
+    \PYGdefault{n}{Plots}\PYGdefault{o}{.}\PYGdefault{n}{plot!}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{y}\PYGdefault{p}{,} \PYGdefault{n}{label} \PYGdefault{o}{=} \PYGdefault{l+s}{\PYGdefaultZdq{}}\PYGdefault{l+s+si}{\PYGdefaultZdl{}idx}\PYGdefault{l+s}{\PYGdefaultZdq{}}\PYGdefault{p}{);}
+  \PYGdefault{k}{end}
+
+  \PYGdefault{k}{return} \PYGdefault{n}{p}\PYGdefault{p}{;}
+\PYGdefault{k}{end}
+\end{Verbatim}

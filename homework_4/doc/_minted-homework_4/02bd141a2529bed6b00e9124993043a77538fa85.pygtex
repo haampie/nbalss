@@ -1,0 +1,57 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ newton}\PYGdefault{p}{(}\PYGdefault{n}{f}\PYGdefault{p}{::}\PYGdefault{n}{Function}\PYGdefault{p}{,} \PYGdefault{n}{∂f}\PYGdefault{p}{::}\PYGdefault{n}{Function}\PYGdefault{p}{,} \PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{ɛ} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{1e\PYGdefaultZhy{}10}\PYGdefault{p}{)}
+  \PYGdefault{n}{Δx\PYGdefaultZus{}norm} \PYGdefault{o}{=} \PYGdefault{n+nb}{Inf}\PYGdefault{p}{;}
+  \PYGdefault{n}{history} \PYGdefault{o}{=} \PYGdefault{k+kt}{Float64}\PYGdefault{p}{[];}
+
+  \PYGdefault{k}{while} \PYGdefault{n}{Δx\PYGdefaultZus{}norm} \PYGdefault{o}{\PYGdefaultZgt{}} \PYGdefault{n}{ɛ}
+    \PYGdefault{n}{Δx} \PYGdefault{o}{=} \PYGdefault{n}{∂f}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{)} \PYGdefaultZbs{} \PYGdefault{n}{f}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{);}
+    \PYGdefault{n}{x} \PYGdefault{o}{=} \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{Δx}\PYGdefault{p}{;}
+    \PYGdefault{n}{Δx\PYGdefaultZus{}norm} \PYGdefault{o}{=} \PYGdefault{n}{norm}\PYGdefault{p}{(}\PYGdefault{n}{Δx}\PYGdefault{p}{);}
+    \PYGdefault{n}{push!}\PYGdefault{p}{(}\PYGdefault{n}{history}\PYGdefault{p}{,} \PYGdefault{n}{Δx\PYGdefaultZus{}norm}\PYGdefault{p}{);}
+  \PYGdefault{k}{end}
+
+  \PYGdefault{k}{return} \PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{history}\PYGdefault{p}{);}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ Poisson1D}\PYGdefault{p}{(}\PYGdefault{n}{n}\PYGdefault{p}{)}
+  \PYGdefault{n}{t} \PYGdefault{o}{=} \PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{)}\PYGdefault{o}{\PYGdefaultZca{}}\PYGdefault{l+m+mi}{2}\PYGdefault{p}{;}
+  \PYGdefault{k}{return} \PYGdefault{n}{SymTridiagonal}\PYGdefault{p}{(}\PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{l+m+mi}{2} \PYGdefault{o}{*} \PYGdefault{n}{t} \PYGdefault{o}{*} \PYGdefault{n}{ones}\PYGdefault{p}{(}\PYGdefault{n}{n}\PYGdefault{p}{),} \PYGdefault{n}{t} \PYGdefault{o}{*} \PYGdefault{n}{ones}\PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{));}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ fBuck}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{::}\PYGdefault{n}{Vector}\PYGdefault{p}{\PYGdefaultZob{}}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{\PYGdefaultZcb{},} \PYGdefault{n}{μ}\PYGdefault{p}{)}
+  \PYGdefault{n}{A} \PYGdefault{o}{=} \PYGdefault{n}{Poisson1D}\PYGdefault{p}{(}\PYGdefault{n}{length}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{));}
+  \PYGdefault{k}{return} \PYGdefault{n}{A} \PYGdefault{o}{*} \PYGdefault{n}{θ} \PYGdefault{o}{+} \PYGdefault{n}{μ} \PYGdefault{o}{*} \PYGdefault{n}{sin}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{);}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ }\PYGdefault{o}{∂}\PYGdefault{n}{fBuck}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{::}\PYGdefault{n}{Vector}\PYGdefault{p}{\PYGdefaultZob{}}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{\PYGdefaultZcb{},} \PYGdefault{n}{μ}\PYGdefault{p}{)}
+  \PYGdefault{n}{A} \PYGdefault{o}{=} \PYGdefault{n}{Poisson1D}\PYGdefault{p}{(}\PYGdefault{n}{length}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{));}
+  \PYGdefault{k}{return} \PYGdefault{n}{A} \PYGdefault{o}{+} \PYGdefault{n}{Diagonal}\PYGdefault{p}{(}\PYGdefault{n}{μ} \PYGdefault{o}{*} \PYGdefault{n}{cos}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{));}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ branch\PYGdefaultZus{}off}\PYGdefault{p}{(}\PYGdefault{n}{k}\PYGdefault{p}{::}\PYGdefault{k+kt}{Int64}\PYGdefault{p}{,} \PYGdefault{n}{n}\PYGdefault{p}{::}\PYGdefault{k+kt}{Int64}\PYGdefault{p}{;} \PYGdefault{n}{γ} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{0.1}\PYGdefault{p}{)}
+  \PYGdefault{c}{\PYGdefaultZsh{} First k eigenvalues \PYGdefaultZam{} eigenvectors}
+  \PYGdefault{n}{eigen} \PYGdefault{o}{=} \PYGdefault{n}{eigfact}\PYGdefault{p}{(}\PYGdefault{n}{Poisson1D}\PYGdefault{p}{(}\PYGdefault{n}{n}\PYGdefault{p}{)} \PYGdefault{o}{*} \PYGdefault{o}{\PYGdefaultZhy{}}\PYGdefault{l+m+mi}{1}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{1} \PYGdefault{p}{:} \PYGdefault{n}{k}\PYGdefault{p}{);}
+  \PYGdefault{n}{correction} \PYGdefault{o}{=} \PYGdefault{n}{√}\PYGdefault{p}{((}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{)} \PYGdefault{o}{/} \PYGdefault{l+m+mi}{2}\PYGdefault{p}{);}
+  \PYGdefault{n}{ɛ} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{8} \PYGdefault{o}{*} \PYGdefault{n}{γ} \PYGdefault{o}{/} \PYGdefault{p}{(}\PYGdefault{l+m+mi}{1} \PYGdefault{o}{+} \PYGdefault{n}{γ}\PYGdefault{p}{);}
+  \PYGdefault{n}{θs} \PYGdefault{o}{=} \PYGdefault{n}{ɛ} \PYGdefault{o}{*} \PYGdefault{n}{correction} \PYGdefault{o}{*} \PYGdefault{n}{eigen}\PYGdefault{p}{[:}\PYGdefault{n}{vectors}\PYGdefault{p}{];}
+  \PYGdefault{n}{μs} \PYGdefault{o}{=} \PYGdefault{p}{(}\PYGdefault{l+m+mi}{1} \PYGdefault{o}{+} \PYGdefault{n}{γ}\PYGdefault{p}{)} \PYGdefault{o}{*} \PYGdefault{n}{eigen}\PYGdefault{p}{[:}\PYGdefault{n}{values}\PYGdefault{p}{];}
+
+  \PYGdefault{k}{for} \PYGdefault{n}{idx} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1} \PYGdefault{p}{:} \PYGdefault{n}{k}
+    \PYGdefault{p}{(}\PYGdefault{n}{θs}\PYGdefault{p}{[:,} \PYGdefault{n}{idx}\PYGdefault{p}{],} \PYGdefault{n}{\PYGdefaultZus{}}\PYGdefault{p}{)} \PYGdefault{o}{=} \PYGdefault{n}{newton}\PYGdefault{p}{(}
+      \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{n}{fBuck}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{μs}\PYGdefault{p}{[}\PYGdefault{n}{idx}\PYGdefault{p}{]),}
+      \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{n}{∂fBuck}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{μs}\PYGdefault{p}{[}\PYGdefault{n}{idx}\PYGdefault{p}{]),}
+      \PYGdefault{n}{θs}\PYGdefault{p}{[:,} \PYGdefault{n}{idx}\PYGdefault{p}{]}
+    \PYGdefault{p}{);}
+  \PYGdefault{k}{end}
+
+  \PYGdefault{k}{return} \PYGdefault{p}{(}\PYGdefault{n}{θs}\PYGdefault{p}{,} \PYGdefault{n}{μs}\PYGdefault{p}{);}
+\PYGdefault{k}{end}
+
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ continue\PYGdefaultZus{}on\PYGdefaultZus{}branch}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{::}\PYGdefault{n}{Vector}\PYGdefault{p}{\PYGdefaultZob{}}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{\PYGdefaultZcb{},} \PYGdefault{n}{μ\PYGdefaultZus{}start}\PYGdefault{p}{,} \PYGdefault{n}{μ\PYGdefaultZus{}end}\PYGdefault{p}{,} \PYGdefault{n}{steps}\PYGdefault{p}{)}
+  \PYGdefault{k}{for} \PYGdefault{n}{μ} \PYGdefault{o}{=} \PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{n}{μ\PYGdefaultZus{}start}\PYGdefault{p}{,} \PYGdefault{n}{μ\PYGdefaultZus{}end}\PYGdefault{p}{,} \PYGdefault{n}{steps}\PYGdefault{p}{)}
+    \PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{,} \PYGdefault{n}{\PYGdefaultZus{}}\PYGdefault{p}{)} \PYGdefault{o}{=} \PYGdefault{n}{newton}\PYGdefault{p}{(}\PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{n}{fBuck}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{μ}\PYGdefault{p}{),} \PYGdefault{n}{x} \PYGdefault{o}{\PYGdefaultZhy{}\PYGdefaultZgt{}} \PYGdefault{n}{∂fBuck}\PYGdefault{p}{(}\PYGdefault{n}{x}\PYGdefault{p}{,} \PYGdefault{n}{μ}\PYGdefault{p}{),} \PYGdefault{n}{θ}\PYGdefault{p}{);}
+  \PYGdefault{k}{end}
+
+  \PYGdefault{k}{return} \PYGdefault{n}{θ}\PYGdefault{p}{;}
+\PYGdefault{k}{end}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k}{function}\PYGdefault{n+nf}{ fBuckQuad}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{::}\PYGdefault{n}{Vector}\PYGdefault{p}{\PYGdefaultZob{}}\PYGdefault{k+kt}{Float64}\PYGdefault{p}{\PYGdefaultZcb{},} \PYGdefault{n}{μ}\PYGdefault{p}{,} \PYGdefault{n}{ɛ}\PYGdefault{p}{)}
+  \PYGdefault{n}{n} \PYGdefault{o}{=} \PYGdefault{n}{length}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{);}
+  \PYGdefault{n}{h} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1} \PYGdefault{o}{/} \PYGdefault{p}{(}\PYGdefault{n}{n} \PYGdefault{o}{+} \PYGdefault{l+m+mi}{1}\PYGdefault{p}{);}
+  \PYGdefault{n}{s} \PYGdefault{o}{=} \PYGdefault{n}{linspace}\PYGdefault{p}{(}\PYGdefault{n}{h}\PYGdefault{p}{,} \PYGdefault{l+m+mi}{1} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{h}\PYGdefault{p}{,} \PYGdefault{n}{n}\PYGdefault{p}{);}
+  \PYGdefault{n}{rhs} \PYGdefault{o}{=} \PYGdefault{n}{ɛ} \PYGdefault{o}{*} \PYGdefault{n}{s} \PYGdefault{o}{.*} \PYGdefault{p}{(}\PYGdefault{l+m+mi}{1} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{s}\PYGdefault{p}{);}
+  \PYGdefault{k}{return} \PYGdefault{n}{fBuck}\PYGdefault{p}{(}\PYGdefault{n}{θ}\PYGdefault{p}{,} \PYGdefault{n}{μ}\PYGdefault{p}{)} \PYGdefault{o}{\PYGdefaultZhy{}} \PYGdefault{n}{rhs}\PYGdefault{p}{;}
+\PYGdefault{k}{end}
+\end{Verbatim}

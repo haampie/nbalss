@@ -1,4 +1,4 @@
-function newton(f::Function, ∂f::Function, x, ɛ::Float64)
+function newton(f::Function, ∂f::Function, x, ɛ = 1e-10)
   Δx_norm = Inf;
   history = Float64[];
 
@@ -13,69 +13,82 @@ function newton(f::Function, ∂f::Function, x, ɛ::Float64)
 end
 
 function Poisson1D(n)
-  return SymTridiagonal(-2 * ones(n), ones(n - 1));
+  t = (n + 1)^2;
+  return SymTridiagonal(-2 * t * ones(n), t * ones(n - 1));
 end
 
-function buckling(θ::Vector{Float64}, μ::Float64)
-  n = length(θ);
-  A = Poisson1D(n);
-  return A * θ + μ * sin(θ) / (n + 1) ^ 2;
+function fBuck(θ::Vector{Float64}, μ)
+  A = Poisson1D(length(θ));
+  return A * θ + μ * sin(θ);
 end
 
-function ∂buckling(θ::Vector{Float64}, μ::Float64)
-  n = length(θ);
-  A = Poisson1D(n);
-  return A + Diagonal(μ * cos(θ) / (n + 1) ^ 2);
+function ∂fBuck(θ::Vector{Float64}, μ)
+  A = Poisson1D(length(θ));
+  return A + Diagonal(μ * cos(θ));
 end
 
-function branch_off(k::Int64, n::Int64, tol::Float64 = 1e-8; γ::Float64 = 0.1)
+function branch_off(k::Int64, n::Int64; γ = 0.1)
   # First k eigenvalues & eigenvectors
-  eigen = eigfact(Poisson1D(n) * -(n + 1) ^ 2, 1 : k);
-
+  eigen = eigfact(Poisson1D(n) * -1, 1 : k);
   correction = √((n + 1) / 2);
   ɛ = 8 * γ / (1 + γ);
   θs = ɛ * correction * eigen[:vectors];
   μs = (1 + γ) * eigen[:values];
 
   for idx = 1 : k
-    (θs[:, idx], _) = newton(x -> buckling(x, μs[idx]), x -> ∂buckling(x, μs[idx]), θs[:, idx], tol);
+    (θs[:, idx], _) = newton(
+      x -> fBuck(x, μs[idx]),
+      x -> ∂fBuck(x, μs[idx]), 
+      θs[:, idx]
+    );
   end
 
   return (θs, μs);
 end
 
-function continue_on_branch(θ::Vector{Float64}, μ_start::Float64, μ_end::Float64, steps::Int64, tol::Float64 = 1e-8)
+function continue_on_branch(θ::Vector{Float64}, μ_start, μ_end, steps)
   for μ = linspace(μ_start, μ_end, steps)
-    (θ, _) = newton(x -> buckling(x, μ), x -> ∂buckling(x, μ), θ, tol);
+    (θ, _) = newton(x -> fBuck(x, μ), x -> ∂fBuck(x, μ), θ);
   end
 
   return θ;
 end
 
-function two_norm_of_solution(;k = 1, n = 200)
-  (θs, bifurcation_points) = branch_off(k, n);
-  θ = θs[:, k];
+## Exercise 4.1
+function ex4_1_two_norm(;k = 3, n = 1000, μ_end = 300.)
+  (θs, μs) = branch_off(k, n);
   
-  μs = linspace(bifurcation_points[k], bifurcation_points[k] * 20, 600);
-  two_norms = Float64[];
+  p = Plots.plot();
 
-  for μ = μs
-    (θ, _) = newton(x -> buckling(x, μ), x -> ∂buckling(x, μ), θ, 1e-8);
-    push!(two_norms, norm(θ) / √(n + 1));
+  for idx = 1 : k
+    two_norms = Float64[];
+    μ_range = μs[idx] : 0.4 : μ_end;
+    θ = θs[:, idx];
+
+    for μ = μ_range
+      (θ, _) = newton(
+        x -> fBuck(x, μ),
+        x -> ∂fBuck(x, μ),
+        θ
+      );
+      push!(two_norms, norm(θ) / √(n + 1));
+    end
+
+    Plots.plot!(μ_range, two_norms, label = "\$k = $idx\$");
   end
 
-  Plots.plot!(μs, two_norms, label = "$k");
+  return p;
 end
 
-function plot_solutions(;n::Int64 = 1000, k::Int64 = 6, μ_end::Float64 = 300., μ_steps::Int64 = 100)
+function ex4_1_beam(;n = 1000, k = 3, μ_end = 200., μ_steps = 100)
   (θs, μs) = branch_off(k, n);
 
   p = Plots.plot();
 
   for idx = 1 : k
-    θ_end = [0; continue_on_branch(θs[:, idx], μs[idx], μ_end, μ_steps); 0];
-    x = cumsum(sin(θ_end)) / (n + 1);
-    y = cumsum(cos(θ_end)) / (n + 1);
+    θ = [0; continue_on_branch(θs[:, idx], μs[idx], μ_end, μ_steps); 0];
+    x = cumsum(sin(θ)) / (n + 1);
+    y = cumsum(cos(θ)) / (n + 1);
     Plots.plot!(x, y, label = "$idx");
   end
 
@@ -85,22 +98,25 @@ end
 
 ## Exercise 4.3
 
-function buckling_plus_ɛ(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
+function fBuckSinRHS(θ::Vector{Float64}, μ, ɛ, k)
   n = length(θ);
   h = 1 / (n + 1);
-  A = Poisson1D(n);
   rhs = ɛ * sin(k * pi * linspace(h, 1 - h, n));
-  return A * θ + (μ * sin(θ) - rhs) * h ^ 2;
+  return fBuck(θ, μ) - rhs;
 end
 
-function ex4_3(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.1, tol::Float64 = 1e-8)
+function ex4_3(; n = 1000, k = 1, ɛ = 0.1)
   θ = zeros(n);
 
   iterations = Int64[];
   μs = linspace(0, 50, 100);
 
   for μ = μs
-    (θ, its) = newton(x -> buckling_plus_ɛ(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+    (θ, its) = newton(
+      x -> fBuckSinRHS(x, μ, ɛ, k),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
     push!(iterations, length(its));
   end
 
@@ -109,25 +125,136 @@ end
 
 ## Exercise 4.4
 
-function buckling_plus_poly(θ::Vector{Float64}, μ::Float64, ɛ::Float64, k::Int64)
+function fBuckQuad(θ::Vector{Float64}, μ, ɛ)
   n = length(θ);
   h = 1 / (n + 1);
-  A = Poisson1D(n);
   s = linspace(h, 1 - h, n);
   rhs = ɛ * s .* (1 - s);
-  return A * θ + (μ * sin(θ) - rhs) * h ^ 2;
+  return fBuck(θ, μ) - rhs;
 end
 
-function ex4_4(; n::Int64 = 1000, k::Int64 = 1, ɛ::Float64 = 0.01, tol::Float64 = 1e-8)
+function ex4_4a(; n = 1000, ɛ = 0.01)
   θ = zeros(n);
-
   iterations = Int64[];
-  μs = linspace(0, 50, 50);
+  norms = Float64[];
+  μs = linspace(0, 30, 1000);
 
   for μ = μs
-    (θ, its) = newton(x -> buckling_plus_poly(x, μ, ɛ, k), x -> ∂buckling(x, μ), θ, tol);
+    (θ, its) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
     push!(iterations, length(its));
+    push!(norms, norm(θ));
   end
 
-  return (θ, iterations, μs);
+  return (
+    Plots.plot(μs, iterations, xlabel = "\$\\mu\$", label = ""),
+    Plots.plot(μs, norms, xlabel = "\$\\mu\$", label = "")
+  );
+end
+
+function ex4_4b(; n = 100, ɛ = 0.01)
+  θ = zeros(n);
+  iterations = Int64[];
+  μ_switch = 20.;
+
+  # Continue untill μ = μ_switch.
+  for μ = linspace(0, μ_switch, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  # Flip signs.
+  θ_easy = copy(θ);
+  θ *= -1;
+
+  # Apply Newton.
+  (θ, _) = newton(
+    x -> fBuckQuad(x, μ_switch, ɛ), 
+    x -> ∂fBuck(x, μ_switch),
+    θ
+  );
+
+  # Return plots
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
+end
+
+function ex4_4c(; n = 100, ɛ = 0.01, μ_end = 20.)
+  θ = zeros(n);
+
+  # Continuation in μ
+  for μ = linspace(0, μ_end, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  θ_easy = copy(θ);
+
+  # Continuation in ɛ
+  for my_ɛ = linspace(ɛ, 0, 5)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, my_ɛ),
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  # Flip signs.
+  θ *= -1;
+
+  # Continuation in ɛ
+  for my_ɛ = linspace(0, ɛ, 5)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, my_ɛ),
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
+end
+
+function ex4_4d(; n = 100, ɛ = 0.01, μ_end = 20.)
+  θ = zeros(n);
+
+  # Continuation in μ
+  for μ = linspace(0, μ_end, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  θ_easy = copy(θ);
+
+  # Flip signs.
+  θ *= -1;
+
+  r = fBuckQuad(θ, μ_end, ɛ);
+
+  # Continuation in α
+  for α = linspace(0, 1, 10)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, ɛ) - (1 - α) * r,
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
 end
