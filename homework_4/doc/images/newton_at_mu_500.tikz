@@ -1,0 +1,60 @@
+\begin{tikzpicture}[]
+\begin{axis}[xtick={1, 2, 3, 4}, ymode = {log}, width = {0.7\linewidth}, ymax = {0.37872207724520746}, height = {0.3\linewidth}, xlabel = {}, {unbounded coords=jump, log basis y=10,     xshift = 0.0mm,
+    yshift = 0.0mm,
+    axis background/.style={fill={rgb,1:red,1.00000000;green,1.00000000;blue,1.00000000}}
+, grid = major}, ylabel = {}, ymin = {2.0364509022506663e-12}, xmax = {4.09}, xmin = {0.91}]\addplot+ [color = {rgb,1:red,0.00000000;green,0.60560316;blue,0.97868012},
+draw opacity=1.0,
+line width=1,
+solid,mark = *,
+mark size = 0.5,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.00000000;green,0.60560316;blue,0.97868012}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 0.05272909004264692)
+(2.0, 3.3730751067235597e-5)
+(3.0, 1.511064598131066e-11)
+};
+\addlegendentry{$k = 1$}
+\addplot+ [color = {rgb,1:red,0.88887350;green,0.43564919;blue,0.27812294},
+draw opacity=1.0,
+line width=1,
+solid,mark = *,
+mark size = 0.5,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.88887350;green,0.43564919;blue,0.27812294}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 0.1082092523157036)
+(2.0, 0.000187083394826935)
+(3.0, 5.628477933939444e-10)
+(4.0, 4.246779620355748e-12)
+};
+\addlegendentry{$k = 2$}
+\addplot+ [color = {rgb,1:red,0.24222430;green,0.64327509;blue,0.30444865},
+draw opacity=1.0,
+line width=1,
+solid,mark = *,
+mark size = 0.5,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.24222430;green,0.64327509;blue,0.30444865}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 0.37872207724520746)
+(2.0, 0.009410520890455222)
+(3.0, 5.9016602611512355e-6)
+(4.0, 2.0364509022506663e-12)
+};
+\addlegendentry{$k = 3$}
+\end{axis}
+
+\end{tikzpicture}

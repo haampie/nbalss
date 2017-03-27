@@ -23,7 +23,7 @@
 \DeclareMathOperator{\diag}{diag}
 
 \author{H.T. Stoppels (University of Groningen)}
-\title{{\sc nbalss} homework 4}
+\title{{\sc nbalss} Homework 4}
 
 \begin{document}
   \maketitle 
@@ -35,7 +35,7 @@
   \begin{figure}[h]
     \begin{subfigure}[b]{0.5\textwidth}
       \input{images/two_norm.tikz}~
-      \caption{Two-norm}
+      \caption{Approximate L2-norm}
     \end{subfigure}
     \begin{subfigure}[b]{0.5\textwidth}
       \input{images/three_solutions.tikz}~
@@ -44,6 +44,15 @@
     \end{subfigure}
     \caption{First non-trivial solutions}
     \label{fig:solutions}
+  \end{figure}
+
+  \noindent The number of iterations for the Newton method is extremely low when increasing $\mu$ in steps of $0.4.$ Usually one only needs about three iterations, as shown in Figure~\ref{fig:newton_at_mu_500}.
+
+  \begin{figure}[h]
+    \centering
+    \input{images/newton_at_mu_500.tikz}~
+    \caption{Convergence history of Newton's method for $k = 1, 2, 3$ at $\mu = 200.$}~
+    \label{fig:newton_at_mu_500}
   \end{figure}
 
   \noindent The plot of Figure~\ref{fig:beam_sol} was generated using {\tt cumsum} for approximate integration.
@@ -64,18 +73,18 @@ function ex4_1_beam(;n = 1000, k = 3, μ_end = 200., μ_steps = 100)
 end
 \end{minted}
 
-  \paragraph{2} If we change the right-hand side to
+  \paragraph{2} Changing the right-hand side to
   \begin{equation}\label{eq:perturbed}
     \theta^{\prime\prime} + \mu \sin \theta = \varepsilon \sin(k\pi s)
   \end{equation}
-  it is clear that the eigenvalues of the linearized problem are shifted by $-\varepsilon$. Thus if $(\mu_k, \theta_k)$ is an eigenpair of the original problem, then $(\mu_k - \varepsilon, \theta_k)$ is an eigenpair to the linearized version of~\eqref{eq:perturbed}.
+  can be interpreted as shifting the eigenvalues by $\varepsilon$. Thus if $(\mu_k, \theta_k)$ were an eigenpair of the original, linearized problem, then $(\mu_k + \varepsilon, \theta_k)$ is an eigenpair to the linearized version of~\eqref{eq:perturbed}. Also, $0$ is not a trivial solution anymore.
 
-  \paragraph{3} If we now fix $k = 1, 2$ and do continuation in $\mu = 0$ to $\mu = 50,$ starting with the trivial guess $\theta = 0,$ we automatically get on a branch of non-trivial solutions. The results for $k = 1, 2$ are shown in Figure~\ref{fig:ex4.3}.
+  \paragraph{3} If we now fix $k = 1, 2$ and perform continuation in $\mu = 0$ to $\mu = 50,$ starting with a simple guess $\theta = 0,$ we automatically get on a branch of non-trivial solutions. With regard to section 5.2: we have broken the symmetry of the pitchfork, and since $0$ is not a (trivial) solution anymore, it gets easier to automatically obtain nontrivial solutions via continuation. The results for $k = 1, 2$ are shown in Figure~\ref{fig:ex4.3}.
 
   \begin{figure}[h]
     \begin{subfigure}[t]{0.5\textwidth}
       \input{images/ex4.tikz}
-      \caption{Solutions for $\theta_k$ at $\mu = 50.$}
+      \caption{Solutions $\theta_k(s)$ at $\mu = 50.$}
     \end{subfigure}~
     \begin{subfigure}[t]{0.5\textwidth}
       \input{images/newton_iters_4-3.tikz}
@@ -85,6 +94,7 @@ end
     \label{fig:ex4.3}
   \end{figure}
 
+  \newpage
   \paragraph{4} We now consider the problem
   \begin{equation}
     \theta^{\prime\prime} + \mu \sin \theta = \varepsilon s(1 - s)
@@ -110,7 +120,7 @@ end
     \end{subfigure}~
     \begin{subfigure}[t]{0.5\textwidth}
       \input{images/twonorm_4a.tikz}~
-      \caption{Two-norm of solution as a function of $\mu.$}~
+      \caption{Vector 2-norm of $\theta$ as a function of $\mu.$}~
       \label{fig:newton_iters_4a_two_norm}
     \end{subfigure}
   \end{figure}
@@ -118,9 +128,10 @@ end
   \newpage
   \paragraph{4b} One idea to get on the other non-trivial branch is to simply flip the sign of the non-trivial $\theta$ of exercise 4a found at $\mu = 20.$ This will serve as an educated guess for the other non-trivial solution. After applying Newton's method with this guess, we have indeed convergence to another non-trivial solution as plotted in Figure~\ref{fig:ex4b}. Although it seems virtually symmetrical, upon closer inspection there were 3 iterations of Newton necessary to converge and the norm of the sums of the solutions is nonzero. This is of course to be expected, because the pitchfork is imperfect.
 
-  \begin{figure}[p]
+  \begin{figure}[b]
+    \centering
     \input{images/ex4b.tikz}~
-    \caption{Solutions at $\mu = 20$ after switching signs and applying Newton's method.}~
+    \caption{Solutions $\theta(s)$ at $\mu = 20$ after switching signs and applying Newton's method.}~
     \label{fig:ex4b}~
   \end{figure}
 
