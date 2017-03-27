@@ -1,0 +1,313 @@
+%!TEX options = -shell-escape
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+\usepackage{fontspec}
+\usepackage{minted}
+\usepackage{fullpage}
+\usepackage[colorlinks = true]{hyperref}
+\usepackage[font={small,it}]{caption}
+\setmonofont{DejaVu Sans Mono}
+
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\diag}{diag}
+
+\author{H.T. Stoppels (University of Groningen)}
+\title{{\sc nbalss} Homework 4}
+
+\begin{document}
+  \maketitle 
+
+  \paragraph{Note} I switched from Matlab to \href{http://julialang.org/blog/2017/03/julia-fresh-paper}{\bf Julia} because (among other reasons) Matlab's user interface wasn't stable on Linux. Julia code is largely identical to Matlab, but has more features such as a great type system. Also, it allows Unicode variable and function names, allowing one to use for instance {\tt ɛ} as an actual variable rather than {\tt epsilon}. In the appendix I attached the functions of the previous homework sets.
+
+  \paragraph{1} In Figure~\ref{fig:solutions} we see three non-trivial solutions at $\mu = 200,$ together with their norms as a function of $\mu.$
+
+  \begin{figure}[h]
+    \begin{subfigure}[b]{0.5\textwidth}
+      \input{images/two_norm.tikz}~
+      \caption{Approximate L2-norm}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \input{images/three_solutions.tikz}~
+      \caption{First three non-trivial solutions at $\mu = 200$}~
+      \label{fig:beam_sol}
+    \end{subfigure}
+    \caption{First non-trivial solutions}
+    \label{fig:solutions}
+  \end{figure}
+
+  \noindent The number of iterations for the Newton method is extremely low when increasing $\mu$ in steps of $0.4.$ Usually one only needs about three iterations, as shown in Figure~\ref{fig:newton_at_mu_500}.
+
+  \begin{figure}[h]
+    \centering
+    \input{images/newton_at_mu_500.tikz}~
+    \caption{Convergence history of Newton's method for $k = 1, 2, 3$ at $\mu = 200.$}~
+    \label{fig:newton_at_mu_500}
+  \end{figure}
+
+  \noindent The plot of Figure~\ref{fig:beam_sol} was generated using {\tt cumsum} for approximate integration.
+\begin{minted}{julia}
+function ex4_1_beam(;n = 1000, k = 3, μ_end = 200., μ_steps = 100)
+  (θs, μs) = branch_off(k, n);
+
+  p = Plots.plot();
+
+  for idx = 1 : k
+    θ = [0; continue_on_branch(θs[:, idx], μs[idx], μ_end, μ_steps); 0];
+    x = cumsum(sin(θ)) / (n + 1);
+    y = cumsum(cos(θ)) / (n + 1);
+    Plots.plot!(x, y, label = "$idx");
+  end
+
+  return p;
+end
+\end{minted}
+
+  \paragraph{2} Changing the right-hand side to
+  \begin{equation}\label{eq:perturbed}
+    \theta^{\prime\prime} + \mu \sin \theta = \varepsilon \sin(k\pi s)
+  \end{equation}
+  can be interpreted as shifting the eigenvalues by $\varepsilon$. Thus if $(\mu_k, \theta_k)$ were an eigenpair of the original, linearized problem, then $(\mu_k + \varepsilon, \theta_k)$ is an eigenpair to the linearized version of~\eqref{eq:perturbed}. Also, $0$ is not a trivial solution anymore.
+
+  \paragraph{3} If we now fix $k = 1, 2$ and perform continuation in $\mu = 0$ to $\mu = 50,$ starting with a simple guess $\theta = 0,$ we automatically get on a branch of non-trivial solutions. With regard to section 5.2: we have broken the symmetry of the pitchfork, and since $0$ is not a (trivial) solution anymore, it gets easier to automatically obtain nontrivial solutions via continuation. The results for $k = 1, 2$ are shown in Figure~\ref{fig:ex4.3}.
+
+  \begin{figure}[h]
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/ex4.tikz}
+      \caption{Solutions $\theta_k(s)$ at $\mu = 50.$}
+    \end{subfigure}~
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/newton_iters_4-3.tikz}
+      \caption{Number of Newton iterations in $\mu = 0$ to $\mu = 50.$}
+    \end{subfigure}
+    \caption{Using $\varepsilon \sin(k \pi s)$ as the right-hand side, we get on the branch of non-trivial solutions by continuation between $\mu = 0$ to $\mu = 50$ only.}
+    \label{fig:ex4.3}
+  \end{figure}
+
+  \newpage
+  \paragraph{4} We now consider the problem
+  \begin{equation}
+    \theta^{\prime\prime} + \mu \sin \theta = \varepsilon s(1 - s)
+  \end{equation}
+  for $\varepsilon = 0.01.$ Let in the following the mapping $f$ be defined as $$f(\theta; \mu, \varepsilon) := \theta^{\prime\prime} + \mu \sin \theta - \varepsilon s(1-s).$$ Also we patch our function {\tt fBuck} with
+\begin{minted}{julia}
+function fBuckQuad(θ::Vector{Float64}, μ, ɛ)
+  n = length(θ);
+  h = 1 / (n + 1);
+  s = linspace(h, 1 - h, n);
+  rhs = ɛ * s .* (1 - s);
+  return fBuck(θ, μ) - rhs;
+end  
+\end{minted}
+
+  \paragraph{4a} Using continuation in $\mu$ from $0$ to $30$ one gets on the ``easy'' branch of non-trivial solutions. The number of iterations increases indeed when multiple solutions come into existence as is visible in Figure~\ref{fig:newton_iters_4a}.
+
+  \begin{figure}[h]
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/iterations_4a_.tikz}~
+      \caption{Number of Newton iterations as a function of $\mu.$}~
+      \label{fig:newton_iters_4a}
+    \end{subfigure}~
+    \begin{subfigure}[t]{0.5\textwidth}
+      \input{images/twonorm_4a.tikz}~
+      \caption{Vector 2-norm of $\theta$ as a function of $\mu.$}~
+      \label{fig:newton_iters_4a_two_norm}
+    \end{subfigure}
+  \end{figure}
+
+  \newpage
+  \paragraph{4b} One idea to get on the other non-trivial branch is to simply flip the sign of the non-trivial $\theta$ of exercise 4a found at $\mu = 20.$ This will serve as an educated guess for the other non-trivial solution. After applying Newton's method with this guess, we have indeed convergence to another non-trivial solution as plotted in Figure~\ref{fig:ex4b}. Although it seems virtually symmetrical, upon closer inspection there were 3 iterations of Newton necessary to converge and the norm of the sums of the solutions is nonzero. This is of course to be expected, because the pitchfork is imperfect.
+
+  \begin{figure}[b]
+    \centering
+    \input{images/ex4b.tikz}~
+    \caption{Solutions $\theta(s)$ at $\mu = 20$ after switching signs and applying Newton's method.}~
+    \label{fig:ex4b}~
+  \end{figure}
+
+\begin{minted}{julia}
+function ex4_4b(; n = 100, ɛ = 0.01)
+  θ = zeros(n);
+  iterations = Int64[];
+  μ_switch = 20.;
+
+  # Continue untill μ = μ_switch.
+  for μ = linspace(0, μ_switch, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  # Flip signs.
+  θ_easy = copy(θ);
+  θ *= -1;
+
+  # Apply Newton.
+  (θ, _) = newton(
+    x -> fBuckQuad(x, μ_switch, ɛ), 
+    x -> ∂fBuck(x, μ_switch),
+    θ
+  );
+
+  # Return plots
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
+end
+\end{minted}
+
+  \newpage
+  \paragraph{4c} A more reliable way to find the other non-trivial solution is to bring $\varepsilon \downarrow 0$ at $\mu = 20$ using continuation; to exploit the symmetry of the perfect pitchfork in that particular situation; only to bring back $\varepsilon \uparrow 0.01$ with continuation again, hopefully reaching the actual non-trivial solution. This tactic produces the exact same result as Figure~\ref{fig:ex4b} and is implemented as follows
+\begin{minted}{julia}
+function ex4_4c(; n = 100, ɛ = 0.01, μ_end = 20.)
+  θ = zeros(n);
+
+  # Continuation in μ
+  for μ = linspace(0, μ_end, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  θ_easy = copy(θ);
+
+  # Continuation in ɛ
+  for my_ɛ = linspace(ɛ, 0, 5)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, my_ɛ),
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  # Flip signs.
+  θ *= -1;
+
+  # Continuation in ɛ
+  for my_ɛ = linspace(0, ɛ, 5)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, my_ɛ),
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
+end
+\end{minted}
+
+  \newpage
+  \paragraph{4d} Lastly, one can apply residue continuation. Given a non-trivial solution $\theta$ on the easy branch at $\mu = 20,$ flip its sign $\theta_* := -\theta$ and define the residual $$r := f(\theta_*).$$ Next apply continuation in a new parameter $\alpha$ from $\alpha = 0$ to $\alpha = 1$ on the problem $$f(\theta) - (1 - \alpha)r = 0.$$ Clearly for $\alpha = 0$ we have our solution $\theta_*,$ but as $\alpha \to 1$ we hopefully obtain the other non-trivial solution. This is indeed the case, yielding the same as Figure~\ref{fig:ex4b}, using the following code:
+\begin{minted}{julia}
+function ex4_4d(; n = 100, ɛ = 0.01, μ_end = 20.)
+  θ = zeros(n);
+
+  # Continuation in μ
+  for μ = linspace(0, μ_end, 1000)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ, ɛ),
+      x -> ∂fBuck(x, μ),
+      θ
+    );
+  end
+
+  θ_easy = copy(θ);
+
+  # Flip signs.
+  θ *= -1;
+
+  r = fBuckQuad(θ, μ_end, ɛ);
+
+  # Continuation in α
+  for α = linspace(0, 1, 10)
+    (θ, _) = newton(
+      x -> fBuckQuad(x, μ_end, ɛ) - (1 - α) * r,
+      x -> ∂fBuck(x, μ_end),
+      θ
+    );
+  end
+
+  xs = linspace(0, 1, n + 2);
+  Plots.plot(xs, [0; θ_easy; 0], label = "Easy solution");
+  return Plots.plot!(xs, [0; θ; 0], label = "Branch switch");
+end
+\end{minted}
+
+  \appendix
+  \newpage
+  \section{Julia port of previous code}
+  Not much has changed, except that I now use {\tt ∂} to indicate a function returns a Jacobian. So {\tt ∂fBuck} corresponds with {\tt fJacBuck}. Also, I use the specialized type {\tt SymTridiagonal} to represent the Poisson matrix.
+\begin{minted}{julia}
+function newton(f::Function, ∂f::Function, x, ɛ = 1e-10)
+  Δx_norm = Inf;
+  history = Float64[];
+
+  while Δx_norm > ɛ
+    Δx = ∂f(x) \ f(x);
+    x = x - Δx;
+    Δx_norm = norm(Δx);
+    push!(history, Δx_norm);
+  end
+
+  return (x, history);
+end
+
+function Poisson1D(n)
+  t = (n + 1)^2;
+  return SymTridiagonal(-2 * t * ones(n), t * ones(n - 1));
+end
+
+function fBuck(θ::Vector{Float64}, μ)
+  A = Poisson1D(length(θ));
+  return A * θ + μ * sin(θ);
+end
+
+function ∂fBuck(θ::Vector{Float64}, μ)
+  A = Poisson1D(length(θ));
+  return A + Diagonal(μ * cos(θ));
+end
+
+function branch_off(k::Int64, n::Int64; γ = 0.1)
+  # First k eigenvalues & eigenvectors
+  eigen = eigfact(Poisson1D(n) * -1, 1 : k);
+  correction = √((n + 1) / 2);
+  ɛ = 8 * γ / (1 + γ);
+  θs = ɛ * correction * eigen[:vectors];
+  μs = (1 + γ) * eigen[:values];
+
+  for idx = 1 : k
+    (θs[:, idx], _) = newton(
+      x -> fBuck(x, μs[idx]),
+      x -> ∂fBuck(x, μs[idx]), 
+      θs[:, idx]
+    );
+  end
+
+  return (θs, μs);
+end
+
+function continue_on_branch(θ::Vector{Float64}, μ_start, μ_end, steps)
+  for μ = linspace(μ_start, μ_end, steps)
+    (θ, _) = newton(x -> fBuck(x, μ), x -> ∂fBuck(x, μ), θ);
+  end
+
+  return θ;
+end
+\end{minted}
+\end{document}
