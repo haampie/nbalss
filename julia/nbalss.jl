@@ -79,6 +79,31 @@ function ex4_1_two_norm(;k = 3, n = 1000, μ_end = 300.)
 
   return p;
 end
+function ex4_1_newton_updates(;k = 3, n = 1000, μ_end = 100.)
+  (θs, μs) = branch_off(k, n);
+  
+  p = Plots.plot();
+
+  for idx = 1 : k
+    two_norms = Float64[];
+    μ_range = μs[idx] : 0.4 : μ_end;
+    θ = θs[:, idx];
+
+    its = [];
+
+    for μ = μ_range
+      (θ, its) = newton(
+        x -> fBuck(x, μ),
+        x -> ∂fBuck(x, μ),
+        θ
+      );
+    end
+
+    Plots.plot!(its, yscale = :log, marker = 1, label = "\$k = $idx\$");
+  end
+
+  return p;
+end
 
 function ex4_1_beam(;n = 1000, k = 3, μ_end = 200., μ_steps = 100)
   (θs, μs) = branch_off(k, n);
