@@ -1,0 +1,56 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage{subcaption}
+% \usepackage{minted}
+% \usepackage{fullpage}
+\usepackage[colorlinks = true]{hyperref}
+\usepackage[font={small,it}]{caption}
+% \setmonofont{DejaVu Sans Mono}
+
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\diag}{diag}
+
+\author{H.T. Stoppels (University of Groningen)}
+\title{{\sc nbalss} Homework 5}
+
+\begin{document}
+  \maketitle 
+
+  \paragraph{1} We're considering the PDE
+  \begin{align*}
+    \theta_t &= \theta_{ss} + \mu \sin \theta - \varepsilon s(1 - s) & \text{ for } (t, s) \in (0, \infty) \times (0, 1) \\
+    \theta(s, 0) &= \varepsilon \sin \pi s & \text{ for } 0 \le s \le 1 \\
+    \theta(0, t) &= \theta(1, t) = 0  & \text{ for } t \ge 0\\
+  \end{align*}
+  where $\varepsilon = 0.01.$ The \emph{homogeneous and linearized version} of the above around $\theta = 0$ is $$\theta_t = \theta_{ss} + \mu \theta$$ can be solved by hand using seperation of variables where one uses the ansatz $\theta(t, s) = a(t)b(s)$ which produces after some work that for constants $c$ and $\lambda$ it holds that $$\theta(s, t) = c e^{\lambda t} \sin \sqrt{\mu - \lambda}s.$$ If we plug in the initial condition, we get $\lambda = \mu - \pi^2$ and $c = \varepsilon,$ which simplifies to: $$\theta_1(s,t) = \varepsilon e^{(\mu - \pi^2)t}\sin \pi s.$$ Clearly if $\mu < \pi^2$ we see that the trivial solution is stable, while it becomes unstable if $\mu > \pi^2.$ This analysis for the linearized case carries over (only locally) to the non-linear case, and one would expect it would hold for inhomogeneous problem as well, since that is only a small perturbation of the homogenous equation. So somewhat handwavy we conclude that past the bifurcation point time integration will get us away from (nearly) trivial solutions and will hopefully bring us to nontrivial \& stable solutions.
+
+  \paragraph{2} The Backward Euler scheme for ODEs
+  \begin{equation}
+    u_t = f(u, t)
+  \end{equation}
+  where $u: \mathbb{R} \to \mathbb{R}^n$ and $f: \mathbb{R}^n \times \mathbb{R} \to \mathbb{R}$ is given as
+  \begin{equation}\label{eq:back_euler}
+    u^{n+1} = u^{n} + \Delta t \, f(u^{n+1}, t_{n+1})
+  \end{equation}
+  where $u^j$ approximates $u(t_j)$ and $\Delta t = t_{n+1} - t_n.$ Since our $f$ is non-linear, one usually solves~\eqref{eq:back_euler} for $u^{n+1}$ with the Newton method. That is, find the zero of $g: \mathbb{R}^n \to \mathbb{R}$ in
+  \begin{equation}
+    g(x; n) := x - u^n - \Delta t f(x, t_{n + 1})
+  \end{equation}
+  This can be generically implemented in a Newton method, because the Jacobian of $g$ can be made explicit as
+  \begin{equation}
+    \frac{\partial g}{\partial x}(x; n) = I - \Delta t \frac{\partial f}{\partial x}(x; n)
+  \end{equation}
+
+  \paragraph{3} If we perform continuation on the time-independent PDE from $\mu = 0$ to $\mu = 20$ obtaining $\theta_{20},$ and then consider $-\theta_{20}$ as an initial condition for time-\emph{dependent} PDE, we reach the isolated branch after time-integration.
+
+  \paragraph{4} Now we vary $\mu$ in the interval $[0, 50]$ with initial conditions 
+\end{document}
