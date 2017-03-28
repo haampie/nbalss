@@ -4,10 +4,11 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{pgfplots}
+\usepackage[parfill]{parskip}
 \usepackage{subcaption}
 % \usepackage{minted}
 % \usepackage{fullpage}
-\usepackage[colorlinks = true]{hyperref}
+\usepackage[colorlinks = true, urlcolor=red]{hyperref}
 \usepackage[font={small,it}]{caption}
 % \setmonofont{DejaVu Sans Mono}
 
@@ -26,12 +27,14 @@
   \maketitle 
 
   \paragraph{1} We're considering the PDE
-  \begin{align*}
+  \begin{equation}\label{eq:pde}
+  \begin{aligned}
     \theta_t &= \theta_{ss} + \mu \sin \theta - \varepsilon s(1 - s) & \text{ for } (t, s) \in (0, \infty) \times (0, 1) \\
     \theta(s, 0) &= \varepsilon \sin \pi s & \text{ for } 0 \le s \le 1 \\
     \theta(0, t) &= \theta(1, t) = 0  & \text{ for } t \ge 0\\
-  \end{align*}
-  where $\varepsilon = 0.01.$ The \emph{homogeneous and linearized version} of the above around $\theta = 0$ is $$\theta_t = \theta_{ss} + \mu \theta$$ can be solved by hand using seperation of variables where one uses the ansatz $\theta(t, s) = a(t)b(s)$ which produces after some work that for constants $c$ and $\lambda$ it holds that $$\theta(s, t) = c e^{\lambda t} \sin \sqrt{\mu - \lambda}s.$$ If we plug in the initial condition, we get $\lambda = \mu - \pi^2$ and $c = \varepsilon,$ which simplifies to: $$\theta_1(s,t) = \varepsilon e^{(\mu - \pi^2)t}\sin \pi s.$$ Clearly if $\mu < \pi^2$ we see that the trivial solution is stable, while it becomes unstable if $\mu > \pi^2.$ This analysis for the linearized case carries over (only locally) to the non-linear case, and one would expect it would hold for inhomogeneous problem as well, since that is only a small perturbation of the homogenous equation. So somewhat handwavy we conclude that past the bifurcation point time integration will get us away from (nearly) trivial solutions and will hopefully bring us to nontrivial \& stable solutions.
+  \end{aligned}
+  \end{equation}
+  where $\varepsilon = 0.01.$ The \emph{homogeneous and linearized version} of the above around $\theta = 0$ is $$\theta_t = \theta_{ss} + \mu \theta$$ can be solved by hand using seperation of variables where one uses the ansatz $\theta(t, s) = a(t)b(s)$ which produces after some work that for constants $c$ and $\lambda$ it holds that (of course the solution is more general, but we're after a special solution matching the initial condition) $$\theta(s, t) = c e^{\lambda t} \sin \sqrt{\mu - \lambda}s.$$ If we plug in the initial condition, we get $\lambda = \mu - \pi^2$ and $c = \varepsilon,$ which simplifies to: $$\theta_1(s,t) = \varepsilon e^{(\mu - \pi^2)t}\sin \pi s.$$ Clearly if $\mu < \pi^2$ we see that the trivial solution is stable, while it becomes unstable if $\mu > \pi^2.$ This analysis for the linearized case carries over (only locally) to the non-linear case, and one would expect it would hold for inhomogeneous problem as well, since that is only a small perturbation of the homogenous equation. So somewhat handwavy we conclude that past the bifurcation point, time integration will get us away from (nearly) trivial solutions and will hopefully bring us to nontrivial \& stable solutions.
 
   \paragraph{2} The Backward Euler scheme for ODEs
   \begin{equation}
@@ -50,7 +53,24 @@
     \frac{\partial g}{\partial x}(x; n) = I - \Delta t \frac{\partial f}{\partial x}(x; n)
   \end{equation}
 
+  \noindent The implementation is listed {\bf\href{https://github.com/haampie/nbalss/blob/master/homework_5/src/nonlinear_backward_euler.jl}{here}}.
+
+  \emph{For the source code of the remaining exercises see \href{https://github.com/haampie/nbalss/blob/master/homework_5/src/_exercises.jl}{this link}.}
+
   \paragraph{3} If we perform continuation on the time-independent PDE from $\mu = 0$ to $\mu = 20$ obtaining $\theta_{20},$ and then consider $-\theta_{20}$ as an initial condition for time-\emph{dependent} PDE, we reach the isolated branch after time-integration.
 
-  \paragraph{4} Now we vary $\mu$ in the interval $[0, 50]$ with initial conditions 
+  \begin{figure}[h]
+    \centerline{\includegraphics{images/ex5_3.pdf}}
+    \caption{Easy solution and isolated branch obtained in exercise 3.}
+  \end{figure}
+
+  \paragraph{4} Now we vary $\mu$ in the interval $[6, 14]$ with initial condition as in~\eqref{eq:pde}. Initially the time integration method picks up the non-trivial branch as seen in Figure~\ref{fig:soln}, but very suddenly it drops back to the (nearly) trivial solution again.
+
+  \begin{figure}[h]
+    \centerline{\includegraphics{images/time_vs_cont.pdf}}~
+    \caption{Normed solution around the first bifurcation point}~
+    \label{fig:soln}
+  \end{figure}
+
+  This could be due to a few factors, for instance, our stability analysis in the first exercise deals in principle with the homogeneous problem. Secondly, the initial condition does not make much sense for $\mu$ past the bifurcation point. Anyway, the (nearly) trivial branch seems to become stable again past the bifurcation point.
 \end{document}

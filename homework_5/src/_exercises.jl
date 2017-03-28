@@ -41,26 +41,25 @@ function ex5_3(; n = 100, ɛ = 0.01, μ_end = 20.)
   Plots.plot!(ss, θ₂, label = "Isolated solution")
 end
 
-function ex5_4(; n = 100, ɛ = 0.01)
+function ex5_4(; n = 100, ɛ = 0.01, μ_start = 6.0, μ_end = 14.0)
   f, ∂f = quadratic(n, ɛ)
   ss = grid_interior(n)
   θ_norms_time = Float64[]
   θ_norms_cont = Float64[]
-  μ_end = 14.0;
-  μs = linspace(6.0, μ_end, 100)
+  μs_time = linspace(μ_start, μ_end, 100)
 
   # Time integration
-  for μ = μs
+  for μ = μs_time
     fμ = x -> f(x, μ)
     ∂fμ = x -> ∂f(x, μ)
-    θ = ɛ * sin(μ * ss)
+    θ = ɛ * sin(π * ss)
     nonlinear_backward_euler!(fμ, ∂fμ, θ, 100.0, Δt = 5.0)
     push!(θ_norms_time, norm(θ))
   end
 
   # Continuation
   θ₂ = zeros(n)
-  μs_cont = linspace(6.0, μ_end, 300)
+  μs_cont = linspace(μ_start, μ_end, 300)
   for μ = μs_cont
     b = x -> f(x, μ)
     ∂b = x -> ∂f(x, μ)
@@ -68,6 +67,6 @@ function ex5_4(; n = 100, ɛ = 0.01)
     push!(θ_norms_cont, norm(θ₂))
   end
 
-  Plots.plot(μs, θ_norms_time, xlabel = "\$\\mu\$", ylabel = "norm \\theta", label = "Time integration")
+  Plots.plot(μs_time, θ_norms_time, xlabel = "\$\\mu\$", ylabel = "norm \\theta", label = "Time integration")
   Plots.plot!(μs_cont, θ_norms_cont, label = "Time-independent continuation")
 end
