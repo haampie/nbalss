@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath, amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{pgfplots}
+\usepackage[parfill]{parskip}
+\usepackage{subcaption}
+\usepackage[colorlinks = true, urlcolor=red]{hyperref}
+\usepackage[font={small,it}]{caption}
+
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{arrows.meta}
+\usepgfplotslibrary{patchplots}
+
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\sspan}{span}
+
+\author{H.T. Stoppels (University of Groningen)}
+\title{{\sc nbalss} Homework 6}
+
+\begin{document}
+  \maketitle 
+
+  \paragraph{1} The \emph{Orthogonal Iteration Method} is a generalization of the Power Method for finding $k$ eigenpairs of an $n \times n$ matrix $A$ corresponding to the eigenvalues of largest absolute magnitude.
+
+  \begin{algorithm}
+\caption{Orthogonal Iteration Method}\label{alg:oim}
+\begin{algorithmic}[1]
+\Procedure{OIM}{$A$}
+\State $V^{(1)}$ random $n \times k$ orthonormal matrix.
+\For{$i = 1, 2, \dots$ {\bf until convergence}}
+  \State $Z^{(i+1)} = A V^{(i)}$
+  \State Compute eigenvalues of $(V^{(i)})^*Z^{(i+1)}$
+  \State $V^{(i+1)}R^{(i+1)} = Z^{(i+1)}$  \Comment{QR decomposition}
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+  To see how it works, note that the ordinary power method is applied to the first column $v_1^{(1)}$ of $V^{(1)},$ since it is only normalized and not orthogonalized. The power method is applied to $v_2^{(1)}$ as well, with the only difference that it is not only normalized at each iteration $i$, but orthogonalized w.r.t. $v_1^{(i)}$ as well. Hence as $v_1^{(i)}$ converges to the eigenvector corresponding to the eigenvalue of largest absolute magnitude, we see in the second column that we apply the power method on a vector restricted to the subspace $\mathbb{C}^n \setminus \sspan\{v_1^{(i)}\},$ from which we conclude that the power method can only convergence to the eigenvector corresponding to the second largest eigenvalue in absolute magnitude. The same holds for the remaining columns.
+
+  Next, we can also apply OIM to $A^{-1},$ which will converge to the inverse of the smallest eigenvalues of $A,$ because $Ax = \lambda x$ iff $A^{-1}x = \lambda^{-1}x$ and $\lambda^{-1}$ is largest when $\lambda$ is smallest in absolute sense. Note that the eigenvectors are identical. In practice we factorize $A = LU$ (or Cholesky) and perform multiplication $y = A^{-1}z$ by solving $Lx = z$ followed by $Uy = x.$
+
+  In Julia, I have chosen to add a compile-time option to switch between inverted and ordinary orthogonal iterations. Passing a factorized matrix object and choosing {\tt Invert()} will perform the matrix-vector operation with the backslash operator, which is overridden by the factorized matrix object to efficiently apply $A^{-1}$ to another matrix. Lastly, this modus automatically inverts the eigenvalues, so there is no need to do it manually afterwards.
+  \begin{lstlisting}
+A = poisson(200)
+F = factorize(A) # F is a factorized matrix object
+D, V = orthogonal_iteration(F, 3, Invert()) # Inverted iteration
+  \end{lstlisting}
+
+  In Figure~\ref{fig:lambda_conv} we see the convergence history of the eigenvalues which is defined simply as $|\lambda^{(i + 1)} - \lambda^{(i)}|.$ Clearly, the farther away the eigenvalue is from the origin, the slower it converges, which is in line with the convergence behaviour of the inverted power method: the fraction $|\lambda_{i}| / |\lambda_{i+1}|$ determines the rate of convergence for the $i$th eigenvalue.
+
+  \begin{figure}[h]
+    \caption{Convergence history of $\lambda_1, \lambda_2, \lambda_3$ determined as $|\lambda^{(i+1)} - \lambda^{(i)}|$}\label{fig:lambda_conv}
+    \centerline{\includegraphics{images/convergence.pdf}}
+  \end{figure}
+
+  \paragraph{2} Assuming we are interested in the stability of the \emph{spatially discretized} problem only --- which is a system of non-linear ODEs $\theta_t(s) = f(\theta, s)$ --- and assuming we know an equilibrium solution $\theta^*$ s.t. $f(\theta^*, s) = 0,$ we must have that the real part of the eigenvalues of the Jacobian $$J(\theta^*) = \frac{\partial f}{\partial \theta}(\theta^*, s) = A + \mu \diag \cos \theta^*$$ have strictly negative real part. (Here A is the discretized differential operator, $\cos$ is taken element-wise and $\diag$ maps a vector to a diagonal matrix.)
+
+  So for a given $\theta^*$ we should find the eigenvalues of $J(\theta^*)$ which have passed the imaginary axis. Since the eigenvalues are known to be real, and assuming we are close to a bifurcation point, we can simply search for a few eigenvalues close to the origin.  
+\end{document}

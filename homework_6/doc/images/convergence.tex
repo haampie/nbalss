@@ -1,0 +1,106 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{every axis legend/.append style={%
+cells={anchor=west}}
+}
+\usepgfplotslibrary{polar}
+\usetikzlibrary{arrows}
+\tikzset{>=stealth'}
+
+\begin{document}
+
+\begin{tikzpicture}[]
+\begin{axis}[ymode = {log}, width = {152.40000000000003mm}, ymax = {6761.626877206293}, height = {101.6mm}, xlabel = {}, {unbounded coords=jump, xticklabel style={rotate = 0}, yticklabel style={rotate = 0}, log basis y=10,     xshift = 0.0mm,
+    yshift = 0.0mm,
+    axis background/.style={fill={rgb,1:red,1.00000000;green,1.00000000;blue,1.00000000}}
+, grid = major}, ylabel = {}, ymin = {2.1318502518852256e-12}, xmax = {27.78}, xmin = {0.21999999999999997}]\addplot+ [color = {rgb,1:red,0.00000000;green,0.60560316;blue,0.97868012},
+draw opacity=1.0,
+line width=1,
+solid,mark = *,
+mark size = 2.0,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.00000000;green,0.60560316;blue,0.97868012}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 3.0137671503487358)
+(2.0, 0.007238800391006217)
+(3.0, 2.198448659940233e-5)
+(4.0, 6.301527855079314e-8)
+(5.0, 2.1127122273867371e-10)
+};
+\addlegendentry{1}
+\addplot+ [color = {rgb,1:red,0.88887350;green,0.43564919;blue,0.27812294},
+draw opacity=1.0,
+line width=1,
+solid,mark = square*,
+mark size = 2.0,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.88887350;green,0.43564919;blue,0.27812294}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 2358.9541382484394)
+(2.0, 2.646040875741974)
+(3.0, 0.15662663731944826)
+(4.0, 0.010098534195457143)
+(5.0, 0.0006403936028933632)
+(6.0, 4.0235438419466973e-5)
+(7.0, 2.5193458628169907e-6)
+(8.0, 1.57571200753992e-7)
+(9.0, 9.85171788592254e-9)
+(10.0, 6.15912876256175e-10)
+(11.0, 3.852584917751756e-11)
+(12.0, 2.4018564914740637e-12)
+};
+\addlegendentry{2}
+\addplot+ [color = {rgb,1:red,0.24222430;green,0.64327509;blue,0.30444865},
+draw opacity=1.0,
+line width=1,
+solid,mark = diamond*,
+mark size = 2.0,
+mark options = {
+    color = {rgb,1:red,0.00000000;green,0.00000000;blue,0.00000000}, draw opacity = 1.0,
+    fill = {rgb,1:red,0.24222430;green,0.64327509;blue,0.30444865}, fill opacity = 1.0,
+    line width = 1,
+    rotate = 0,
+    solid
+}]coordinates {
+(1.0, 6761.626877206293)
+(2.0, 73.68432243684114)
+(3.0, 7.79141127619755)
+(4.0, 1.261616786998886)
+(5.0, 0.28272520967470904)
+(6.0, 0.07565265137935762)
+(7.0, 0.022185422983085568)
+(8.0, 0.006793662091965524)
+(9.0, 0.00212038996824071)
+(10.0, 0.0006671668902387129)
+(11.0, 0.00021062625664591828)
+(12.0, 6.658751195254276e-5)
+(13.0, 2.106302339677235e-5)
+(14.0, 6.664234931230695e-6)
+(15.0, 2.1087328294644436e-6)
+(16.0, 6.672828336551362e-7)
+(17.0, 2.1115691617445975e-7)
+(18.0, 6.681963804489044e-8)
+(19.0, 2.1144785700144553e-8)
+(20.0, 6.6910532670050316e-9)
+(21.0, 2.117460207173849e-9)
+(22.0, 6.70084654430525e-10)
+(23.0, 2.1198354183127321e-10)
+(24.0, 6.710387800978879e-11)
+(25.0, 2.1259660698547123e-11)
+(26.0, 6.679323760749867e-12)
+(27.0, 2.1318502518852256e-12)
+};
+\addlegendentry{3}
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
