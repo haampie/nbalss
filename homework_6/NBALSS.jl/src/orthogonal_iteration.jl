@@ -7,11 +7,11 @@ function apply_A!(method::Invert, Z, A, V)
 end
 
 function approx_eigenvals(method::Multiply, B)
-  sort!(eigvals(B))
+  sort!(eigvals(B), by = abs, rev = true)
 end
 
 function approx_eigenvals(method::Invert, B)
-  sort!(1 ./ eigvals(B))
+  1 ./ sort!(eigvals(B), by = abs, rev = true)
 end
 
 function orthogonal_iteration{T<:Method}(A, k::Int, method::T = Multiply(), max_iter = 35)
@@ -36,8 +36,8 @@ function orthogonal_iteration{T<:Method}(A, k::Int, method::T = Multiply(), max_
     # History
     history[j, :] = approx_eigenvals(method, B)
 
-    V, R = qr(Z)
+    V, = qr(Z)
   end
 
-  history
+  V, history[max_iter, :], history
 end

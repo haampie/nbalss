@@ -43,23 +43,32 @@
 \end{algorithm}
   To see how it works, note that the ordinary power method is applied to the first column $v_1^{(1)}$ of $V^{(1)},$ since it is only normalized and not orthogonalized. The power method is applied to $v_2^{(1)}$ as well, with the only difference that it is not only normalized at each iteration $i$, but orthogonalized w.r.t. $v_1^{(i)}$ as well. Hence as $v_1^{(i)}$ converges to the eigenvector corresponding to the eigenvalue of largest absolute magnitude, we see in the second column that we apply the power method on a vector restricted to the subspace $\mathbb{C}^n \setminus \sspan\{v_1^{(i)}\},$ from which we conclude that the power method can only convergence to the eigenvector corresponding to the second largest eigenvalue in absolute magnitude. The same holds for the remaining columns.
 
-  Next, we can also apply OIM to $A^{-1},$ which will converge to the inverse of the smallest eigenvalues of $A,$ because $Ax = \lambda x$ iff $A^{-1}x = \lambda^{-1}x$ and $\lambda^{-1}$ is largest when $\lambda$ is smallest in absolute sense. Note that the eigenvectors are identical. In practice we factorize $A = LU$ (or Cholesky) and perform multiplication $y = A^{-1}z$ by solving $Lx = z$ followed by $Uy = x.$
+  Next, we can also apply OIM to $A^{-1},$ which will converge to eigenvector corresponding to the smallest eigenvalues of $A,$ because $Ax = \lambda x$ iff $A^{-1}x = \lambda^{-1}x$ and $\lambda^{-1}$ is largest when $\lambda$ is smallest in absolute sense. Note that the eigenvectors are identical. In practice we factorize $A = LU$ (or Cholesky) and perform multiplication $y = A^{-1}z$ by solving $Lx = z$ followed by $Uy = x.$
 
-  In Julia, I have chosen to add a compile-time option to switch between inverted and ordinary orthogonal iterations. Passing a factorized matrix object and choosing {\tt Invert()} will perform the matrix-vector operation with the backslash operator, which is overridden by the factorized matrix object to efficiently apply $A^{-1}$ to another matrix. Lastly, this modus automatically inverts the eigenvalues, so there is no need to do it manually afterwards.
+  In Julia, I have chosen to add a compile-time option to switch between inverted and ordinary orthogonal iterations. Passing a factorized matrix object and choosing {\tt Invert()} will perform the matrix-vector operation with the backslash operator, which is overridden by the factorized matrix object to efficiently apply $A^{-1}$ to another matrix or vector. Lastly, this modus automatically inverts the eigenvalues, so there is no need to do it manually afterwards.
   \begin{lstlisting}
 A = poisson(200)
 F = factorize(A) # F is a factorized matrix object
 D, V = orthogonal_iteration(F, 3, Invert()) # Inverted iteration
   \end{lstlisting}
 
-  In Figure~\ref{fig:lambda_conv} we see the convergence history of the eigenvalues which is defined simply as $|\lambda^{(i + 1)} - \lambda^{(i)}|.$ Clearly, the farther away the eigenvalue is from the origin, the slower it converges, which is in line with the convergence behaviour of the inverted power method: the fraction $|\lambda_{i}| / |\lambda_{i+1}|$ determines the rate of convergence for the $i$th eigenvalue.
+  In Figure~\ref{fig:lambda_conv} we see the convergence history of the eigenvalues which is defined simply as $|\lambda^{(i + 1)}_k - \lambda^{(i)}_k|$ for $k = 1, 2, 3.$ Clearly, the farther away the eigenvalue is from the origin, the slower it converges, which is in line with the convergence behaviour of the inverted power method: the fraction $|\lambda_k| / |\lambda_{k+1}|$ determines the rate of convergence for the $k$th eigenvalue.
 
   \begin{figure}[h]
-    \caption{Convergence history of $\lambda_1, \lambda_2, \lambda_3$ determined as $|\lambda^{(i+1)} - \lambda^{(i)}|$}\label{fig:lambda_conv}
+    \caption{Convergence history $|\lambda^{(i + 1)}_k - \lambda^{(i)}_k|$ of the smallest eigenvalues $\lambda_1, \lambda_2, \lambda_3$ of the Poisson matrix}\label{fig:lambda_conv}
     \centerline{\includegraphics{images/convergence.pdf}}
   \end{figure}
 
   \paragraph{2} Assuming we are interested in the stability of the \emph{spatially discretized} problem only --- which is a system of non-linear ODEs $\theta_t(s) = f(\theta, s)$ --- and assuming we know an equilibrium solution $\theta^*$ s.t. $f(\theta^*, s) = 0,$ we must have that the real part of the eigenvalues of the Jacobian $$J(\theta^*) = \frac{\partial f}{\partial \theta}(\theta^*, s) = A + \mu \diag \cos \theta^*$$ have strictly negative real part. (Here A is the discretized differential operator, $\cos$ is taken element-wise and $\diag$ maps a vector to a diagonal matrix.)
 
-  So for a given $\theta^*$ we should find the eigenvalues of $J(\theta^*)$ which have passed the imaginary axis. Since the eigenvalues are known to be real, and assuming we are close to a bifurcation point, we can simply search for a few eigenvalues close to the origin.  
+  So for a given $\theta^*$ we should find the eigenvalues of $J(\theta^*)$ which have passed the imaginary axis. Since the eigenvalues are known to be real, and assuming we are close to a bifurcation point, we can simply search for a few eigenvalues close to the origin with the method of exercise {\bf 1}.
+
+  \paragraph{3} To investigate the stability of the branches I considered the problem $$\theta_t = \theta_{xx} + \sin \theta - 0.01 s(1-s)$$ discretized in space with $n = 300$ grid points.
+  \begin{itemize}
+    \item I wrote a custom function {\tt continuation\_with\_stability\_check} which performs continuation in $\mu,$ but at each step computes the 3 eigenvalues of the Jacobian closest to the origin. If there is any positive eigenvalue it prints {\tt unstable} and otherwise {\tt stable}.
+    \item First I took $\theta = 0$ at $\mu = 30$ and applied Newton to get on the nearly trivial branch. Then I performed continuation from $\mu = 30$ all the way back to $\mu = 0.$ It switches from {\tt unstable} to {\tt stable} when $\mu$ goes from 9.87 to 9.84 which is indeed the first bifurcation point.
+    \item Then I performed continuation from $\mu = 0$ to $\mu = 30,$ which automatically gets on the non-trivial branch. This branch happens to be {\tt stable} everywhere.
+    \item Lastly I switched signs $\theta \gets -\theta$ at $\mu = 30,$ applied Newton to get on the other non-trivial branch and performed continuation from $\mu = 30$ back to $\mu = 0$ again. Also nothing special happens, this branch is stable as well.
+
+  \end{itemize}
 \end{document}

@@ -4,7 +4,7 @@ function grid_interior(n::Int)
 end
 
 function poisson(n::Int)
-  t = -(n + 1)^2
+  t = (n + 1)^2
   SymTridiagonal(-2 * t * ones(n), t * ones(n - 1))
 end
 
@@ -24,3 +24,4 @@ function quadratic(n::Int, ɛ::Float64 = 0.01)
   g = (θ::Vector{Float64}, μ::Float64) -> f(θ, μ) - rhs
   g, ∂f
 end
+

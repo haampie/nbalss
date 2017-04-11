@@ -1,13 +1,15 @@
 module NBALSS
 
-  export continuation, 
-    newton, 
-    nonlinear_backward_euler,
+  export continuation!,
+    continuation_with_stability_check!,
+    newton!, 
+    nonlinear_backward_euler!,
     grid_interior,
     poisson,
     problem,
     quadratic,
-    orthogonal_iteration
+    orthogonal_iteration,
+    init
 
   abstract Method
   immutable Invert <: Method end
@@ -18,5 +20,6 @@ module NBALSS
   include("newton.jl")
   include("pde_and_grid.jl")
   include("orthogonal_iteration.jl")
+  include("init.jl")
 
 end
