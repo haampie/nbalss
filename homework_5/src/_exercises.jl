@@ -41,7 +41,7 @@ function ex5_3(; n = 100, ɛ = 0.01, μ_end = 20.)
   Plots.plot!(ss, θ₂, label = "Isolated solution")
 end
 
-function ex5_4(; n = 100, ɛ = 0.01, μ_start = 6.0, μ_end = 14.0)
+function ex5_4(; Δt = 0.5, n = 100, ɛ = 0.01, μ_start = 6.0, μ_end = 14.0)
   f, ∂f = quadratic(n, ɛ)
   ss = grid_interior(n)
   θ_norms_time = Float64[]
@@ -53,7 +53,7 @@ function ex5_4(; n = 100, ɛ = 0.01, μ_start = 6.0, μ_end = 14.0)
     fμ = x -> f(x, μ)
     ∂fμ = x -> ∂f(x, μ)
     θ = ɛ * sin(π * ss)
-    nonlinear_backward_euler!(fμ, ∂fμ, θ, 100.0, Δt = 5.0)
+    nonlinear_backward_euler!(fμ, ∂fμ, θ, 100.0, Δt = Δt)
     push!(θ_norms_time, norm(θ))
   end
 
