@@ -1,0 +1,103 @@
+ repnt done
+up  :   0.1664E+03 lp  :   0.3940E+00
+ Newdir done
+  Newton process 
+         Residu :  0.1177E+00 Par( 5) :  0.1639E+02
+         Residu :  0.1906E-02 Par( 5) :  0.1639E+02
+         Residu :  0.1745E-06 Par( 5) :  0.1639E+02
+up  :   0.1664E+03 lp  :   0.3937E+00
+  Newton process 
+         Residu :  0.2289E+00 Par( 5) :  0.1679E+02
+         Residu :  0.7484E-02 Par( 5) :  0.1679E+02
+         Residu :  0.2694E-05 Par( 5) :  0.1679E+02
+up  :   0.1665E+03 lp  :   0.3929E+00
+  Newton process 
+         Residu :  0.2199E+00 Par( 5) :  0.1718E+02
+         Residu :  0.7289E-02 Par( 5) :  0.1718E+02
+         Residu :  0.2573E-05 Par( 5) :  0.1718E+02
+up  :   0.1665E+03 lp  :   0.3918E+00
+  Newton process 
+         Residu :  0.2098E+00 Par( 5) :  0.1757E+02
+         Residu :  0.7089E-02 Par( 5) :  0.1757E+02
+         Residu :  0.2435E-05 Par( 5) :  0.1757E+02
+up  :   0.1666E+03 lp  :   0.3905E+00
+  Newton process 
+         Residu :  0.2039E+00 Par( 5) :  0.1796E+02
+         Residu :  0.6889E-02 Par( 5) :  0.1796E+02
+         Residu :  0.2313E-05 Par( 5) :  0.1796E+02
+up  :   0.1668E+03 lp  :   0.3889E+00
+  Newton process 
+         Residu :  0.2025E+00 Par( 5) :  0.1835E+02
+         Residu :  0.6692E-02 Par( 5) :  0.1835E+02
+         Residu :  0.2200E-05 Par( 5) :  0.1835E+02
+up  :   0.1669E+03 lp  :   0.3872E+00
+  Newton process 
+         Residu :  0.2016E+00 Par( 5) :  0.1873E+02
+         Residu :  0.6502E-02 Par( 5) :  0.1873E+02
+         Residu :  0.2093E-05 Par( 5) :  0.1873E+02
+up  :   0.1670E+03 lp  :   0.3854E+00
+  Newton process 
+         Residu :  0.2007E+00 Par( 5) :  0.1911E+02
+         Residu :  0.6322E-02 Par( 5) :  0.1911E+02
+         Residu :  0.1989E-05 Par( 5) :  0.1911E+02
+up  :   0.1672E+03 lp  :   0.3834E+00
+  Newton process 
+         Residu :  0.1995E+00 Par( 5) :  0.1950E+02
+         Residu :  0.6148E-02 Par( 5) :  0.1950E+02
+         Residu :  0.1902E-05 Par( 5) :  0.1950E+02
+up  :   0.1673E+03 lp  :   0.3812E+00
+  Newton process 
+         Residu :  0.1990E+00 Par( 5) :  0.1987E+02
+         Residu :  0.5985E-02 Par( 5) :  0.1987E+02
+         Residu :  0.1818E-05 Par( 5) :  0.1987E+02
+up  :   0.1675E+03 lp  :   0.3790E+00
+  Newton process 
+         Residu :  0.1982E+00 Par( 5) :  0.2025E+02
+         Residu :  0.5839E-02 Par( 5) :  0.2025E+02
+         Residu :  0.1734E-05 Par( 5) :  0.2025E+02
+up  :   0.1677E+03 lp  :   0.3767E+00
+  Newton process 
+         Residu :  0.1978E+00 Par( 5) :  0.2063E+02
+         Residu :  0.5698E-02 Par( 5) :  0.2062E+02
+         Residu :  0.1676E-05 Par( 5) :  0.2062E+02
+up  :   0.1679E+03 lp  :   0.3742E+00
+  Newton process 
+         Residu :  0.1968E+00 Par( 5) :  0.2100E+02
+         Residu :  0.5568E-02 Par( 5) :  0.2100E+02
+         Residu :  0.1612E-05 Par( 5) :  0.2100E+02
+up  :   0.1681E+03 lp  :   0.3717E+00
+  Newton process 
+         Residu :  0.1966E+00 Par( 5) :  0.2137E+02
+         Residu :  0.5445E-02 Par( 5) :  0.2137E+02
+         Residu :  0.1543E-05 Par( 5) :  0.2137E+02
+up  :   0.1682E+03 lp  :   0.3691E+00
+  Newton process 
+         Residu :  0.1960E+00 Par( 5) :  0.2173E+02
+         Residu :  0.5327E-02 Par( 5) :  0.2173E+02
+         Residu :  0.1496E-05 Par( 5) :  0.2173E+02
+up  :   0.1684E+03 lp  :   0.3664E+00
+  Newton process 
+         Residu :  0.1956E+00 Par( 5) :  0.2210E+02
+         Residu :  0.5226E-02 Par( 5) :  0.2210E+02
+         Residu :  0.1426E-05 Par( 5) :  0.2210E+02
+up  :   0.1686E+03 lp  :   0.3636E+00
+  Newton process 
+         Residu :  0.1951E+00 Par( 5) :  0.2246E+02
+         Residu :  0.5109E-02 Par( 5) :  0.2246E+02
+         Residu :  0.1394E-05 Par( 5) :  0.2246E+02
+up  :   0.1688E+03 lp  :   0.3608E+00
+  Newton process 
+         Residu :  0.1947E+00 Par( 5) :  0.2281E+02
+         Residu :  0.5030E-02 Par( 5) :  0.2281E+02
+         Residu :  0.1346E-05 Par( 5) :  0.2281E+02
+up  :   0.1690E+03 lp  :   0.3579E+00
+  Newton process 
+         Residu :  0.1944E+00 Par( 5) :  0.2317E+02
+         Residu :  0.4941E-02 Par( 5) :  0.2317E+02
+         Residu :  0.1306E-05 Par( 5) :  0.2317E+02
+up  :   0.1692E+03 lp  :   0.3550E+00
+  Newton process 
+         Residu :  0.1940E+00 Par( 5) :  0.2352E+02
+         Residu :  0.4858E-02 Par( 5) :  0.2352E+02
+         Residu :  0.1270E-05 Par( 5) :  0.2352E+02
+up  :   0.1694E+03 lp  :   0.3520E+00

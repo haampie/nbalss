@@ -1,0 +1,22 @@
+orbit & external share stuff.
+
+par(11) homotopy parameter for wind forcing 0 ... 1
+
+./cont 0 2 0.1 11 &
+tail -f fort.99
+./add FCU
+# fort.x and fxy.fcu inf.cu p.fcu
+
+
+detect special points
+
+
+Break symmetry:
+par 19 curl of wind stress change with ds 0.1 (fort.7 max / min)
+continue in par 5
+
+isp parameter
+bag.f isp = 1 (before its first use) for hopf bifurcation
+
+
+cont ise: calculate eigenvalues at the end of the continuation

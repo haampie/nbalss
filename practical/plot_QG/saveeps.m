@@ -1,0 +1,1 @@
+% SAVEEPS - Saves plot as .eps%%  M. den Toom%function saveeps(width, heigth, name)%% - SAVE THE PLOT -set(gcf,'PaperUnits','centimeters')set(gcf,'PaperPosition',[1 1 width heigth])print('-depsc2',name)

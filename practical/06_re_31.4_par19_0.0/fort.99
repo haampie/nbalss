@@ -1,0 +1,43 @@
+ repnt done
+up  :   0.1810E+03 lp  :   0.3587E-02
+ Newdir done
+  Newton process 
+         Residu :  0.3569E-02 Par(19) :  0.1915E-02
+         Residu :  0.7700E-05 Par(19) :  0.1915E-02
+up  :   0.1810E+03 lp  :   0.3577E-02
+  Newton process 
+         Residu :  0.7175E-02 Par(19) :  0.1559E-02
+         Residu :  0.3106E-04 Par(19) :  0.1559E-02
+up  :   0.1810E+03 lp  :   0.3555E-02
+  Newton process 
+         Residu :  0.7247E-02 Par(19) :  0.1206E-02
+         Residu :  0.3155E-04 Par(19) :  0.1206E-02
+up  :   0.1810E+03 lp  :   0.3533E-02
+  Newton process 
+         Residu :  0.7316E-02 Par(19) :  0.8546E-03
+         Residu :  0.3202E-04 Par(19) :  0.8546E-03
+up  :   0.1810E+03 lp  :   0.3511E-02
+  Newton process 
+         Residu :  0.7384E-02 Par(19) :  0.5057E-03
+         Residu :  0.3251E-04 Par(19) :  0.5057E-03
+up  :   0.1810E+03 lp  :   0.3489E-02
+  Newton process 
+         Residu :  0.7452E-02 Par(19) :  0.1591E-03
+         Residu :  0.3300E-04 Par(19) :  0.1591E-03
+up  :   0.1810E+03 lp  :   0.3466E-02
+  Newton process 
+         Residu :  0.7519E-02 Par(19) : -0.1852E-03
+         Residu :  0.3350E-04 Par(19) : -0.1852E-03
+up  :   0.1810E+03 lp  :   0.3443E-02
+  User defined point 
+ Detecting special point
+ Secant proces: It: 1 s:  -0.1000E+00 F(s):  -0.1852E-03
+  Newton process 
+         Residu :  0.9395E-03 Par(19) : -0.2891E-06
+         Residu :  0.9673E-06 Par(19) : -0.2895E-06
+up  :   0.1810E+03 lp  :   0.3438E-02
+ Secant proces: It: 2 s:  -0.4620E-01 F(s):  -0.2895E-06
+  Newton process 
+         Residu :  0.1716E-05 Par(19) :  0.5288E-09
+up  :   0.1810E+03 lp  :   0.3444E-02
+ Special point at xl:   0.5288E-09 F(xl):   0.5288E-09
