@@ -4,13 +4,9 @@ module Exercises
   
   import Plots, PGFPlots
 
-  import Base: size
-
-  import LinearMaps: LinearMap
-
   Plots.pgfplots()
 
-  export cheby_test, A_mul_B!
+  export cheby_test
 
   immutable InvertedMatrixPoly
     A
@@ -25,7 +21,7 @@ module Exercises
     end
   end
 
-  Base.size(S::InvertedMatrixPoly, n) = size(S.A, n)
+  Base.size(S::InvertedMatrixPoly, n) = Base.size(S.A, n)
 
   function Base.A_mul_B!(S::InvertedMatrixPoly, B)
     for F = S.Fs
@@ -42,6 +38,13 @@ module Exercises
 
   function cheby_nodes(k::Int, a, b)
     (a + b) / 2.0 + (b - a) / 2 * cos((2 * (1 : k) - 1) * pi / (2k))
+  end
+
+  function ex1(n = 1000, k = 10)
+    A = -poisson(n)
+    D, V, nconv, niter, nmult, resid = eigs(A, nev = 10, which = :SM)
+
+    Plots.plot(resid)
   end
 
   function cheby_test(n = 300, k = 5; max_iter = 15)

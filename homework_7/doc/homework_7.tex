@@ -10,6 +10,8 @@
 \usepackage{subcaption}
 \usepackage[colorlinks = true, urlcolor=red]{hyperref}
 \usepackage[font={small,it}]{caption}
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
 \pgfplotsset{compat=newest}
 \usetikzlibrary{plotmarks}
@@ -26,5 +28,84 @@
 \begin{document}
   \maketitle 
 
-  \paragraph{1} Hoi
+  I switched back to Matlab for this problem, because the syntax in Julia is slightly different. Question with regard to exercise 1: doesn't Matlab automatically compute the LU decomposition when passing {\tt sigma = 'sm'}. I don't see a noticable difference in performance between exercise 1 and 2.
+
+  \paragraph{1} By choosing {\tt sigma = 'sm'} Matlab uses $A^{-1}$ as the iteration matrix. The intermediate Ritz values can be printed by setting {\tt opts.disp = 1} and then calling {\tt eigs(A, 10, 'sm', opts)}. 
+
+  If $\mathcal{K}_m(B, v_0)$ is an $m$-dimensional Krylov subspace induced by a matrix $B$ and a random vector $v_0,$ then the Arnoldi / Lanczos method (on which {\tt eigs} is based) generates the Arnoldi decomposition $BV_m = V_{m+1}H_{m+1,m}$ where the columns of $V_m$ are an orthonormal basis for $\mathcal{K}_m(B, v_0)$ and $H_{m+1, m}$ is an $(m+1)\times m$ Hessenberg matrix. When solving the eigenvalue problem $Bx = \lambda x$ in the Galerkin sense
+  \begin{equation}\label{eq:galerkin}
+    By - \theta y \perp \mathcal{K}_m(B, v_0) \text{ for } y \in \mathcal{K}_m(B, v_0)
+  \end{equation}
+  the value $\theta$ is called a Ritz value. Using the Arnoldi decomposition this problem turns out to be equivalent to finding the eigenvalues of the square Hessenberg matrix $H_{m, m}.$ Let $y = V_m z,$ then~\eqref{eq:galerkin} reduces to
+  \begin{equation*}
+    V_m^*BV_mz - \theta V_m^*V_mz = 0 \iff V_m^*V_{m+1}H_{m+1,m}z = \theta z \iff H_{m,m}z = \theta z
+  \end{equation*}
+
+  It is clear $\theta$ approximates an eigenvalue of $B$ because of the Galerkin condition and in fact ultimately coincides with eigenvalues of $B$ when $m = n$ if not earlier.
+
+  In our case we iterate with $B = A^{-1}$ and hence the Ritz values approximate the eigenvalues of $A^{-1}.$
+
+  Taking $n = 1000,$ $k = 10$ and {\tt A = linbuck(n)} the first $k$ eigenvalues of $A$ with smallest absolute magnitude are 
+
+  \begin{lstlisting}
+>> eigs(A, k, 'sm', opts)
+ans =
+  986.9596
+  799.4374
+  631.6543
+  483.6104
+  355.3057
+  246.7401
+  157.9136
+   88.8264
+   39.4784
+    9.8696
+  \end{lstlisting}
+
+  \paragraph{2} A more efficient way to perform the iterations with $A^{-1}$ is to compute the Cholesky decomposition of $A$ in advance (which is possible because $A$ is positive definite) and use it whenever a MV product with $A^{-1}$ is necessary. In Matlab this can be done as
+  \begin{lstlisting}
+C = chol(A);
+mv = @(x) C \ (C' \ x);
+eigs(mv, n, k, 'sm', opts)
+  \end{lstlisting}
+
+  \paragraph{3} If we use {\tt eigs} for the generalized eigenvalue problem $Ax = \lambda Bx$ where $B$ is the identity matrix except for $b_{n,n} = 0,$ then both methods
+\begin{lstlisting}
+  eigs(A, B, k, 'sm');
+  eigs(mv, n, B, k, 'sm');
+\end{lstlisting}
+   seem to work just fine. This is probably because Matlab is currently smart enough to not invert $B$ twice and simply iterate with $A^{-1}B$ when requesting the smallest eigenvalues in absolute magnitude.
+
+   \paragraph{4} The Chebyshev filter in the stationary Orthogonal Iteration method replaces $A^{-1}$ with a polynomial of degree $\ell$ in $A^{-1}$ with carefully chosen roots in an interval of interest. This way the targeted eigenvalues of the transformed matrix become potentially well seperated, reducing the total number of iterations. However, the additional number of MV products increases with a factor $\ell$ per iteration, so there can only be a gain when the total number of iterations drops by a factor larger than $\ell.$
+
+   Krylov subspace based methods on the other hand use a search space of dimension $m$ which already contains all polynomials in $A^{-1}$ of degree $m - 1$ by construction.
+
+   Considering solely the number of MV products as a measure of effiency, I would guess there is no benefit of the Chebyshev filter over the Arnoldi method (except maybe if the initial guesses in the Orthogonal Iteration are very good). 
+
+   In particular when comparing Chebyshev \& the Power Method (Orthogonal Iteration for a single eigenpair) with Arnoldi one can easily see that Arnoldi cannot be outperformed in terms of MV products, because the $i$th approximate eigenvector $v^{(i)}$ of the Power Method which requires $i \times \ell$ MV products to obtain is contained in the Krylov subspace $\mathcal{K}_{i \times \ell + 1}(A^{-1}, v^{(0)})$ which requires also $i \times \ell$ MV products to be constructed.
+
+   Extending this argument to multiple eigenpairs is not completely trivial, because Orthogonal Iteration has multiple initial guesses for the targeted eigenpairs, while Arnoldi has only one. Furthermore, a fair comparison must also take into account that the Arnoldi method is restarted once in a while, such that there is in fact a strict limit on the total degree of the polynomial in $A^{-1}.$
+
+   \paragraph{Comparison} I ran a simple test to compare the performance of the Chebyshev filtered Orthogonal Iteration method against Arnoldi for the 1D Poisson matrix of size $n = 1000,$ targeting the smallest $10$ eigenvalues. The Chebyshev nodes are taken in the interval $[0, 50].$
+
+  \begin{table}[h]
+  \ra{1.3}
+  \centering
+  \label{my-label}
+  \begin{tabular}{rl}
+  nodes & MV  \\\midrule
+  $1$ & $101$ \\
+  $2$ & $86$  \\
+  $3$ & $63$ 
+  \end{tabular}
+  \caption{Number of MV products for the Chebyshev filtered Orthogonal Iteration method}
+  \end{table}
+
+  I counted the number of MV products optimistically by neglecting MV products with a converged eigenpair (which is not done in a less trivial implementation.)
+
+  Unfortunately Matlab does not return the total number of iterations very clearly, so I switched again to Julia. Both Matlab's and Julia's {\tt eigs} method are wrappers for ARPACK, so the results in Matlab should be the same. Using an implicit restart at $20$ basis vectors it turns out that IRAM needs only 40 MV products (and maybe this is even a pessimistic total, because the second iteration is completed apparently).
+
+  Hence, Lanczos / Arnoldi (implicitly restarted) seems to be the weapon of choice here.
+
+  Lastly, if I target only 3 eigenvalues with 3 Chebyshev nodes, then the number of MV products is about 22 for Orthogonal Iteration and about 20 for Arnoldi / Lanczos. So potentially for a very few number of eigenvalues close together on an interval, well seperated from the rest of the spectrum, Orthogonal Iteration combined with the Chebyshev filter can be a good choice.
 \end{document}
