@@ -1,0 +1,604 @@
+ k:            0  step:            1
+alp/bet:     -0.440E+08+i  0.00000E+00rnrm:      0.695E+00
+ k:            0  step:            2
+ gmres done. eps:   0.424417752342219      mv:            1
+alp/bet:     -0.684E+04+i  0.00000E+00rnrm:      0.994E+00
+ k:            0  step:            3
+ gmres done. eps:   0.949657015629734      mv:            1
+alp/bet:     -0.187E+02+i  0.00000E+00rnrm:      0.940E+00
+ k:            0  step:            4
+ gmres done. eps:   0.679970703418364      mv:            1
+alp/bet:      0.415E+00+i -0.57368E+01rnrm:      0.482E+00
+ k:            0  step:            5
+ gmres done. eps:   0.504223751983188      mv:            1
+alp/bet:      0.181E+01+i  0.40115E+01rnrm:      0.183E+00
+ k:            0  step:            6
+ gmres done. eps:   0.555388096541514      mv:            1
+alp/bet:     -0.293E+01+i -0.28253E+01rnrm:      0.372E+00
+ k:            0  step:            7
+ gmres done. eps:   0.550552567959255      mv:            1
+alp/bet:     -0.403E+01+i -0.22321E+01rnrm:      0.263E+00
+ k:            0  step:            8
+ gmres done. eps:   0.603037623203205      mv:            1
+alp/bet:     -0.619E+00+i  0.43965E+01rnrm:      0.157E+00
+ k:            0  step:            9
+ gmres done. eps:   0.515755921221016      mv:            1
+alp/bet:     -0.457E+01+i  0.39185E+00rnrm:      0.368E+00
+ k:            0  step:           10
+ gmres done. eps:   0.568701814001350      mv:            1
+alp/bet:      0.109E+01+i -0.48415E+01rnrm:      0.120E+00
+ k:            0  step:           11
+ gmres done. eps:   0.300662067666374      mv:            1
+alp/bet:     -0.525E+01+i  0.68129E+00rnrm:      0.284E+00
+ k:            0  step:           12
+ gmres done. eps:   0.332029685938227      mv:            1
+alp/bet:     -0.545E+01+i  0.10887E+01rnrm:      0.189E+00
+ k:            0  step:           13
+ gmres done. eps:   0.430653610026377      mv:            1
+alp/bet:     -0.155E+00+i  0.49653E+01rnrm:      0.366E+00
+ k:            0  step:           14
+ gmres done. eps:   0.340564157733172      mv:            1
+alp/bet:      0.549E+01+i  0.66841E+00rnrm:      0.183E+00
+ k:            0  step:           15
+ gmres done. eps:   0.341384835724254      mv:            1
+alp/bet:     -0.203E+01+i  0.56141E+01rnrm:      0.259E+00
+ k:            0  step:           16
+ gmres done. eps:   0.236577065651911      mv:            1
+alp/bet:     -0.560E+01+i -0.21406E+01rnrm:      0.132E+00
+ k:            0  step:           17
+ gmres done. eps:   0.187084708990540      mv:            1
+alp/bet:      0.661E+00+i -0.58344E+01rnrm:      0.179E+00
+ k:            0  step:           18
+ gmres done. eps:   0.363472801954574      mv:            1
+alp/bet:      0.412E+01+i  0.43393E+01rnrm:      0.188E+00
+ k:            0  step:           19
+ gmres done. eps:   0.385711564771444      mv:            1
+alp/bet:     -0.679E+01+i -0.63832E+00rnrm:      0.950E-01
+ k:            0  step:           20
+ gmres done. eps:   0.157872569088052      mv:            1
+alp/bet:      0.669E+01+i  0.10334E+01rnrm:      0.212E+00
+ k:            0  step:           21
+ gmres done. eps:   0.150028724402195      mv:            1
+alp/bet:      0.202E+01+i  0.63567E+01rnrm:      0.120E+00
+ k:            0  step:           22
+ gmres done. eps:   0.306157891774958      mv:            1
+alp/bet:     -0.644E+01+i -0.97044E-01rnrm:      0.951E-01
+ k:            0  step:           23
+ gmres done. eps:   0.184530238991142      mv:            1
+alp/bet:     -0.716E+01+i -0.50483E+00rnrm:      0.933E-01
+ k:            0  step:           24
+ gmres done. eps:   0.236960845083291      mv:            1
+alp/bet:     -0.690E+01+i -0.14677E+01rnrm:      0.647E-01
+ k:            0  step:           25
+ gmres done. eps:   2.174510353384533E-008 mv:           25
+alp/bet:     -0.712E+01+i -0.32703E+00rnrm:      0.302E-01
+ k:            0  step:           26
+ gmres done. eps:   6.748927608465413E-009 mv:           26
+alp/bet:     -0.611E+01+i -0.35037E+01rnrm:      0.597E-01
+ k:            0  step:           27
+ gmres done. eps:   3.031142131098551E-009 mv:           27
+alp/bet:     -0.742E+01+i  0.20137E+01rnrm:      0.303E-01
+ k:            0  step:           28
+ gmres done. eps:   1.753231691193613E-009 mv:           29
+alp/bet:     -0.651E+01+i  0.38103E+01rnrm:      0.382E-01
+ k:            0  step:           29
+ gmres done. eps:   9.540313148158473E-010 mv:           29
+alp/bet:     -0.193E+01+i  0.68255E+01rnrm:      0.106E+00
+ k:            0  step:           30
+ gmres done. eps:   8.349373343558059E-010 mv:           26
+alp/bet:     -0.374E+01+i -0.68600E+01rnrm:      0.394E-01
+ k:            0  step:           31
+ gmres done. eps:   3.200716936494013E-010 mv:           30
+alp/bet:      0.667E+00+i -0.78944E+01rnrm:      0.348E-01
+ k:            0  step:           32
+ gmres done. eps:   1.218837890038129E-010 mv:           28
+alp/bet:      0.442E+01+i -0.61551E+01rnrm:      0.849E-01
+ k:            0  step:           33
+ gmres done. eps:   4.979582756363329E-011 mv:           26
+alp/bet:      0.601E+01+i  0.53946E+01rnrm:      0.954E-01
+ k:            0  step:           34
+ gmres done. eps:   4.904103544113611E-011 mv:           28
+alp/bet:      0.888E+00+i  0.81564E+01rnrm:      0.457E-01
+ k:            0  step:           35
+ gmres done. eps:   9.228005210335529E-011 mv:           30
+alp/bet:     -0.123E+01+i  0.86527E+01rnrm:      0.161E-01
+ k:            0  step:           36
+ gmres done. eps:   2.646546735527323E-010 mv:           30
+alp/bet:      0.106E+00+i -0.87914E+01rnrm:      0.267E-01
+ k:            0  step:           37
+ gmres done. eps:   1.194132338470595E-010 mv:           30
+alp/bet:     -0.873E+01+i -0.36571E-01rnrm:      0.948E-03
+ k:            0  step:           38
+ gmres done. eps:   5.739103178352788E-009 mv:           30
+alp/bet:     -0.871E+01+i  0.29210E-04rnrm:      0.972E-05
+ k:            0  step:           39
+ gmres done. eps:   5.429419065479361E-009 mv:           30
+alp/bet:     -0.871E+01+i -0.15629E-08rnrm:      0.559E-10
+alp/bet:     -0.403E+01+i -0.80630E+01rnrm:      0.267E-01
+ k:            1  step:           40
+ gmres done. eps:   0.464852726331839      mv:            1
+alp/bet:      0.589E+01+i  0.13338E+01rnrm:      0.275E+00
+ k:            1  step:           41
+ gmres done. eps:   0.116270625915158      mv:            3
+alp/bet:      0.428E+00+i -0.89197E+01rnrm:      0.120E-01
+ k:            1  step:           42
+ gmres done. eps:   0.101728827778005      mv:            4
+alp/bet:     -0.400E-01+i  0.92508E+01rnrm:      0.437E-02
+ k:            1  step:           43
+ gmres done. eps:   3.313080691368325E-002 mv:            7
+alp/bet:      0.130E+00+i -0.92739E+01rnrm:      0.586E-02
+ k:            1  step:           44
+ gmres done. eps:   2.299444796983214E-002 mv:            6
+alp/bet:      0.126E+01+i -0.81132E+01rnrm:      0.407E-01
+ k:            1  step:           45
+ gmres done. eps:   8.156410429915903E-003 mv:            7
+alp/bet:     -0.894E+01+i -0.16794E+01rnrm:      0.699E-01
+ k:            1  step:           46
+ gmres done. eps:   4.384206668668560E-003 mv:           11
+alp/bet:     -0.137E-02+i  0.93245E+01rnrm:      0.248E-02
+ k:            1  step:           47
+ gmres done. eps:   2.428782381038196E-003 mv:           11
+alp/bet:      0.344E-01+i  0.94174E+01rnrm:      0.181E-03
+ k:            1  step:           48
+ gmres done. eps:   1.632625626179857E-003 mv:           11
+alp/bet:      0.370E-01+i  0.94183E+01rnrm:      0.323E-05
+ k:            1  step:           49
+ gmres done. eps:   7.945767633464817E-004 mv:           13
+alp/bet:      0.370E-01+i  0.94183E+01rnrm:      0.196E-07
+alp/bet:     -0.612E-01+i -0.95539E+01rnrm:      0.228E-02
+ k:            2  step:           50
+ gmres done. eps:   0.448623490580202      mv:            2
+alp/bet:      0.329E-01+i -0.93116E+01rnrm:      0.173E-02
+ k:            2  step:           51
+ gmres done. eps:   0.219510343711227      mv:            4
+alp/bet:      0.673E-01+i -0.93480E+01rnrm:      0.140E-02
+ k:            2  step:           52
+ gmres done. eps:   0.102503428273361      mv:            5
+alp/bet:      0.150E-01+i -0.94087E+01rnrm:      0.813E-03
+ k:            2  step:           53
+ gmres done. eps:   4.142414919995296E-002 mv:            7
+alp/bet:      0.230E-01+i -0.94139E+01rnrm:      0.359E-03
+ k:            2  step:           54
+ gmres done. eps:   1.813363719224534E-002 mv:            8
+alp/bet:      0.373E-01+i -0.94182E+01rnrm:      0.396E-04
+ k:            2  step:           55
+ gmres done. eps:   1.536390563545182E-002 mv:            8
+alp/bet:      0.369E-01+i -0.94185E+01rnrm:      0.336E-05
+ k:            2  step:           56
+ gmres done. eps:   4.974241848118934E-003 mv:           10
+alp/bet:      0.370E-01+i -0.94183E+01rnrm:      0.132E-06
+alp/bet:     -0.546E+01+i -0.76964E+01rnrm:      0.735E-01
+ k:            3  step:           57
+ gmres done. eps:   0.321336692105118      mv:            2
+alp/bet:     -0.857E+01+i  0.43433E+01rnrm:      0.884E-01
+ k:            3  step:           58
+ gmres done. eps:   0.147993044669127      mv:            4
+alp/bet:     -0.842E+01+i -0.20335E+01rnrm:      0.106E+00
+ k:            3  step:           59
+ gmres done. eps:   7.307875326978262E-002 mv:            5
+alp/bet:      0.757E+01+i  0.67347E+01rnrm:      0.231E+00
+ k:            3  step:           60
+ gmres done. eps:   5.855537559922738E-002 mv:            4
+alp/bet:      0.240E+01+i -0.10158E+02rnrm:      0.127E+00
+ k:            3  step:           61
+ gmres done. eps:   2.046096596208686E-002 mv:            6
+alp/bet:      0.135E+01+i  0.10930E+02rnrm:      0.100E+00
+ k:            3  step:           62
+ gmres done. eps:   1.311585080370048E-002 mv:            7
+alp/bet:     -0.617E+01+i  0.81819E+01rnrm:      0.301E-01
+ k:            3  step:           63
+ gmres done. eps:   4.788350068547297E-003 mv:           10
+alp/bet:     -0.994E+01+i -0.29464E+01rnrm:      0.107E+00
+ k:            3  step:           64
+ gmres done. eps:   2.294845281076742E-003 mv:           13
+alp/bet:     -0.889E+01+i  0.56297E+01rnrm:      0.392E-01
+ k:            3  step:           65
+ gmres done. eps:   1.344443990345942E-003 mv:           13
+alp/bet:     -0.103E+02+i  0.24055E+00rnrm:      0.119E+00
+ k:            3  step:           66
+ gmres done. eps:   7.117922612805597E-004 mv:           16
+alp/bet:     -0.981E+01+i  0.27000E+01rnrm:      0.507E-01
+ k:            3  step:           67
+ gmres done. eps:   2.877221237673792E-004 mv:           16
+alp/bet:     -0.531E+01+i -0.93886E+01rnrm:      0.729E-01
+ k:            3  step:           68
+ gmres done. eps:   2.009190708899860E-004 mv:           16
+alp/bet:     -0.455E+01+i  0.97203E+01rnrm:      0.449E-01
+ k:            3  step:           69
+ gmres done. eps:   1.042978403612431E-004 mv:           16
+alp/bet:     -0.904E+01+i  0.56786E+01rnrm:      0.173E+00
+ k:            3  step:           70
+ gmres done. eps:   5.818275070971907E-005 mv:           20
+alp/bet:     -0.912E+01+i -0.35837E+01rnrm:      0.660E-01
+ k:            3  step:           71
+ gmres done. eps:   1.594640398784410E-005 mv:           20
+alp/bet:     -0.858E+01+i -0.66521E+01rnrm:      0.630E-01
+ k:            3  step:           72
+ gmres done. eps:   9.231422412843701E-006 mv:           22
+alp/bet:     -0.754E+01+i -0.78674E+01rnrm:      0.427E-01
+ k:            3  step:           73
+ gmres done. eps:   4.520329288475376E-006 mv:           22
+alp/bet:     -0.358E+01+i  0.10593E+02rnrm:      0.310E-01
+ k:            3  step:           74
+ gmres done. eps:   2.615022841291101E-006 mv:           21
+alp/bet:     -0.816E+00+i  0.10415E+02rnrm:      0.397E-01
+ k:            3  step:           75
+ gmres done. eps:   1.013565958558376E-006 mv:           20
+alp/bet:     -0.110E+02+i -0.71607E+00rnrm:      0.107E+00
+ k:            3  step:           76
+ gmres done. eps:   7.792940068243573E-007 mv:           27
+alp/bet:     -0.710E+01+i  0.92647E+01rnrm:      0.847E-01
+ k:            3  step:           77
+ gmres done. eps:   2.799605492456757E-007 mv:           26
+alp/bet:     -0.101E+02+i  0.58017E+01rnrm:      0.103E+00
+ k:            3  step:           78
+ gmres done. eps:   1.415958215394328E-007 mv:           30
+alp/bet:     -0.303E+01+i  0.11403E+02rnrm:      0.519E-01
+ k:            3  step:           79
+ gmres done. eps:   6.278484068436076E-008 mv:           26
+alp/bet:     -0.287E+01+i -0.11707E+02rnrm:      0.187E-01
+ k:            3  step:           80
+ gmres done. eps:   2.907949821550146E-008 mv:           27
+alp/bet:     -0.979E+01+i -0.67214E+01rnrm:      0.286E-01
+ k:            3  step:           81
+ gmres done. eps:   1.283091754663077E-007 mv:           30
+alp/bet:     -0.439E+01+i -0.11271E+02rnrm:      0.271E-01
+ k:            3  step:           82
+ gmres done. eps:   6.108300457596882E-009 mv:           30
+alp/bet:     -0.112E+02+i  0.54201E+01rnrm:      0.840E-01
+ k:            3  step:           83
+ gmres done. eps:   3.259932577870132E-007 mv:           30
+alp/bet:     -0.103E+02+i  0.17543E+01rnrm:      0.737E-01
+ k:            3  step:           84
+ gmres done. eps:   3.076248711832786E-008 mv:           30
+alp/bet:     -0.119E+02+i -0.33673E+01rnrm:      0.495E-01
+ k:            3  step:           85
+ gmres done. eps:   1.131035574863009E-006 mv:           30
+alp/bet:     -0.465E+01+i -0.11746E+02rnrm:      0.305E-01
+ k:            3  step:           86
+ gmres done. eps:   2.495388681331639E-008 mv:           30
+alp/bet:      0.247E+01+i -0.11988E+02rnrm:      0.690E-01
+ k:            3  step:           87
+ gmres done. eps:   2.433013522838570E-010 mv:           29
+alp/bet:     -0.930E+01+i -0.67140E+01rnrm:      0.745E-01
+ k:            3  step:           88
+ gmres done. eps:   4.066842438264658E-008 mv:           30
+alp/bet:     -0.121E+02+i -0.29284E+01rnrm:      0.526E-01
+ k:            3  step:           89
+ gmres done. eps:   9.278463619289115E-007 mv:           30
+alp/bet:     -0.126E+02+i  0.11436E+01rnrm:      0.404E-01
+ k:            3  step:           90
+ gmres done. eps:   2.371811670576711E-006 mv:           30
+alp/bet:     -0.100E+02+i  0.83968E+01rnrm:      0.241E-01
+ k:            3  step:           91
+ gmres done. eps:   2.280123006410625E-007 mv:           30
+alp/bet:     -0.795E+01+i  0.96806E+01rnrm:      0.145E-01
+ k:            3  step:           92
+ gmres done. eps:   3.171324685139034E-008 mv:           30
+alp/bet:     -0.623E+01+i  0.11545E+02rnrm:      0.148E-01
+ k:            3  step:           93
+ gmres done. eps:   3.375008891380485E-008 mv:           30
+alp/bet:     -0.418E+01+i  0.11286E+02rnrm:      0.183E-01
+ k:            3  step:           94
+ gmres done. eps:   2.512419946106838E-009 mv:           30
+alp/bet:     -0.897E+00+i  0.11774E+02rnrm:      0.223E-01
+ k:            3  step:           95
+ gmres done. eps:   2.369155419612054E-010 mv:           30
+alp/bet:     -0.935E+01+i  0.78925E+01rnrm:      0.190E-01
+ k:            3  step:           96
+ gmres done. eps:   6.834711502405442E-008 mv:           30
+alp/bet:     -0.114E+02+i  0.26476E+01rnrm:      0.380E-01
+ k:            3  step:           97
+ gmres done. eps:   1.435997202939084E-007 mv:           30
+alp/bet:     -0.124E+02+i  0.11596E+01rnrm:      0.294E-01
+ k:            3  step:           98
+ gmres done. eps:   1.194839408823250E-006 mv:           30
+alp/bet:     -0.116E+02+i -0.52192E+01rnrm:      0.500E-01
+ k:            3  step:           99
+ gmres done. eps:   5.155335077902068E-007 mv:           30
+alp/bet:     -0.120E+02+i  0.41169E+01rnrm:      0.388E-01
+ k:            3  step:          100
+ gmres done. eps:   2.031419827758289E-006 mv:           30
+alp/bet:     -0.112E+02+i  0.65865E+01rnrm:      0.315E-01
+ k:            3  step:          101
+ gmres done. eps:   9.480714275471462E-007 mv:           30
+alp/bet:     -0.613E+01+i  0.10847E+02rnrm:      0.344E-01
+ k:            3  step:          102
+ gmres done. eps:   3.936062039408850E-008 mv:           30
+alp/bet:     -0.626E+01+i -0.11950E+02rnrm:      0.249E-01
+ k:            3  step:          103
+ gmres done. eps:   1.393878343254066E-007 mv:           30
+alp/bet:     -0.796E+01+i -0.10781E+02rnrm:      0.261E-01
+ k:            3  step:          104
+ gmres done. eps:   1.794230471191494E-007 mv:           30
+alp/bet:     -0.950E+01+i -0.89372E+01rnrm:      0.228E-01
+ k:            3  step:          105
+ gmres done. eps:   1.340833380610643E-007 mv:           30
+alp/bet:     -0.133E+02+i  0.31322E+01rnrm:      0.191E-01
+ k:            3  step:          106
+ gmres done. eps:   2.671701474705844E-006 mv:           30
+alp/bet:     -0.466E+01+i -0.12138E+02rnrm:      0.252E-01
+ k:            3  step:          107
+ gmres done. eps:   2.450153782142735E-008 mv:           30
+alp/bet:     -0.103E+02+i -0.53618E+01rnrm:      0.449E-01
+ k:            3  step:          108
+ gmres done. eps:   8.003987924194163E-008 mv:           30
+alp/bet:     -0.113E+02+i  0.80136E+00rnrm:      0.572E-01
+ k:            3  step:          109
+ gmres done. eps:   1.176465139757649E-007 mv:           30
+alp/bet:     -0.894E+01+i  0.75046E+01rnrm:      0.506E-01
+ k:            3  step:          110
+ gmres done. eps:   2.795069190189917E-008 mv:           30
+alp/bet:     -0.645E+00+i -0.13501E+02rnrm:      0.323E-01
+ k:            3  step:          111
+ gmres done. eps:   2.466089918878562E-009 mv:           30
+alp/bet:     -0.125E+02+i -0.50307E+01rnrm:      0.372E-01
+ k:            3  step:          112
+ gmres done. eps:   5.927729053490071E-006 mv:           30
+alp/bet:     -0.233E+01+i  0.13613E+02rnrm:      0.454E-02
+ k:            3  step:          113
+ gmres done. eps:   5.659060132806744E-009 mv:           30
+alp/bet:     -0.123E+02+i  0.62328E+01rnrm:      0.274E-01
+ k:            3  step:          114
+ gmres done. eps:   4.117589232714791E-006 mv:           30
+alp/bet:     -0.133E+02+i -0.35939E+01rnrm:      0.402E-01
+ k:            3  step:          115
+ gmres done. eps:   1.598505610044249E-005 mv:           30
+alp/bet:     -0.136E+02+i -0.26728E+01rnrm:      0.213E-01
+ k:            3  step:          116
+ gmres done. eps:   1.110951801027241E-005 mv:           30
+alp/bet:     -0.136E+02+i -0.10001E+01rnrm:      0.158E-01
+ k:            3  step:          117
+ gmres done. eps:   7.489166649622528E-006 mv:           30
+alp/bet:     -0.118E+02+i -0.71835E+01rnrm:      0.349E-01
+ k:            3  step:          118
+ gmres done. eps:   1.975437249015465E-006 mv:           30
+alp/bet:     -0.134E+02+i  0.24116E+01rnrm:      0.177E-01
+ k:            3  step:          119
+ gmres done. eps:   3.252291390895335E-006 mv:           30
+alp/bet:     -0.904E+01+i -0.10353E+02rnrm:      0.155E-01
+ k:            3  step:          120
+ gmres done. eps:   2.096526542010173E-007 mv:           30
+alp/bet:     -0.641E+01+i -0.10768E+02rnrm:      0.283E-01
+ k:            3  step:          121
+ gmres done. eps:   1.532038581074714E-008 mv:           30
+alp/bet:     -0.130E+02+i  0.46540E+01rnrm:      0.402E-01
+ k:            3  step:          122
+ gmres done. eps:   2.820572725057100E-006 mv:           30
+alp/bet:     -0.136E+02+i -0.57423E+00rnrm:      0.398E-01
+ k:            3  step:          123
+ gmres done. eps:   1.310344687585558E-005 mv:           30
+alp/bet:     -0.128E+02+i -0.42366E+01rnrm:      0.465E-01
+ k:            3  step:          124
+ gmres done. eps:   2.472162518944026E-006 mv:           30
+alp/bet:     -0.133E+02+i  0.16417E+01rnrm:      0.317E-01
+ k:            3  step:          125
+ gmres done. eps:   3.727006867527526E-006 mv:           30
+alp/bet:     -0.119E+02+i  0.52351E+01rnrm:      0.478E-01
+ k:            3  step:          126
+ gmres done. eps:   9.483766592056911E-007 mv:           30
+alp/bet:     -0.132E+02+i -0.18707E+01rnrm:      0.295E-01
+ k:            3  step:          127
+ gmres done. eps:   2.977154404318699E-006 mv:           30
+alp/bet:     -0.133E+02+i  0.11723E+00rnrm:      0.284E-01
+ k:            3  step:          128
+ gmres done. eps:   3.950461131285400E-006 mv:           30
+alp/bet:     -0.110E+02+i -0.57681E+01rnrm:      0.416E-01
+ k:            3  step:          129
+ gmres done. eps:   4.162507962418282E-007 mv:           30
+alp/bet:     -0.809E+01+i -0.97982E+01rnrm:      0.242E-01
+ k:            3  step:          130
+ gmres done. eps:   4.907772724056779E-008 mv:           30
+alp/bet:     -0.253E+01+i -0.12285E+02rnrm:      0.241E-01
+ k:            3  step:          131
+ gmres done. eps:   1.443458825767786E-009 mv:           30
+alp/bet:      0.226E+01+i -0.13700E+02rnrm:      0.108E+00
+ k:            3  step:          132
+ gmres done. eps:   1.196468307588182E-009 mv:           30
+alp/bet:     -0.122E+02+i  0.61478E+01rnrm:      0.742E-01
+ k:            3  step:          133
+ gmres done. eps:   5.316311138293448E-006 mv:           30
+alp/bet:     -0.150E+01+i  0.14006E+02rnrm:      0.576E-02
+ k:            3  step:          134
+ gmres done. eps:   6.687047823989142E-009 mv:           30
+alp/bet:     -0.215E+01+i  0.14220E+02rnrm:      0.163E-03
+ k:            3  step:          135
+ gmres done. eps:   7.733014579198879E-009 mv:           30
+alp/bet:     -0.216E+01+i  0.14215E+02rnrm:      0.960E-06
+alp/bet:     -0.896E+01+i  0.11205E+02rnrm:      0.447E-01
+ k:            4  step:          136
+ gmres done. eps:   0.420441350873279      mv:            2
+alp/bet:      0.139E+02+i  0.87486E+00rnrm:      0.159E+00
+ k:            4  step:          137
+ gmres done. eps:   0.224455001890651      mv:            2
+alp/bet:      0.443E+01+i  0.12747E+02rnrm:      0.175E+00
+ k:            4  step:          138
+ gmres done. eps:   7.581178887804597E-002 mv:            4
+alp/bet:     -0.102E+02+i  0.93242E+01rnrm:      0.357E-01
+ k:            4  step:          139
+ gmres done. eps:   4.612222191575970E-002 mv:            8
+alp/bet:      0.619E+01+i -0.12502E+02rnrm:      0.150E+00
+ k:            4  step:          140
+ gmres done. eps:   2.051271546614761E-002 mv:            8
+alp/bet:     -0.101E+02+i -0.10073E+02rnrm:      0.232E-01
+ k:            4  step:          141
+ gmres done. eps:   1.292642022676077E-002 mv:           14
+alp/bet:     -0.685E+01+i -0.12143E+02rnrm:      0.433E-01
+ k:            4  step:          142
+ gmres done. eps:   6.604617070799238E-003 mv:           14
+alp/bet:     -0.117E+02+i -0.70923E+01rnrm:      0.526E-01
+ k:            4  step:          143
+ gmres done. eps:   2.475768754148258E-003 mv:           17
+alp/bet:     -0.229E+01+i -0.14182E+02rnrm:      0.193E-02
+ k:            4  step:          144
+ gmres done. eps:   1.568446286829275E-003 mv:           14
+alp/bet:     -0.224E+01+i -0.14113E+02rnrm:      0.187E-02
+ k:            4  step:          145
+ gmres done. eps:   8.472785159614835E-004 mv:           15
+alp/bet:     -0.216E+01+i -0.14214E+02rnrm:      0.376E-04
+ k:            4  step:          146
+ gmres done. eps:   2.686125280987173E-004 mv:           17
+alp/bet:     -0.216E+01+i -0.14215E+02rnrm:      0.233E-06
+alp/bet:     -0.142E+02+i -0.29338E+01rnrm:      0.218E-01
+ k:            5  step:          147
+ gmres done. eps:   0.499090749858940      mv:            4
+alp/bet:     -0.856E+01+i  0.11878E+02rnrm:      0.411E-01
+ k:            5  step:          148
+ gmres done. eps:   0.191957487169256      mv:            4
+alp/bet:     -0.143E+02+i  0.21814E+01rnrm:      0.338E-01
+ k:            5  step:          149
+ gmres done. eps:   0.119793170059897      mv:           10
+alp/bet:     -0.113E+02+i  0.93650E+01rnrm:      0.595E-01
+ k:            5  step:          150
+ gmres done. eps:   5.212803058995519E-002 mv:           10
+alp/bet:     -0.104E+02+i -0.10218E+02rnrm:      0.137E-01
+ k:            5  step:          151
+ gmres done. eps:   2.461210077160906E-002 mv:           10
+alp/bet:     -0.132E+02+i  0.59626E+01rnrm:      0.743E-01
+ k:            5  step:          152
+ gmres done. eps:   1.333382552946335E-002 mv:           15
+alp/bet:     -0.145E+02+i -0.10542E+01rnrm:      0.391E-01
+ k:            5  step:          153
+ gmres done. eps:   5.659338742649336E-003 mv:           20
+alp/bet:     -0.144E+02+i -0.32782E+01rnrm:      0.481E-01
+ k:            5  step:          154
+ gmres done. eps:   2.978089806777213E-003 mv:           20
+alp/bet:     -0.112E+02+i -0.98618E+01rnrm:      0.128E-01
+ k:            5  step:          155
+ gmres done. eps:   1.203659673129298E-003 mv:           19
+alp/bet:     -0.104E+02+i -0.11078E+02rnrm:      0.106E-01
+ k:            5  step:          156
+ gmres done. eps:   6.433555604866489E-004 mv:           19
+alp/bet:     -0.147E+02+i  0.10077E+01rnrm:      0.514E-01
+ k:            5  step:          157
+ gmres done. eps:   3.369428307657509E-004 mv:           26
+alp/bet:     -0.124E+02+i -0.74793E+01rnrm:      0.250E-01
+ k:            5  step:          158
+ gmres done. eps:   1.719428498382752E-004 mv:           24
+alp/bet:     -0.142E+02+i -0.36890E+01rnrm:      0.233E-01
+ k:            5  step:          159
+ gmres done. eps:   8.170977146646837E-005 mv:           28
+alp/bet:     -0.144E+02+i -0.34176E+00rnrm:      0.302E-01
+ k:            5  step:          160
+ gmres done. eps:   4.157694222923131E-005 mv:           30
+alp/bet:     -0.125E+02+i  0.55982E+01rnrm:      0.730E-01
+ k:            5  step:          161
+ gmres done. eps:   2.504688897892015E-005 mv:           26
+alp/bet:     -0.104E+02+i  0.11319E+02rnrm:      0.322E-01
+ k:            5  step:          162
+ gmres done. eps:   1.213761812798415E-005 mv:           25
+alp/bet:      0.113E+02+i  0.10669E+02rnrm:      0.137E+00
+ k:            5  step:          163
+ gmres done. eps:   4.388609099660493E-006 mv:           17
+alp/bet:      0.473E+01+i  0.14827E+02rnrm:      0.138E+00
+ k:            5  step:          164
+ gmres done. eps:   1.842979390705328E-006 mv:           20
+alp/bet:     -0.529E+01+i  0.13228E+02rnrm:      0.101E+00
+ k:            5  step:          165
+ gmres done. eps:   1.190961443229792E-006 mv:           25
+alp/bet:     -0.968E+01+i  0.79643E+01rnrm:      0.571E-01
+ k:            5  step:          166
+ gmres done. eps:   9.195056691917253E-007 mv:           26
+alp/bet:     -0.118E+02+i  0.17245E+01rnrm:      0.576E-01
+ k:            5  step:          167
+ gmres done. eps:   2.173520158720000E-007 mv:           29
+alp/bet:     -0.121E+02+i -0.48725E+01rnrm:      0.544E-01
+ k:            5  step:          168
+ gmres done. eps:   4.621977227030274E-007 mv:           30
+alp/bet:     -0.104E+02+i -0.10897E+02rnrm:      0.193E-01
+ k:            5  step:          169
+ gmres done. eps:   4.193558983628314E-007 mv:           30
+alp/bet:     -0.760E+01+i  0.13346E+02rnrm:      0.752E-01
+ k:            5  step:          170
+ gmres done. eps:   1.563073674525960E-007 mv:           30
+alp/bet:     -0.154E+02+i  0.25729E+01rnrm:      0.107E-01
+ k:            5  step:          171
+ gmres done. eps:   8.731987048735438E-005 mv:           30
+alp/bet:     -0.151E+02+i  0.41413E+01rnrm:      0.215E-01
+ k:            5  step:          172
+ gmres done. eps:   8.807289546023639E-005 mv:           30
+alp/bet:     -0.153E+02+i -0.34287E+01rnrm:      0.124E-01
+ k:            5  step:          173
+ gmres done. eps:   9.379047229285472E-005 mv:           30
+alp/bet:     -0.145E+02+i -0.62971E+01rnrm:      0.253E-01
+ k:            5  step:          174
+ gmres done. eps:   2.453309520919104E-005 mv:           30
+alp/bet:     -0.155E+02+i -0.29357E+01rnrm:      0.593E-02
+ k:            5  step:          175
+ gmres done. eps:   9.575944189936775E-005 mv:           30
+alp/bet:     -0.148E+02+i -0.52568E+01rnrm:      0.258E-01
+ k:            5  step:          176
+ gmres done. eps:   9.864221940117271E-005 mv:           30
+alp/bet:     -0.651E+01+i -0.14012E+02rnrm:      0.686E-01
+ k:            5  step:          177
+ gmres done. eps:   8.815958406838754E-008 mv:           30
+alp/bet:     -0.120E+02+i -0.93806E+01rnrm:      0.132E-01
+ k:            5  step:          178
+ gmres done. eps:   3.333718261881198E-006 mv:           30
+alp/bet:     -0.876E+01+i -0.11980E+02rnrm:      0.197E-01
+ k:            5  step:          179
+ gmres done. eps:   1.001517268148202E-007 mv:           30
+alp/bet:     -0.132E+02+i  0.37588E+01rnrm:      0.289E-01
+ k:            5  step:          180
+ gmres done. eps:   6.625690655240308E-006 mv:           30
+alp/bet:     -0.109E+02+i  0.79148E+01rnrm:      0.381E-01
+ k:            5  step:          181
+ gmres done. eps:   3.583224528244627E-007 mv:           30
+alp/bet:     -0.607E+01+i  0.13985E+02rnrm:      0.654E-01
+ k:            5  step:          182
+ gmres done. eps:   5.011568933807352E-008 mv:           30
+alp/bet:     -0.138E+02+i -0.67672E+01rnrm:      0.307E-01
+ k:            5  step:          183
+ gmres done. eps:   8.798727922502925E-006 mv:           30
+alp/bet:     -0.160E+02+i  0.29657E+01rnrm:      0.634E-02
+ k:            5  step:          184
+ gmres done. eps:   1.857802519668250E-004 mv:           30
+alp/bet:     -0.153E+02+i  0.44907E+01rnrm:      0.310E-01
+ k:            5  step:          185
+ gmres done. eps:   2.196551270135799E-004 mv:           30
+alp/bet:     -0.137E+02+i  0.69089E+01rnrm:      0.501E-01
+ k:            5  step:          186
+ gmres done. eps:   1.879198847903740E-005 mv:           30
+alp/bet:     -0.103E+02+i  0.11424E+02rnrm:      0.234E-01
+ k:            5  step:          187
+ gmres done. eps:   7.008832035401543E-007 mv:           30
+alp/bet:     -0.905E+01+i  0.12053E+02rnrm:      0.557E-01
+ k:            5  step:          188
+ gmres done. eps:   2.552062972872113E-007 mv:           30
+alp/bet:     -0.159E+02+i -0.80964E+00rnrm:      0.219E-01
+ k:            5  step:          189
+ gmres done. eps:   3.900942162077552E-004 mv:           30
+alp/bet:     -0.110E+02+i -0.12048E+02rnrm:      0.205E-02
+ k:            5  step:          190
+ gmres done. eps:   2.243837930856533E-006 mv:           30
+alp/bet:     -0.115E+02+i -0.11362E+02rnrm:      0.907E-02
+ k:            5  step:          191
+ gmres done. eps:   2.567998990661159E-006 mv:           30
+alp/bet:     -0.624E+00+i -0.16209E+02rnrm:      0.118E+00
+ k:            5  step:          192
+ gmres done. eps:   5.030058052460690E-009 mv:           30
+alp/bet:     -0.686E+01+i -0.14816E+02rnrm:      0.687E-01
+ k:            5  step:          193
+ gmres done. eps:   1.426108282385020E-007 mv:           30
+alp/bet:     -0.159E+02+i  0.89423E+00rnrm:      0.181E-01
+ k:            5  step:          194
+ gmres done. eps:   7.711558547577259E-004 mv:           30
+alp/bet:     -0.153E+02+i  0.27809E+01rnrm:      0.171E-01
+ k:            5  step:          195
+ gmres done. eps:   1.077723044962061E-004 mv:           30
+alp/bet:     -0.124E+02+i  0.69967E+01rnrm:      0.294E-01
+ k:            5  step:          196
+ gmres done. eps:   1.680700422244044E-006 mv:           30
+alp/bet:     -0.150E+02+i -0.33414E+01rnrm:      0.347E-01
+ k:            5  step:          197
+ gmres done. eps:   3.599634634452558E-005 mv:           30
+alp/bet:     -0.725E+01+i  0.13667E+02rnrm:      0.518E-01
+ k:            5  step:          198
+ gmres done. eps:   6.165312693079180E-008 mv:           30
+alp/bet:     -0.121E+02+i -0.10418E+02rnrm:      0.297E-01
+ k:            5  step:          199
+ gmres done. eps:   3.788007643747806E-006 mv:           30
+alp/bet:     -0.161E+02+i  0.30630E+01rnrm:      0.355E-03
+ k:            5  step:          200
+ gmres done. eps:   4.690327721666583E-004 mv:           30
+alp/bet:     -0.148E+02+i  0.48338E+01rnrm:      0.203E-01
