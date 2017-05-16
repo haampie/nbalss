@@ -1,0 +1,58 @@
+ repnt done
+  Newton process 
+         Residu :  0.2187E-02 Par( 5) :  0.6888E+02
+         Residu :  0.1761E-05 Par( 5) :  0.6888E+02
+up  :   0.1520E+03 lp  :   0.5429E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2304E-01  +i   0.9343E+01
+ (1.472403062545426E-019,4.166293298192422E-019)
+ (-9.998442219321411E-020,-4.309917321827753E-019)
+error norm:   0.167558E-10
+ -4.295847300000000E-002 -2.303650447593054E-002
+  Newton process 
+         Residu :  0.4373E-02 Par( 5) :  0.6897E+02
+         Residu :  0.7380E-05 Par( 5) :  0.6897E+02
+up  :   0.1520E+03 lp  :   0.5434E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.3066E-02  +i   0.9368E+01
+ (3.460593055332291E-019,-9.952497416597998E-020)
+ (1.826219412346566E-019,-3.301127679099117E-020)
+error norm:   0.225307E-10
+ -2.303650447593054E-002 -3.065643651024642E-003
+  Newton process 
+         Residu :  0.4375E-02 Par( 5) :  0.6905E+02
+         Residu :  0.7408E-05 Par( 5) :  0.6905E+02
+up  :   0.1519E+03 lp  :   0.5439E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1695E-01  +i   0.9393E+01
+ (-2.205436537362707E-019,1.111335122104361E-019)
+ (6.465750561141336E-019,-3.240718448583087E-019)
+error norm:   0.535969E-10
+ -3.065643651024642E-003  1.695445043601457E-002
+  Hopf bifurcation point 
+ Detecting special point
+ Secant proces: It: 1 s:   0.1500E+00 F(s):   0.1695E-01
+  Newton process 
+         Residu :  0.2837E-03 Par( 5) :  0.6898E+02
+         Residu :  0.3673E-07 Par( 5) :  0.6898E+02
+up  :   0.1519E+03 lp  :   0.5439E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.3220E-05  +i  -0.9372E+01
+ (5.672591845697977E-019,1.171249905460118E-018)
+ (5.940950754588242E-020,1.119571199437161E-019)
+error norm:   0.198383E-08
+ Secant proces: It: 2 s:   0.2297E-01 F(s):  -0.3220E-05
+  Newton process 
+         Residu :  0.2978E-06 Par( 5) :  0.6898E+02
+up  :   0.1519E+03 lp  :   0.5437E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5164E-08  +i   0.9372E+01
+ (-8.301108386204516E-020,4.639633675497430E-019)
+ (-1.498366103447662E-019,3.253047396212264E-019)
+error norm:   0.236525E-07
+ Special point at xl:   0.6898E+02 F(xl):   0.5164E-08
