@@ -1,0 +1,924 @@
+ Eigenv.No of point changed from           12  to            1
+ repnt done
+  Newton process 
+         Residu :  0.7796E+00 Par( 5) :  0.2917E+02
+         Residu :  0.7269E+00 Par( 5) :  0.2915E+02
+         Residu :  0.5834E-01 Par( 5) :  0.2914E+02
+         Residu :  0.3869E-03 Par( 5) :  0.2914E+02
+         Residu :  0.1688E-07 Par( 5) :  0.2914E+02
+up  :   0.1733E+03 lp  :   0.2897E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1585E+00  +i  -0.8278E-11
+ (1.288354776490248E-018,-3.030706364578625E-018)
+ (-1.250849292904336E-018,2.959643290339446E-018)
+error norm:   0.797554E-10
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):  -0.1585E+00
+  Newton process 
+         Residu :  0.2653E-02 Par( 5) :  0.2912E+02
+         Residu :  0.1173E-04 Par( 5) :  0.2912E+02
+up  :   0.1733E+03 lp  :   0.2889E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1679E+00  +i   0.9034E-07
+ (-6.861719061737692E-018,-1.041672822582596E-017)
+ (-3.465403404396354E-018,-5.278577912092268E-018)
+error norm:   0.243536E-06
+ Secant proces: It: 2 s:   0.4266E+00 F(s):  -0.1679E+00
+  Newton process 
+         Residu :  0.1374E+00 Par( 5) :  0.2950E+02
+         Residu :  0.2079E-02 Par( 5) :  0.2950E+02
+         Residu :  0.2538E-05 Par( 5) :  0.2950E+02
+up  :   0.1734E+03 lp  :   0.2867E+00
+ Stabjdqz be Sta Stabjdqz done
+sig=  -0.4985E-02  +i   0.1898E-08
+ (1.981414610241412E-019,3.918221528824802E-020)
+ (-5.947732796086192E-019,-9.375222093082180E-020)
+error norm:   0.525473E-08
+ Secant proces: It: 3 s:   0.1738E+01 F(s):  -0.4985E-02
+  Newton proce             Residu :  0.5268E-02 Par( 5) :  0.2951E             Residu :  0.3432E-02 Par( 5) :  0.2951E             Residu :  0.3454E-04 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2842E+00
+ Stabjdqz be Sta Stabjdqz done
+sig=  -0.1635E-03  +i  -0.1255E-08
+ (-1.839333451098618E-018,8.692626435019714E-019)
+ (-1.865393829449631E-019,9.078663003270584E-020)
+error norm:   0.164540E-08
+ Secant proces: It: 4 s:   0.1778E+01 F(s):  -0.1635E-03
+  Newton proce             Residu :  0.5343E-05 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E Sta Stabjdqz be Stabjdqz done
+sig=  -0.1851E-07  +i  -0.1659E-08
+ (8.671176908154271E-019,-3.554793326220804E-020)
+ (6.421961418898210E-019,-3.498534928260533E-020)
+error norm:   0.821573E-08
+ Special point at xl:   0.2951E+02 F(xl):  -0.1851E-07
+0E-06
+  Newton process 
+         Residu :  0.2129E-01 Par( 5) :  0.2965E+02
+         Residu :  0.1076E-03 Par( 5) :  0.2965E+02
+         Residu :  0.1320E-08 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5932E-01  +i   0.1510E-11
+ (4.144217288750698E-017,-4.774196025469250E-019)
+ (-2.296586328254126E-018,2.644367427426853E-020)
+error norm:   0.716129E-06
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.5932E-01
+  Newton process 
+         Residu :  0.6687E-07 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2203E-08  +i   0.6149E-08
+ (3.522694524625141E-018,4.933457091145663E-018)
+ (3.800630295678134E-018,5.452968817346299E-018)
+error norm:   0.615776E-07
+ Secant proces: It: 2 s:   0.1416E-05 F(s):   0.2203E-08
+  Newton process 
+         Residu :  0.6216E-11 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.3204E-08  +i  -0.8213E-08
+ (1.521391076009712E-017,-6.401957166379809E-018)
+ (6.785380926610635E-018,-2.783028382697013E-018)
+error norm:   0.100090E-06
+ Special point at xl:   0.2951E+02 F(xl):  -0.3204E-08
+  Newton process 
+         Residu :  0.1679E-03 Par( 5) :  0.2965E+02
+         Residu :  0.7733E-05 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2402E+02  +i  -0.2520E+02
+ (-1.474727631793633E-020,-2.392699952978564E-018)
+ (3.077495271654153E-020,4.993145730030129E-018)
+error norm:   0.175305E-06
+  Newton process 
+         Residu :  0.4194E-01 Par( 5) :  0.2979E+02
+         Residu :  0.4174E-03 Par( 5) :  0.2979E+02
+         Residu :  0.2048E-07 Par( 5) :  0.2979E+02
+up  :   0.1737E+03 lp  :   0.2813E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1172E+00  +i  -0.1226E-07
+ (-2.647560060601212E-019,1.572175699035716E-021)
+ (-3.948500998905747E-019,-9.062611077794920E-021)
+error norm:   0.333789E-07
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.1172E+00
+  Newton process 
+         Residu :  0.1010E-03 Par( 5) :  0.2979E+02
+         Residu :  0.5046E-06 Par( 5) :  0.2979E+02
+up  :   0.1738E+03 lp  :   0.2804E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1169E+00  +i  -0.4559E-10
+ (6.849788851760581E-019,-2.347574180569206E-019)
+ (1.178676488768038E-018,-3.907624743948621E-019)
+error norm:   0.256843E-09
+ Secant proces: It: 2 s:   0.4976E+00 F(s):   0.1169E+00
+  Newton process 
+         Residu :  0.8756E-01 Par( 5) :  0.2950E+02
+         Residu :  0.9582E-03 Par( 5) :  0.2950E+02
+         Residu :  0.4673E-07 Par( 5) :  0.2950E+02
+up  :   0.1737E+03 lp  :   0.2823E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2982E-02  +i   0.6592E-09
+ (4.108431468857816E-019,9.288413534031750E-019)
+ (1.013997437035294E-019,2.647666653934925E-019)
+error norm:   0.349695E-08
+ Secant proces: It: 3 s:  -0.5248E+00 F(s):  -0.2982E-02
+  Newton process 
+         Residu :  0.2436E-02 Par( 5) :  0.2951E+02
+         Residu :  0.1545E-02 Par( 5) :  0.2951E+02
+         Residu :  0.9455E-05 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2746E+02  +i   0.1943E+02
+ (5.573825757078927E-018,-2.839108238857091E-017)
+ (-8.801554964313327E-018,4.483198463194409E-017)
+error norm:   0.311775E-05
+ Secant proces: It: 4 s:  -0.4994E+00 F(s):  -0.2746E+02
+  Newton process 
+         Residu :  0.2119E-06 Par( 5) :  0.2950E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2982E-02  +i  -0.3662E-08
+ (9.071719367768514E-019,8.387766740281378E-019)
+ (3.275581080532210E-019,3.055278081568124E-019)
+error norm:   0.133115E-07
+ no convergence in secant proces
+  Newton process 
+         Residu :  0.1996E-01 Par( 5) :  0.2965E+02
+         Residu :  0.1023E-03 Par( 5) :  0.2965E+02
+         Residu :  0.1106E-08 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2833E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5641E-01  +i   0.3794E-13
+ (1.078351447627003E-023,4.076039210829385E-024)
+ (1.837497663033662E-024,6.598728639098174E-025)
+error norm:   0.881044E-12
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.5641E-01
+  Newton process 
+         Residu :  0.1127E-02 Par( 5) :  0.2951E+02
+         Residu :  0.6275E-03 Par( 5) :  0.2951E+02
+         Residu :  0.8852E-07 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3491E-04  +i  -0.2102E-10
+ (1.359683412843749E-019,-4.568272795087500E-019)
+ (-4.350506413273231E-020,2.104567983650149E-019)
+error norm:   0.100607E-09
+ Secant proces: It: 2 s:   0.2511E-01 F(s):   0.3491E-04
+  Newton process 
+         Residu :  0.1321E-04 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2746E+02  +i  -0.1943E+02
+ (2.403425710018009E-016,4.501561055000565E-016)
+ (-3.131932190424943E-016,-5.866036904288307E-016)
+error norm:   0.851081E-05
+ Secant proces: It: 3 s:   0.2481E-01 F(s):  -0.2746E+02
+  Newton process 
+         Residu :  0.8018E-07 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3491E-04  +i  -0.8240E-12
+ (3.475505232040426E-019,1.657778692360971E-019)
+ (2.684515013445492E-020,1.395421031880766E-020)
+error norm:   0.108964E-10
+ Secant proces: It: 4 s:   0.2511E-01 F(s):   0.3491E-04
+  Newton process 
+         Residu :  0.4495E-11 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3491E-04  +i   0.2172E-13
+ (1.665745774072588E-022,1.564542012289161E-023)
+ (1.789732462856467E-021,1.694644604193086E-022)
+error norm:   0.429347E-10
+ Special point at xl:   0.2951E+02 F(xl):   0.3491E-04
+  Newton process 
+         Residu :  0.2383E-01 Par( 5) :  0.2965E+02
+         Residu :  0.4818E-03 Par( 5) :  0.2965E+02
+         Residu :  0.4708E-07 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5936E-01  +i  -0.9136E-11
+ (2.559256864951765E-019,1.303566718309958E-019)
+ (5.195911484063686E-019,2.938859654259360E-019)
+error norm:   0.965450E-09
+  Newton process 
+         Residu :  0.4194E-01 Par( 5) :  0.2979E+02
+         Residu :  0.4178E-03 Par( 5) :  0.2979E+02
+         Residu :  0.2048E-07 Par( 5) :  0.2979E+02
+up  :   0.1737E+03 lp  :   0.2813E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1172E+00  +i  -0.1888E-07
+ (8.161626070059577E-019,1.041834461037182E-018)
+ (-1.020562209312522E-018,-1.318354695324816E-018)
+error norm:   0.706767E-07
+  Newton process 
+         Residu :  0.4179E-01 Par( 5) :  0.2993E+02
+         Residu :  0.4133E-03 Par( 5) :  0.2993E+02
+         Residu :  0.2019E-07 Par( 5) :  0.2993E+02
+up  :   0.1738E+03 lp  :   0.2795E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1737E+00  +i  -0.7360E-12
+ (-5.713222910011548E-018,7.692362514389601E-019)
+ (4.596556384368512E-018,-6.206859660089711E-019)
+error norm:   0.195931E-07
+  Newton process 
+         Residu :  0.4171E-01 Par( 5) :  0.3007E+02
+         Residu :  0.4098E-03 Par( 5) :  0.3007E+02
+         Residu :  0.1990E-07 Par( 5) :  0.3007E+02
+up  :   0.1739E+03 lp  :   0.2776E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2288E+00  +i   0.6775E-10
+ (-7.489104283323087E-019,-5.567034804198966E-019)
+ (-9.314769133230526E-019,-6.444953756450701E-019)
+error norm:   0.244150E-09
+  Newton process 
+         Residu :  0.4159E-01 Par( 5) :  0.3021E+02
+         Residu :  0.4058E-03 Par( 5) :  0.3021E+02
+         Residu :  0.1961E-07 Par( 5) :  0.3021E+02
+up  :   0.1740E+03 lp  :   0.2758E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.4963E+01  +i   0.3208E-07
+ (-9.658627909266946E-018,-1.189091154131069E-017)
+ (-2.758926124819338E-017,-3.396563789068399E-017)
+error norm:   0.139868E-05
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):  -0.4963E+01
+  Newton process 
+         Residu :  0.8741E-03 Par( 5) :  0.3008E+02
+         Residu :  0.1908E-06 Par( 5) :  0.3008E+02
+up  :   0.1740E+03 lp  :   0.2757E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2312E+00  +i   0.5522E-10
+ (3.086426803846878E-019,1.871934504533507E-019)
+ (-3.036617853110951E-018,-1.873918765235799E-018)
+error norm:   0.286794E-09
+ Secant proces: It: 2 s:   0.2204E-01 F(s):   0.2312E+00
+  Newton process 
+         Residu :  0.8063E-03 Par( 5) :  0.3008E+02
+         Residu :  0.3645E-05 Par( 5) :  0.3008E+02
+up  :   0.1740E+03 lp  :   0.2766E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2029E+02  +i  -0.7812E-08
+ (-4.328766429583452E-019,1.026897367016039E-018)
+ (9.919516823710646E-019,-3.436258913323305E-018)
+error norm:   0.540313E-07
+ Secant proces: It: 3 s:   0.4332E-01 F(s):  -0.2029E+02
+  Newton process 
+         Residu :  0.4322E-06 Par( 5) :  0.3008E+02
+up  :   0.1740E+03 lp  :   0.2766E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2313E+00  +i   0.8745E-08
+ (3.424768506028703E-018,-3.174968063676583E-019)
+ (5.577583026007035E-019,-5.525931299988362E-020)
+error norm:   0.990628E-08
+ Secant proces: It: 4 s:   0.2228E-01 F(s):   0.2313E+00
+  Newton process 
+         Residu :  0.4100E-06 Par( 5) :  0.3008E+02
+up  :   0.1740E+03 lp  :   0.2766E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2313E+00  +i   0.5808E-08
+ (-1.176561992499873E-018,-2.145781997811377E-018)
+ (-1.477975882006897E-018,-2.566316679010702E-018)
+error norm:   0.311158E-07
+ Special point at xl:   0.3008E+02 F(xl):   0.2313E+00
+  Newton process 
+         Residu :  0.2077E-01 Par( 5) :  0.3022E+02
+         Residu :  0.1016E-03 Par( 5) :  0.3022E+02
+         Residu :  0.1223E-08 Par( 5) :  0.3022E+02
+up  :   0.1740E+03 lp  :   0.2757E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2850E+00  +i  -0.3157E-07
+ (2.229622650989806E-018,4.501944422043640E-016)
+ (-6.587816941289394E-018,-1.319237940169688E-015)
+error norm:   0.458174E-06
+  Newton process 
+         Residu :  0.4143E-01 Par( 5) :  0.3035E+02
+         Residu :  0.4022E-03 Par( 5) :  0.3035E+02
+         Residu :  0.1932E-07 Par( 5) :  0.3035E+02
+up  :   0.1741E+03 lp  :   0.2738E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3374E+00  +i  -0.1322E-06
+ (2.788262416430107E-018,1.109840004905607E-017)
+ (-1.541322432291525E-018,-6.153279251437362E-018)
+error norm:   0.121403E-06
+  Newton process 
+         Residu :  0.4125E-01 Par( 5) :  0.3049E+02
+         Residu :  0.3987E-03 Par( 5) :  0.3049E+02
+         Residu :  0.1905E-07 Par( 5) :  0.3049E+02
+up  :   0.1742E+03 lp  :   0.2720E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3886E+00  +i  -0.2896E-10
+ (3.600406072587358E-018,1.724970478264850E-018)
+ (-4.308688720224620E-018,-2.051168637202275E-018)
+error norm:   0.273632E-06
+  Newton process 
+         Residu :  0.4119E-01 Par( 5) :  0.3062E+02
+         Residu :  0.3946E-03 Par( 5) :  0.3062E+02
+         Residu :  0.1878E-07 Par( 5) :  0.3062E+02
+up  :   0.1743E+03 lp  :   0.2701E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.4385E+00  +i   0.4064E-09
+ (-7.684642578219421E-019,-7.080150304263591E-019)
+ (1.476148368488124E-018,1.282919356699165E-018)
+error norm:   0.287507E-07
+  Newton process 
+         Residu :  0.4110E-01 Par( 5) :  0.3076E+02
+         Residu :  0.3913E-03 Par( 5) :  0.3076E+02
+         Residu :  0.1851E-07 Par( 5) :  0.3076E+02
+up  :   0.1744E+03 lp  :   0.2682E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.4872E+00  +i   0.3564E-13
+ (-9.505954646154121E-026,1.778466732895833E-024)
+ (1.459813148391813E-024,-2.390212040994469E-023)
+error norm:   0.100791E-11
+  Newton process 
+         Residu :  0.4097E-01 Par( 5) :  0.3089E+02
+         Residu :  0.3877E-03 Par( 5) :  0.3089E+02
+         Residu :  0.1825E-07 Par( 5) :  0.3089E+02
+up  :   0.1745E+03 lp  :   0.2664E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5348E+00  +i  -0.1647E-09
+ (2.193177732976160E-019,9.629738298207693E-019)
+ (8.625502450134038E-020,3.560316481892570E-019)
+error norm:   0.227131E-09
+  Newton process 
+         Residu :  0.4080E-01 Par( 5) :  0.3102E+02
+         Residu :  0.3844E-03 Par( 5) :  0.3102E+02
+         Residu :  0.1800E-07 Par( 5) :  0.3102E+02
+up  :   0.1746E+03 lp  :   0.2645E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5812E+00  +i   0.2779E-13
+ (1.051945776089644E-023,1.084559686867985E-024)
+ (-2.565465909659327E-024,-2.442428358041201E-025)
+error norm:   0.231429E-11
+  Newton process 
+         Residu :  0.4067E-01 Par( 5) :  0.3116E+02
+         Residu :  0.3810E-03 Par( 5) :  0.3116E+02
+         Residu :  0.1774E-07 Par( 5) :  0.3116E+02
+up  :   0.1747E+03 lp  :   0.2626E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.6264E+00  +i  -0.2909E-12
+ (-7.910857934418428E-019,-6.879852595704302E-020)
+ (8.426935855622050E-019,7.031968701866714E-020)
+error norm:   0.671257E-07
+  Newton process 
+         Residu :  0.4059E-01 Par( 5) :  0.3129E+02
+         Residu :  0.3792E-03 Par( 5) :  0.3129E+02
+         Residu :  0.1750E-07 Par( 5) :  0.3129E+02
+up  :   0.1748E+03 lp  :   0.2608E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.6706E+00  +i   0.1484E-11
+ (-3.557489801479126E-018,-1.423000782970119E-018)
+ (9.736253402588782E-018,3.845657935331093E-018)
+error norm:   0.373848E-06
+  Newton process 
+         Residu :  0.4047E-01 Par( 5) :  0.3141E+02
+         Residu :  0.3745E-03 Par( 5) :  0.3141E+02
+         Residu :  0.1725E-07 Par( 5) :  0.3141E+02
+up  :   0.1748E+03 lp  :   0.2589E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.7137E+00  +i  -0.7642E-09
+ (5.063408708502377E-019,8.507307745641634E-021)
+ (-8.495759781095855E-019,-1.461944659876130E-020)
+error norm:   0.177563E-07
+  Newton process 
+         Residu :  0.4033E-01 Par( 5) :  0.3154E+02
+         Residu :  0.3714E-03 Par( 5) :  0.3154E+02
+         Residu :  0.1701E-07 Par( 5) :  0.3154E+02
+up  :   0.1749E+03 lp  :   0.2570E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.7558E+00  +i  -0.9527E-12
+ (2.147401066509172E-019,-3.666338142926078E-020)
+ (-3.870584525583887E-019,6.461251522199100E-020)
+error norm:   0.170861E-08
+  Newton process 
+         Residu :  0.4017E-01 Par( 5) :  0.3167E+02
+         Residu :  0.3704E-03 Par( 5) :  0.3167E+02
+         Residu :  0.1678E-07 Par( 5) :  0.3167E+02
+up  :   0.1750E+03 lp  :   0.2552E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.7968E+00  +i   0.5371E-11
+ (2.579448956308105E-019,-7.133557509244354E-019)
+ (2.587575683931706E-020,-1.033318710944146E-019)
+error norm:   0.241470E-07
+  Newton process 
+         Residu :  0.4011E-01 Par( 5) :  0.3180E+02
+         Residu :  0.3653E-03 Par( 5) :  0.3180E+02
+         Residu :  0.1655E-07 Par( 5) :  0.3180E+02
+up  :   0.1751E+03 lp  :   0.2533E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.8369E+00  +i   0.1085E-08
+ (-2.685173897270536E-019,-7.863372818675094E-019)
+ (-6.135645991602330E-020,-2.088003830543471E-019)
+error norm:   0.856593E-09
+  Newton process 
+         Residu :  0.4003E-01 Par( 5) :  0.3192E+02
+         Residu :  0.3621E-03 Par( 5) :  0.3192E+02
+         Residu :  0.1632E-07 Par( 5) :  0.3192E+02
+up  :   0.1752E+03 lp  :   0.2514E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.8759E+00  +i   0.8011E-12
+ (2.877309976364824E-018,2.076643216540583E-020)
+ (4.890574541726258E-018,3.540112901660082E-020)
+error norm:   0.918842E-08
+  Newton process 
+         Residu :  0.3991E-01 Par( 5) :  0.3205E+02
+         Residu :  0.3590E-03 Par( 5) :  0.3205E+02
+         Residu :  0.1609E-07 Par( 5) :  0.3205E+02
+up  :   0.1753E+03 lp  :   0.2496E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.9141E+00  +i  -0.1989E-12
+ (-2.713215770093922E-018,-1.712407825424315E-019)
+ (-6.706838507066674E-019,-4.198141405846320E-020)
+error norm:   0.110330E-06
+  Newton process 
+         Residu :  0.3976E-01 Par( 5) :  0.3217E+02
+         Residu :  0.3559E-03 Par( 5) :  0.3217E+02
+         Residu :  0.1587E-07 Par( 5) :  0.3217E+02
+up  :   0.1754E+03 lp  :   0.2477E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.9513E+00  +i   0.5833E-12
+ (6.365595575403248E-017,3.468521610126938E-020)
+ (-1.905025369594090E-017,-1.037930382403012E-020)
+error norm:   0.526150E-06
+  Newton process 
+         Residu :  0.3958E-01 Par( 5) :  0.3229E+02
+         Residu :  0.3531E-03 Par( 5) :  0.3229E+02
+         Residu :  0.1565E-07 Par( 5) :  0.3229E+02
+up  :   0.1755E+03 lp  :   0.2458E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.9876E+00  +i  -0.2296E-11
+ (-1.772030406322820E-018,-1.375735687757517E-018)
+ (-1.296621080581372E-018,-1.012120218649090E-018)
+error norm:   0.219490E-06
+  Newton process 
+         Residu :  0.3953E-01 Par( 5) :  0.3242E+02
+         Residu :  0.3501E-03 Par( 5) :  0.3242E+02
+         Residu :  0.1544E-07 Par( 5) :  0.3242E+02
+up  :   0.1755E+03 lp  :   0.2440E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1023E+01  +i  -0.2330E-09
+ (-1.919074640949569E-018,-1.239047462547578E-015)
+ (3.315896598107387E-019,2.161957343740279E-016)
+error norm:   0.102178E-06
+  Newton process 
+         Residu :  0.3944E-01 Par( 5) :  0.3254E+02
+         Residu :  0.3471E-03 Par( 5) :  0.3254E+02
+         Residu :  0.1523E-07 Par( 5) :  0.3254E+02
+up  :   0.1756E+03 lp  :   0.2421E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1058E+01  +i   0.2900E-09
+ (3.474848879877091E-019,-1.568795976516257E-018)
+ (-7.574926715646570E-019,3.886206198268256E-018)
+error norm:   0.770821E-09
+  Newton process 
+         Residu :  0.3933E-01 Par( 5) :  0.3266E+02
+         Residu :  0.3443E-03 Par( 5) :  0.3266E+02
+         Residu :  0.1502E-07 Par( 5) :  0.3266E+02
+up  :   0.1757E+03 lp  :   0.2402E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1091E+01  +i   0.4657E-08
+ (7.091224616316768E-019,9.826841901144115E-019)
+ (1.114508580889908E-019,1.545848411611836E-019)
+error norm:   0.223635E-07
+  Newton process 
+         Residu :  0.3918E-01 Par( 5) :  0.3278E+02
+         Residu :  0.3421E-03 Par( 5) :  0.3278E+02
+         Residu :  0.1482E-07 Par( 5) :  0.3278E+02
+up  :   0.1758E+03 lp  :   0.2384E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1124E+01  +i  -0.2650E-08
+ (1.344853841491888E-018,1.284340684510003E-018)
+ (-6.060445067769201E-019,-5.437199683599808E-019)
+error norm:   0.155568E-07
+  Newton process 
+         Residu :  0.3904E-01 Par( 5) :  0.3290E+02
+         Residu :  0.3385E-03 Par( 5) :  0.3290E+02
+         Residu :  0.1462E-07 Par( 5) :  0.3290E+02
+up  :   0.1759E+03 lp  :   0.2365E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1156E+01  +i   0.4031E-08
+ (1.100555802011077E-018,-9.698934816588224E-019)
+ (4.258551023579224E-019,-3.853081202661930E-019)
+error norm:   0.236173E-08
+  Newton process 
+         Residu :  0.3899E-01 Par( 5) :  0.3301E+02
+         Residu :  0.3355E-03 Par( 5) :  0.3301E+02
+         Residu :  0.1442E-07 Par( 5) :  0.3301E+02
+up  :   0.1760E+03 lp  :   0.2347E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1188E+01  +i   0.7447E-07
+ (1.784896794800231E-017,1.069962741550857E-017)
+ (3.256500865976857E-018,1.956342881992579E-018)
+error norm:   0.348216E-06
+  Newton process 
+         Residu :  0.3890E-01 Par( 5) :  0.3313E+02
+         Residu :  0.3328E-03 Par( 5) :  0.3313E+02
+         Residu :  0.1422E-07 Par( 5) :  0.3313E+02
+up  :   0.1760E+03 lp  :   0.2328E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1218E+01  +i  -0.3945E-06
+ (1.582960526281176E-018,-4.212787604489983E-019)
+ (1.630966219643793E-018,-4.713987173039702E-019)
+error norm:   0.672929E-07
+  Newton process 
+         Residu :  0.3878E-01 Par( 5) :  0.3324E+02
+         Residu :  0.3299E-03 Par( 5) :  0.3324E+02
+         Residu :  0.1403E-07 Par( 5) :  0.3324E+02
+up  :   0.1761E+03 lp  :   0.2309E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1248E+01  +i   0.2558E-06
+ (-7.167723486012131E-019,-1.952864427326677E-019)
+ (9.454389803691966E-019,2.656088196748163E-019)
+error norm:   0.138305E-06
+  Newton process 
+         Residu :  0.3864E-01 Par( 5) :  0.3336E+02
+         Residu :  0.3276E-03 Par( 5) :  0.3336E+02
+         Residu :  0.1384E-07 Par( 5) :  0.3336E+02
+up  :   0.1762E+03 lp  :   0.2291E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1277E+01  +i  -0.8823E-10
+ (-2.499258975100839E-019,-9.754478704851363E-020)
+ (-1.273259597466378E-019,-5.018017626660815E-020)
+error norm:   0.680147E-09
+  Newton process 
+         Residu :  0.3849E-01 Par( 5) :  0.3347E+02
+         Residu :  0.3246E-03 Par( 5) :  0.3347E+02
+         Residu :  0.1366E-07 Par( 5) :  0.3347E+02
+up  :   0.1763E+03 lp  :   0.2272E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1681E+02  +i  -0.3711E+02
+ (5.628376172898302E-020,-3.805930952739408E-019)
+ (-1.446406131184424E-019,1.022880751871060E-018)
+error norm:   0.899511E-07
+  Hopf bifurcation point 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):  -0.1681E+02
+  Newton process 
+         Residu :  0.1262E-02 Par( 5) :  0.3337E+02
+         Residu :  0.3821E-06 Par( 5) :  0.3337E+02
+up  :   0.1763E+03 lp  :   0.2272E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1279E+01  +i  -0.1676E-13
+ (8.151551320567107E-019,-1.407268588380808E-019)
+ (-2.910750747613259E-019,-9.658912205750027E-021)
+error norm:   0.296580E-10
+ Secant proces: It: 2 s:   0.3531E-01 F(s):   0.1279E+01
+  Newton process 
+         Residu :  0.1092E-02 Par( 5) :  0.3337E+02
+         Residu :  0.4040E-05 Par( 5) :  0.3337E+02
+up  :   0.1763E+03 lp  :   0.2280E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1281E+01  +i   0.4135E-09
+ (-1.183817845903618E-018,1.123090969665733E-018)
+ (-1.897409846910121E-018,1.533453386469652E-018)
+error norm:   0.386774E-08
+ Secant proces: It: 3 s:   0.6817E-01 F(s):   0.1281E+01
+  Newton process 
+         Residu :  0.4224E+02 Par( 5) :  0.2686E+02
+         Residu :  0.1834E+02 Par( 5) :  0.2724E+02
+         Residu :  0.5519E+00 Par( 5) :  0.2725E+02
+         Residu :  0.1019E-02 Par( 5) :  0.2725E+02
+         Residu :  0.4293E-08 Par( 5) :  0.2725E+02
+up  :   0.1741E+03 lp  :   0.2743E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1104E+01  +i   0.8013E-07
+ (-6.267793539445488E-019,-6.891182608381205E-019)
+ (-2.326007371685706E-018,-2.597747767391223E-018)
+error norm:   0.132977E-06
+ Secant proces: It: 4 s:  -0.2226E+02 F(s):  -0.1104E+01
+  Newton process 
+         Residu :  0.9944E+01 Par( 5) :  0.3033E+02
+         Residu :  0.9332E+00 Par( 5) :  0.3029E+02
+         Residu :  0.9230E-02 Par( 5) :  0.3029E+02
+         Residu :  0.7946E-06 Par( 5) :  0.3029E+02
+up  :   0.1730E+03 lp  :   0.2939E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3126E+00  +i  -0.9169E-09
+ (2.499493827505681E-018,2.178564982062873E-019)
+ (2.297176890050903E-019,2.026112830475561E-020)
+error norm:   0.138089E-08
+ no convergence in secant proces
+  Newton process 
+         Residu :  0.4603E+00 Par( 5) :  0.3043E+02
+         Residu :  0.4884E-01 Par( 5) :  0.3042E+02
+         Residu :  0.2864E-03 Par( 5) :  0.3042E+02
+         Residu :  0.9520E-08 Par( 5) :  0.3042E+02
+up  :   0.1742E+03 lp  :   0.2729E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1986E+02  +i  -0.1430E-11
+ (6.774746329913550E-017,7.726038879539618E-021)
+ (-1.072702631027310E-017,-1.224374100413491E-021)
+error norm:   0.797295E-05
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):  -0.1986E+02
+  Newton process 
+         Residu :  0.3146E-03 Par( 5) :  0.3029E+02
+         Residu :  0.2398E-07 Par( 5) :  0.3029E+02
+up  :   0.1742E+03 lp  :   0.2728E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3135E+00  +i   0.5914E-13
+ (-9.637855693221059E-024,-4.232992660178356E-024)
+ (-4.600978441934622E-024,-1.980192438259705E-024)
+error norm:   0.520301E-11
+ Secant proces: It: 2 s:   0.7751E-02 F(s):   0.3135E+00
+  Newton process 
+         Residu :  0.3057E-03 Par( 5) :  0.3029E+02
+         Residu :  0.1457E-05 Par( 5) :  0.3029E+02
+up  :   0.1741E+03 lp  :   0.2737E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3143E+00  +i   0.4696E-12
+ (-1.632055557219485E-016,2.722912667595549E-020)
+ (1.382152298402428E-016,-2.305984181809223E-020)
+error norm:   0.533588E-06
+ Secant proces: It: 3 s:   0.1540E-01 F(s):   0.3143E+00
+  Newton process 
+         Residu :  0.7478E+00 Par( 5) :  0.2945E+02
+         Residu :  0.2564E-01 Par( 5) :  0.2945E+02
+         Residu :  0.5156E-04 Par( 5) :  0.2945E+02
+up  :   0.1738E+03 lp  :   0.2794E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.4989E+01  +i   0.1063E+03
+ (2.288636633955375E-015,-1.012157021909414E-014)
+ (-2.180697240825363E-015,9.644444305039390E-015)
+error norm:   0.723416E-04
+ Secant proces: It: 4 s:  -0.2987E+01 F(s):  -0.4989E+01
+  Newton process 
+         Residu :  0.4187E-01 Par( 5) :  0.3024E+02
+         Residu :  0.7066E-04 Par( 5) :  0.3024E+02
+up  :   0.1738E+03 lp  :   0.2797E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.3196E+02  +i  -0.1028E+02
+ (-7.435552303120220E-017,3.598306939443686E-017)
+ (-2.506186860351135E-017,1.211866404609760E-017)
+error norm:   0.243606E-05
+ no convergence in secant proces
+  Newton process 
+         Residu :  0.1386E+00 Par( 5) :  0.3038E+02
+         Residu :  0.4493E-02 Par( 5) :  0.3038E+02
+         Residu :  0.2413E-05 Par( 5) :  0.3038E+02
+up  :   0.1741E+03 lp  :   0.2735E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3477E+00  +i  -0.1085E-07
+ (-6.350158871681997E-019,1.907399519924533E-019)
+ (-2.370482378647616E-019,7.120091403830807E-020)
+error norm:   0.389979E-07
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.3477E+00
+  Newton process 
+         Residu :  0.2195E-03 Par( 5) :  0.3038E+02
+         Residu :  0.1065E-05 Par( 5) :  0.3038E+02
+up  :   0.1742E+03 lp  :   0.2725E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.3471E+00  +i  -0.7846E-06
+ (-2.819039542414208E-017,-2.422711791874151E-018)
+ (8.361283418258987E-017,7.208823606207032E-018)
+error norm:   0.672738E-06
+ Secant proces: It: 2 s:   0.4946E+00 F(s):   0.3471E+00
+  Newton process 
+         Residu :  0.9402E+00 Par( 5) :  0.2944E+02
+         Residu :  0.3629E-01 Par( 5) :  0.2944E+02
+         Residu :  0.5480E-04 Par( 5) :  0.2944E+02
+up  :   0.1738E+03 lp  :   0.2789E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2975E-01  +i   0.6234E-12
+ (-7.199812571340750E-019,9.729299813798191E-019)
+ (-3.583992635188650E-019,5.114888994593016E-019)
+error norm:   0.442019E-10
+ Secant proces: It: 3 s:  -0.2867E+01 F(s):  -0.2975E-01
+  Newton process 
+         Residu :  0.6856E-01 Par( 5) :  0.2952E+02
+         Residu :  0.2141E-02 Par( 5) :  0.2952E+02
+         Residu :  0.2338E-05 Par( 5) :  0.2952E+02
+up  :   0.1735E+03 lp  :   0.2845E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.2298E-02  +i   0.5565E-10
+ (-1.591915764187420E-018,6.099767916285055E-019)
+ (6.903706327128315E-018,-2.722932877061430E-018)
+error norm:   0.567298E-09
+ Secant proces: It: 4 s:  -0.2602E+01 F(s):   0.2298E-02
+  Newton process 
+         Residu :  0.4446E-03 Par( 5) :  0.2951E+02
+         Residu :  0.1402E-05 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.1387E-04  +i  -0.7252E-08
+ (9.010253443726283E-018,-5.924371510522732E-018)
+ (6.069429126227219E-018,-4.012712025631658E-018)
+error norm:   0.678958E-08
+ Special point at xl:   0.2951E+02 F(xl):   0.1387E-04
+  Newton process 
+         Residu :  0.2147E-01 Par( 5) :  0.2965E+02
+         Residu :  0.1354E-03 Par( 5) :  0.2965E+02
+         Residu :  0.1872E-08 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5934E-01  +i  -0.1578E-06
+ (-4.720082892703878E-018,1.874914370597337E-017)
+ (-3.910584666995955E-018,1.551275347792560E-017)
+error norm:   0.128484E-06
+  Newton process 
+         Residu :  0.4199E-01 Par( 5) :  0.2979E+02
+         Residu :  0.4166E-03 Par( 5) :  0.2979E+02
+         Residu :  0.2048E-07 Par( 5) :  0.2979E+02
+up  :   0.1737E+03 lp  :   0.2813E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2737E+02  +i   0.1950E+02
+ (4.217863580403882E-017,-2.689398149830454E-017)
+ (7.795354368679929E-017,-4.970480861799211E-017)
+error norm:   0.433703E-05
+  Hopf bifurcation point 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):  -0.2737E+02
+  Newton process 
+         Residu :  0.4513E-04 Par( 5) :  0.2965E+02
+up  :   0.1737E+03 lp  :   0.2813E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2086E+02  +i   0.1789E-09
+ (2.716070516546290E-020,1.409632357867940E-020)
+ (-3.593309137763957E-021,-1.864932608224561E-021)
+error norm:   0.702797E-09
+ Secant proces: It: 2 s:   0.1082E-02 F(s):  -0.2086E+02
+  Newton process 
+         Residu :  0.2810E+00 Par( 5) :  0.2920E+02
+         Residu :  0.6438E-02 Par( 5) :  0.2920E+02
+         Residu :  0.1539E-05 Par( 5) :  0.2920E+02
+up  :   0.1735E+03 lp  :   0.2852E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1353E+00  +i  -0.3183E-12
+ (-2.187147771187102E-022,3.100355261883917E-023)
+ (-1.703091247088136E-022,2.382035136013412E-023)
+error norm:   0.323264E-11
+ Secant proces: It: 3 s:  -0.1596E+01 F(s):  -0.1353E+00
+  Newton process 
+         Residu :  0.1414E-02 Par( 5) :  0.2919E+02
+         Residu :  0.2330E-04 Par( 5) :  0.2919E+02
+up  :   0.1733E+03 lp  :   0.2881E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.1366E+00  +i   0.8404E-07
+ (3.108163390059658E-018,1.763392551691541E-018)
+ (-1.049278229941857E-017,-5.983856536709272E-018)
+error norm:   0.173910E-06
+ Secant proces: It: 4 s:  -0.1607E+01 F(s):  -0.1366E+00
+  Newton process 
+         Residu :  0.9774E-01 Par( 5) :  0.2950E+02
+         Residu :  0.2752E-02 Par( 5) :  0.2950E+02
+         Residu :  0.8787E-05 Par( 5) :  0.2950E+02
+up  :   0.1734E+03 lp  :   0.2862E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.3488E-02  +i   0.4876E-07
+ (-4.578020197696031E-020,-6.444960980077877E-019)
+ (4.884081263703242E-018,6.876724359095896E-017)
+error norm:   0.427180E-06
+ no convergence in secant proces
+  Newton process 
+         Residu :  0.6654E-01 Par( 5) :  0.2964E+02
+         Residu :  0.1068E-02 Par( 5) :  0.2964E+02
+         Residu :  0.1300E-06 Par( 5) :  0.2964E+02
+up  :   0.1736E+03 lp  :   0.2833E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5592E-01  +i   0.3681E-10
+ (-1.407566333951642E-019,2.046455581439655E-018)
+ (5.074333302927988E-020,-8.901695998398175E-019)
+error norm:   0.123464E-09
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.5592E-01
+  Newton process 
+         Residu :  0.1307E-02 Par( 5) :  0.2951E+02
+         Residu :  0.7275E-03 Par( 5) :  0.2951E+02
+         Residu :  0.1201E-06 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.4045E-04  +i   0.2435E-09
+ (-3.107849076219808E-019,3.395186378999974E-019)
+ (1.140905758588785E-018,-1.219464146551945E-018)
+error norm:   0.120172E-08
+ Secant proces: It: 2 s:   0.2936E-01 F(s):   0.4045E-04
+  Newton process 
+         Residu :  0.1517E-04 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2841E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.4692E-06  +i  -0.8869E-11
+ (-2.080243623507557E-020,-1.377313938826404E-019)
+ (2.191047551541935E-021,1.081849297632355E-020)
+error norm:   0.244950E-10
+ Special point at xl:   0.2951E+02 F(xl):  -0.4692E-06
+  Newton process 
+         Residu :  0.2351E-01 Par( 5) :  0.2965E+02
+         Residu :  0.2184E-03 Par( 5) :  0.2965E+02
+         Residu :  0.5584E-08 Par( 5) :  0.2965E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=   0.5932E-01  +i   0.7268E-07
+ (1.611780196202603E-018,-1.184252978155136E-017)
+ (-6.310188297540335E-019,4.636083367533321E-018)
+error norm:   0.834425E-06
+  Bifurcation point (ev) 
+ Detecting special point
+ Secant proces: It: 1 s:   0.5000E+00 F(s):   0.5932E-01
+  Newton process 
+         Residu :  0.1868E-06 Par( 5) :  0.2951E+02
+up  :   0.1736E+03 lp  :   0.2832E+00
+ Stabjdqz begun
+ Stabjdqz done
+sig=  -0.2482E-07  +i   0.1277E-08
+ (-4.723516821431232E-019,-4.887733305722331E-019)
+ (2.541174166201209E-019,2.646090800065402E-019)
+error norm:   0.250590E-07
+ Secant proces: It: 2 s:   0.3955E-05 F(s):  -0.2482E-07
+  Newton process 
+         Residu :  0.1844E-03 Par( 5) :  0.2951E+02
+         Residu :  0.6758E-03 Par( 5) :  0.2951E+02
+         Residu :  0.3642E-03 Par( 5) :  0.2951E+02
+         Residu :  0.2512E-03 Par( 5) :  0.2951E+02
+         Residu :  0.2553E-02 Par( 5) :  0.2951E+02
+         Residu :  0.1275E-02 Par( 5) :  0.2951E+02
+         Residu :  0.6700E-03 Par( 5) :  0.2951E+02
+         Residu :  0.3867E-03 Par( 5) :  0.2951E+02
+  Newton process not converged
