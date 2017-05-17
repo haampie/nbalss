@@ -1,0 +1,31 @@
+%!TEX root = ../report.tex
+\section{Introduction}
+
+We consider the PDE of the stream function $\psi = \psi(t, x, y):$
+\begin{equation}\label{eq:pde}
+\begin{aligned}
+  \left(\frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + v \frac{\partial}{\partial y}\right) \zeta + \beta \frac{\partial \psi}{\partial x} &= -\alpha \frac{\partial \tau_x}{\partial y} + \frac{1}{Re} \Delta \zeta & \text{in } [0, \infty) \times [0,1]^2, \\
+  \zeta &= \Delta \psi & \text{in } [0, \infty) \times [0,1]^2, \\
+  \psi = v &= 0 & \text{on } x = 0 \text{ and } x = 1, \\
+  \psi = \zeta &= 0 & \text{on } y = 0 \text{ and } y = 1
+\end{aligned}
+\end{equation}
+where $u = -\frac{\partial \psi}{\partial y}$ and $v = \frac{\partial \psi}{\partial x}$ and the wind-stress forcing is
+\begin{equation}
+  \tau_x(t, x, y) = \frac{-2 \eta}{2 \pi} \cos{2\pi y}.
+\end{equation}
+We keep $\alpha = \beta = 1000$ fixed, and start with $Re = 16$ and $\eta = 0,$ such that the trivial solution $\psi = 0$ satisfies~\eqref{eq:pde}. Furthermore, we discretize~\eqref{eq:pde} in space on a $128\times128$ grid so that the PDE reduces to a system of ODEs.
+
+\subsection{General continuation theory}
+We're looking for equilibria of~\eqref{eq:pde} such that $\frac{\partial \zeta}{\partial t} = 0.$ Let $\*x$ denote the unknowns and $p$ denote the parameter we wish to change. We want to find $\*x$ such that $F(\*x, p) = 0,$ bla bla bla. 
+
+\begin{enumerate}
+  \item Parametrize $\Gamma(s) = (\*x(s), p(s)).$
+  \item Find a starting point $\Gamma(s_0)$ s.t. $F(\Gamma(s_0)) = 0.$
+  \item Compute $\dot\Gamma(s_0)$ (once, explicitly.)
+  \item Repeat the predictor-corrector iteration until you reach a point of interest.
+  \begin{description}
+    \item[Predict:] For $s_{k+1} = s_k + \Delta s$ compute the guess $$(\*x^{(k+1)}, p^{(k+1)}) = \Gamma^{(k+1)} := \Gamma(s_k) + \Delta s * \dot\Gamma(s_k).$$
+    \item[Correct:] Apply Newton's method in $\*x$ to $F(\*x, p^{(k+1)}) = 0$ with initial guess $\*x^{(k+1)}.$
+  \end{description}
+\end{enumerate}
