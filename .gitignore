@@ -6,3 +6,4 @@ matlab2tikz
 *.fdb_latexmk
 *.aux
 .DS_Store
+!bifurcatie_met_plots.pdf
