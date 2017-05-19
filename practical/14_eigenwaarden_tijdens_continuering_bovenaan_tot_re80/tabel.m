@@ -28,11 +28,25 @@ function tabel
 
   figure;
 
-  for i = 1 : length(reynolds)
-    scatter(real(eigenvalues(i, :)), imag(eigenvalues(i, :))); hold on
-    legend_labels{i} = [sprintf('Re = %2.2f', reynolds(i))];
+  legend_labels = {};
+
+  markers = {'+', '*', 'o', 'x', 's', 'd', '^', 'v', '>', '<', 'p', 'h'};
+
+  marker_no = 1;
+
+  for i = 1 : 3 : length(reynolds)
+    scatter(real(eigenvalues(i, :)), imag(eigenvalues(i, :)), markers{marker_no}); hold on
+    legend_labels{length(legend_labels) + 1} = [sprintf('Re = %2.2f', reynolds(i))];
+    marker_no = marker_no + 1;
+    if marker_no > length(markers)
+      marker_no = 1;
+    end
   end
 
   grid;
-  legend(legend_labels)
+
+  ax = gca;
+  ax.XAxisLocation = 'origin';
+  ax.YAxisLocation = 'origin';
+  legend(legend_labels, 'Location','northwest')
 end

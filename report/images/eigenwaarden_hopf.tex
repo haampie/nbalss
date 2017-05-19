@@ -1,0 +1,126 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{every axis legend/.append style={%
+cells={anchor=west}}
+}
+\usepgfplotslibrary{polar}
+\usetikzlibrary{arrows}
+\usetikzlibrary{plotmarks}
+\tikzset{>=stealth'}
+
+\begin{document}
+
+
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+\definecolor{mycolor6}{rgb}{0.30100,0.74500,0.93300}%
+\definecolor{mycolor7}{rgb}{0.63500,0.07800,0.18400}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=7in,
+height=4in,
+at={(1.011in,0.642in)},
+scale only axis,
+xmin=-16,
+xmax=4,
+ymin=-15,
+ymax=15,
+axis background/.style={fill=white},
+axis lines=middle,
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.03,0.9)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[only marks, mark=+, mark options={}, mark size=3pt, draw=mycolor1] table[row sep=crcr]{%
+x	y\\
+-2.668	4.894\\
+-2.668	-4.894\\
+-11.58	3.218e-07\\
+-2.393	-12.39\\
+-2.393	12.39\\
+-12.43	10.12\\
+};
+\addlegendentry{Re = 57.95}
+
+\addplot[only marks, mark=asterisk, mark options={}, mark size=3pt, draw=mycolor2] table[row sep=crcr]{%
+x	y\\
+-1.951	-6.349\\
+-1.951	6.349\\
+-10.75	-8.23e-06\\
+-2.331	13.06\\
+-2.331	-13.06\\
+-12.27	-10.21\\
+};
+\addlegendentry{Re = 60.84}
+
+\addplot[only marks, mark=o, mark options={}, mark size=3pt, draw=mycolor3] table[row sep=crcr]{%
+x	y\\
+-1.23	7.613\\
+-1.23	-7.613\\
+-9.918	1.747e-06\\
+-2.25	13.62\\
+-2.25	-13.62\\
+-12.14	10.78\\
+};
+\addlegendentry{Re = 63.85}
+
+\addplot[only marks, mark=x, mark options={}, mark size=3pt, draw=mycolor4] table[row sep=crcr]{%
+x	y\\
+-0.4837	8.73\\
+-0.4837	-8.73\\
+-9.159	8.663e-08\\
+-2.177	14.04\\
+-2.177	-14.04\\
+-11.67	-11.59\\
+};
+\addlegendentry{Re = 66.98}
+
+\addplot[only marks, mark=square, mark options={}, mark size=3pt, draw=mycolor5] table[row sep=crcr]{%
+x	y\\
+-8.509	-1.049e-06\\
+0.3103	9.751\\
+0.3103	-9.751\\
+-2.172	-14.27\\
+-2.172	14.27\\
+-15.67	2.261\\
+};
+\addlegendentry{Re = 70.23}
+
+\addplot[only marks, mark=diamond, mark options={}, mark size=3pt, draw=mycolor6] table[row sep=crcr]{%
+x	y\\
+-7.97	2.882e-09\\
+1.213	10.7\\
+1.213	-10.7\\
+-12.36	-4.938e-06\\
+-2.313	-14.32\\
+-2.313	14.32\\
+};
+\addlegendentry{Re = 73.59}
+
+\addplot[only marks, mark=triangle, mark options={}, mark size=3pt, draw=mycolor7] table[row sep=crcr]{%
+x	y\\
+-7.534	-4.875e-10\\
+-10.07	5.718e-06\\
+2.27	-11.54\\
+2.27	11.54\\
+-2.64	14.22\\
+-2.64	-14.22\\
+};
+\addlegendentry{Re = 77.05}
+
+\end{axis}
+\end{tikzpicture}%
+
+\end{document}
