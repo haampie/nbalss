@@ -1,0 +1,64 @@
+\section{iets}
+saying something about the inner symmetry of the system \ref{eq:pde}.
+Suppose we have found a steady state $\psi(x,y)$ (we dropped the index $t$, because the steady state does not depend on $t$). Then, if we rewrite the PDE \ref{eq:pde}, we get
+ \begin{equation}
+   \frac{\partial}{\partial t}\zeta= - \underbrace{   u \frac{\partial\zeta}{\partial x}}_{=:\ref{eq:steady} a} +\underbrace{  v \frac{\partial\zeta}{\partial y}}_{=:\ref{eq:steady}b} - \beta \underbrace{\frac{\partial \psi}{\partial x} }_{=:\ref{eq:steady}c} - \alpha\underbrace{ \frac{\partial \tau_x}{\partial y}}_{=:\ref{eq:steady} d} +\frac{1}{Re}  \underbrace{\Delta \zeta}_{=:\ref{eq:steady}e}=0\label{eq:steady}
+\end{equation}
+ $$\zeta=\Delta \psi $$
+For this $\psi(x,y)$.
+
+Now we want to show that there is an inner symmetry in the system by showing that
+$$\bar{\psi}(x,y)=-\psi(x,\bar{y}) \text{ with }\bar{y}=1-y$$
+is also a steady state.
+
+So we want to show that, if equation \ref{eq:steady} holds, 
+ \begin{equation} \frac{\partial}{\partial t}\bar{\zeta}=- \underbrace{  \bar u \frac{\partial\bar{\zeta}}{\partial x}}_{=:\ref{eq:othersteady} a} +\underbrace{ \bar v \frac{\partial\bar{\zeta}}{\partial y}}_{=:\ref{eq:othersteady}b} -\beta \underbrace{ \frac{\partial \bar{\psi}}{\partial x} }_{=:\ref{eq:othersteady}c} -\alpha  \underbrace{\frac{\partial \bar \tau_x}{\partial y}}_{=:\ref{eq:othersteady}d} + \frac{1}{Re} \underbrace{\Delta \bar{\zeta}}_{=:\ref{eq:othersteady}e}=0 \label{eq:othersteady}
+ \end{equation}
+ $$\bar{\zeta}=\Delta \bar{\psi}$$ 
+We will show this by showing that the parts in equation \ref{eq:othersteady} are minus the same part in equation \ref{eq:steady}. Therefore we will first show that $-\bar{u}=-u$ and $\bar{v}=v$. 
+ 
+\begin{equation*}
+-\bar u=\frac{\partial \bar{\psi}}{\partial y}(x,y)=-\frac{\partial \psi}{\partial \bar y}(x,\bar y)\frac{\partial \bar{y}}{\partial y}=\frac{\partial \psi}{\partial \bar y}(x,\bar y)=-u
+\end{equation*}
+
+\begin{equation*}
+\bar v=\frac{\partial \bar{\psi}}{\partial x}(x,y)=-\frac{\partial \psi}{\partial x}(x,\bar y)=-v
+\end{equation*}
+
+Before the further computations we will show that $\bar{\zeta}=-\zeta$.
+
+\begin{align*}
+\bar{\zeta}(x,y) &= \Delta \bar{\psi}(x,y)
+=\frac{\partial^2\bar{\psi}}{\partial x^2}(x, y)+\frac{\partial^2\bar{\psi}}{\partial \bar y^2}(x, y)  \\
+&=-\frac{\partial^2\psi}{\partial x^2}(x,\bar y)-\frac{\partial^2\psi}{\partial \bar y^2}(x,\bar y)
+=-\zeta(x,\bar y)
+\end{align*}
+
+With these, we will now show that equation \ref{eq:othersteady} holds.
+
+\begin{enumerate}[label=\alph*]
+\item 
+\begin{equation*}
+\ref{eq:othersteady} a=\bar u\frac{\partial\bar{\zeta}}{\partial x} (x,y) =-u \frac{\partial\zeta}{\partial x} (x,\bar y)=-\ref{eq:steady}a
+\end{equation*}
+\item
+\begin{equation}
+\ref{eq:othersteady}b=\bar{v}\frac{\partial\bar{\zeta}}{\partial y} (x,y) =-v \frac{\partial\zeta}{\partial \bar y} (x,\bar y)=-\ref{eq:steady}b
+\end{equation}
+\item
+$$\ref{eq:othersteady}c=\bar{v}=-v=-\ref{eq:steady}c$$
+\item
+$$\ref{eq:othersteady}d=\frac{\partial \bar \tau_x}{\partial y}(t,x,y)=\frac{\partial \tau_x}{\partial \bar y}(t,x,\bar y)\frac{\partial y}{\partial \bar y}=-\frac{\partial \tau_x}{\partial \bar y}(t,x,\bar y)=-\ref{eq:steady}d$$
+\item
+\begin{align*}
+\ref{eq:othersteady}e& =\Delta \bar{\zeta}(x,y)
+=\frac{\partial^2\bar{\zeta}}{\partial x^2}(x, y)+\frac{\partial^2\bar{\zeta}}{\partial \bar y^2}(x, y) \\
+&=-\frac{\partial^2\zeta}{\partial x^2}(x,\bar y)-\frac{\partial^2\zeta}{\partial \bar y^2}(x,\bar y)=-\Delta\zeta(x,\bar y)=-\ref{eq:steady} e
+\end{align*}
+\end{enumerate}
+
+Using equations \ref{eq:othersteady} and \ref{eq:steady}, it is easy to see that
+$$\frac{\partial}{\partial t}\bar{\zeta}=-\frac{\partial}{\partial t}\zeta=0$$ and thus is $\bar{\psi}$ a steady state.
+
+
+

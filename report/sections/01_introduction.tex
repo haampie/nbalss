@@ -12,7 +12,8 @@ We consider the PDE of the stream function $\psi = \psi(t, x, y):$
 \end{equation}
 where $u = -\frac{\partial \psi}{\partial y}$ and $v = \frac{\partial \psi}{\partial x}$ and the wind-stress forcing is
 \begin{equation}
-  \tau_x(t, x, y) = \frac{-2 \eta}{2 \pi} \cos{2\pi y}.
+  \tau_x(t, x, y) = \frac{- \eta}{2 \pi} \cos{2\pi y}.
+ \label{eq:tau}
 \end{equation}
 We keep $\alpha = \beta = 1000$ fixed, and start with $Re = 16$ and $\eta = 0,$ such that the trivial solution $\psi = 0$ satisfies~\eqref{eq:pde}. Furthermore, we discretize~\eqref{eq:pde} in space on a $128\times128$ grid so that the PDE reduces to a system of ODEs.
 
