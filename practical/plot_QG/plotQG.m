@@ -8,7 +8,7 @@ function plotQG(directory, nr)
   m = 128;
   
   % read solution
-  [lab icp par xl xlp sig sol solup soleig]  = readfort3(n,m,[directory 'fort.3']);
+  [lab icp par xl xlp sig sol solup soleig] = readfort3(n,m,[directory 'fort.3']);
   
   % constants 
   udim = 1.6e-02; 
@@ -25,7 +25,9 @@ function plotQG(directory, nr)
   end
 
   % scaling
-  maxp = max(max(sol(:, :, nr))) 
+  maxp = max(max(soleig(:, :, nr))) 
+
+  size(soleig)
 
   % titles = {
   %   '\psi',
@@ -33,7 +35,7 @@ function plotQG(directory, nr)
   % };
   
   % plot
-  plot2D_zs(x,y,fact*sol(:, :, nr) / maxp, 10, 1); 
+  plot2D_zs(x,y,fact*soleig(:, :, nr) / maxp, 10, 1); 
   xlabel('x/L')
   ylabel('y/L')
   % title(titles{nr})

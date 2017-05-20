@@ -1,0 +1,55 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{every axis legend/.append style={%
+cells={anchor=west}}
+}
+\usepgfplotslibrary{polar}
+\usetikzlibrary{arrows}
+\usetikzlibrary{plotmarks}
+\tikzset{>=stealth'}
+
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\begin{document}
+
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+xmode=log,
+xmin=1e-08,
+xmax=1e-05,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={$\epsilon$},
+ymin=40,
+ymax=90,
+ylabel style={font=\color{white!15!black}},
+ylabel={Run time (s)},
+axis background/.style={fill=white},
+xmajorgrids,
+xminorgrids,
+ymajorgrids
+]
+\addplot [color=mycolor1, dashdotted, mark=o, mark options={solid, mycolor1}, forget plot]
+  table[row sep=crcr]{%
+1e-08	64.83\\
+1e-07	52.4\\
+5e-07	41.56\\
+1e-06	40.06\\
+2.5e-06	71.15\\
+5e-06	89.83\\
+};
+\end{axis}
+\end{tikzpicture}%
+\end{document}
