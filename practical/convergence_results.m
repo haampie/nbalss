@@ -7,21 +7,36 @@ function convergence_results
   een_achtste = [0.327567, 0.381462, 0.401002, 0.410911, 0.416887];
   drie_achtste = [0.500404, 0.489258, 0.481327, 0.476320, 0.472971];
 
+  second_order = 50 ./ x(1 : end - 1) .^ 2;
+
   figure;
   diff1 = difference1(inf_norm);
-  loglog(x(1 : end - 1), diff1, 'b-*')
+  subplot(1, 3, 1)
+  loglog(x(2 : end), diff1, 'b-*'); hold on;
+  loglog(x(2 : end), second_order);
+  legend('Diff', '~ 1 / N^2')
+  xlabel('N')
+  grid on;
   order_inf_norm = the_order(x, diff1)
   title('Global (inf norm)')
 
-  figure;
   diff2 = difference1(een_achtste);
-  loglog(x(1 : end - 1), diff2, 'b-*')
+  subplot(1, 3, 2)
+  loglog(x(2 : end), diff2, 'b-*'); hold on;
+  loglog(x(2 : end), second_order);
+  legend('Diff', '~ 1 / N^2')
+  xlabel('N')
+  grid on;
   order_een_achtste = the_order(x, diff2)
   title('Local (1/8)')
 
-  figure;
   diff3 = difference1(drie_achtste);
-  loglog(x(1 : end - 1), diff3, 'b-*')
+  subplot(1, 3, 3)
+  loglog(x(2 : end), diff3, 'b-*'); hold on;
+  loglog(x(2 : end), second_order);
+  legend('Diff', '~ 1 / N^2')
+  xlabel('N')
+  grid on;
   order_drie_achtste = the_order(x, diff3)
   title('Local (3/8)')
 
