@@ -1,0 +1,79 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{every axis legend/.append style={%
+cells={anchor=west}}
+}
+\usepgfplotslibrary{polar}
+\usetikzlibrary{arrows}
+\usetikzlibrary{plotmarks}
+\tikzset{>=stealth'}
+
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\begin{document}
+
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=4.585in,
+height=3.608in,
+at={(0.769in,0.487in)},
+%scale only axis,
+xmin=-0.2,
+xmax=0.1,
+ymin=-5e-08,
+ymax=2.5e-07,
+axis background/.style={fill=white},
+%axis x line*=origin,
+%axis y line*=origin,
+xmajorgrids,
+ymajorgrids,
+legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[only marks, mark=+, mark options={}, mark size=1.5000pt, draw=mycolor1] table[row sep=crcr]{%
+x	y\\
+-0.1585	-6.932e-09\\
+};
+\addlegendentry{Re = 29.14}
+
+\addplot[only marks, mark=asterisk, mark options={}, mark size=1.5000pt, draw=mycolor2] table[row sep=crcr]{%
+x	y\\
+-0.09538	-4.786e-11\\
+};
+\addlegendentry{Re = 29.29}
+
+\addplot[only marks, mark=o, mark options={}, mark size=1.5000pt, draw=mycolor3] table[row sep=crcr]{%axis y line*=origin,
+x	y\\
+-0.03375	-1.99e-11\\
+};
+\addlegendentry{Re = 29.43}
+
+\addplot[only marks, mark=x, mark options={}, mark size=1.5000pt, draw=mycolor4] table[row sep=crcr]{%
+x	y\\
+0.02639	9.408e-10\\
+};
+\addlegendentry{Re = 29.57}
+
+\addplot[only marks, mark=+, mark options={}, mark size=1.5000pt, draw=mycolor5] table[row sep=crcr]{%
+x	y\\
+0.05932	2.336e-07\\
+};
+\addlegendentry{Re = 29.65}
+
+\end{axis}
+\end{tikzpicture}%
+
+\end{document}

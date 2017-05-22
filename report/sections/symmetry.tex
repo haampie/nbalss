@@ -1,5 +1,11 @@
 \section{Internal symmetry}
-When we use the eigenvalue solver (JDQZ) to find the value of the Reynolds number at the first pitchfork bifurcation, we find $Re_p=29.5112$
+When we use the eigenvalue solver (JDQZ) to find the value of the Reynolds number at the first pitchfork bifurcation, we find $Re_p=29.5112$. 
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{images/eigenvalues.pdf}
+	\caption{Difference between values of the stream function for grid size $N\times N$ minus the value for grid size $N-32 \times N-32$}
+	\label{fig:eigenvaluespitch}
+\end{figure}
 
 In this section, we will show the internal symmetry of the system (equation \ref{eq:pde}). What we will show is that if we have a steady state $\psi(x,y)$, then $-\psi(x,1-y)$ is also a steady state. The continuation start at Re=16 with an antisymmetric solution, so $\psi(x,y)=-\psi(x,1-y)$. After the pitchfork bifurcation, we get another solution, which is no longer antisymmetric. Thus its antisymmetric counterpart becomes also a solution, which gives us two new solutions. From this, we conclude that this bifurcation must be a pitchfork bifurcation.
  
