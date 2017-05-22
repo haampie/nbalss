@@ -1,4 +1,4 @@
-function plotQG(directory, nr)
+function plotQG(directory, a, b)
 
   figure;
 
@@ -25,7 +25,7 @@ function plotQG(directory, nr)
   end
 
   % scaling
-  maxp = max(max(soleig(:, :, nr))) 
+  maxp = max(max(soleig(:, :, a, b))) 
 
   size(soleig)
 
@@ -35,7 +35,7 @@ function plotQG(directory, nr)
   % };
   
   % plot
-  plot2D_zs(x,y,fact*soleig(:, :, nr) / maxp, 10, 1); 
+  plot2D_zs(x,y,fact*soleig(:, :, a, b) / maxp, 10, 1); 
   xlabel('x/L')
   ylabel('y/L')
   % title(titles{nr})
