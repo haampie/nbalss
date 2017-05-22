@@ -26,7 +26,7 @@ We're looking for equilibria of~\eqref{eq:ode} where $F(\*u, p) = 0.$ In particu
   \item Parametrize $\Gamma(s) = (\*u(s), p(s))$ with $\|\dot\Gamma(s)\| = 1.$
   \item Find a starting point $\Gamma(s_0)$, which is not a bifurcation point, such that $F(\Gamma(s_0)) = 0.$ 
   \item Compute $\dot\Gamma(s_0)$ explicitly (only once).
-  \item Repeat for $k = 1, 2, \dots$ the predictor-corrector iteration for fixed $\Delta s$ until you reach a point of interest.
+  \item Repeat for $k = 0, 1, \dots$ the predictor-corrector iteration for fixed $\Delta s$ until you reach a point of interest.
   \begin{description}
     \item[Predict:] Compute the guess $$\Gamma^{(k+1)} := \Gamma(s_k) + \Delta s * \dot\Gamma(s_k).$$
     \item[Correct:] Solve for fixed $\Delta s$ the equations \begin{equation}\begin{aligned}\label{eq:hoi}
