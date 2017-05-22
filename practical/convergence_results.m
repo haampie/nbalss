@@ -12,8 +12,8 @@ function convergence_results
   figure;
   diff1 = difference1(inf_norm);
   subplot(1, 3, 1)
-  loglog(x(2 : end), diff1, 'b-*'); hold on;
-  loglog(x(2 : end), second_order);
+  loglog(x(1 : end-1), diff1, 'b-*'); hold on;
+  loglog(x(1 : end-1), second_order);
   legend('Diff', '~ 1 / N^2')
   xlabel('N')
   grid on;
@@ -22,8 +22,8 @@ function convergence_results
 
   diff2 = difference1(een_achtste);
   subplot(1, 3, 2)
-  loglog(x(2 : end), diff2, 'b-*'); hold on;
-  loglog(x(2 : end), second_order);
+  loglog(x(1 : end-1), diff2, 'b-*'); hold on;
+  loglog(x(1 : end-1), second_order);
   legend('Diff', '~ 1 / N^2')
   xlabel('N')
   grid on;
@@ -32,8 +32,8 @@ function convergence_results
 
   diff3 = difference1(drie_achtste);
   subplot(1, 3, 3)
-  loglog(x(2 : end), diff3, 'b-*'); hold on;
-  loglog(x(2 : end), second_order);
+  loglog(x(1 : end-1), diff3, 'b-*'); hold on;
+  loglog(x(1 : end-1), second_order);
   legend('Diff', '~ 1 / N^2')
   xlabel('N')
   grid on;

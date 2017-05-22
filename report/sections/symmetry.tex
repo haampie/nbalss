@@ -1,5 +1,7 @@
 \section{iets}
-saying something about the inner symmetry of the system \ref{eq:pde}.
+In this section, we will show what the internal symmetry of the system (equation \ref{eq:pde}) is. What we will show is that if we have a steady state $\psi(x,y)$, then $-\psi(x,1-y)$ is also a steady state. The continuation start at Re=16 with an antisymmetric solution, so $\psi(x,y)=-\psi(x,1-y)$. After the pitchfork bifurcation, we get another solution, which is no longer antisymmetric. Thus its antisymmetric counterpart becomes also a solution, which gives us two new solutions. From this, we conclude that this bifurcation must be a pitchfork bifurcation.
+ 
+ We now first show that if we have a steady state $\psi(x,y)$, then $-\psi(x,1-y)$ is also a steady state.
 Suppose we have found a steady state $\psi(x,y)$ (we dropped the index $t$, because the steady state does not depend on $t$). Then, if we rewrite the PDE \ref{eq:pde}, we get
  \begin{equation}
    \frac{\partial}{\partial t}\zeta= - \underbrace{   u \frac{\partial\zeta}{\partial x}}_{=:\ref{eq:steady} a} +\underbrace{  v \frac{\partial\zeta}{\partial y}}_{=:\ref{eq:steady}b} - \beta \underbrace{\frac{\partial \psi}{\partial x} }_{=:\ref{eq:steady}c} - \alpha\underbrace{ \frac{\partial \tau_x}{\partial y}}_{=:\ref{eq:steady} d} +\frac{1}{Re}  \underbrace{\Delta \zeta}_{=:\ref{eq:steady}e}=0\label{eq:steady}

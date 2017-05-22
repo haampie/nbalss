@@ -1,0 +1,157 @@
+\documentclass[tikz]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{every axis legend/.append style={%
+cells={anchor=west}}
+}
+\usepgfplotslibrary{polar}
+\usetikzlibrary{arrows}
+\usetikzlibrary{plotmarks}
+\tikzset{>=stealth'}
+
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+\begin{document}
+
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=2.872in,
+height=3.566in,
+at={(1.75in,0.481in)},
+scale only axis,
+xmode=log,
+xmin=10,
+xmax=1000,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={N},
+ymode=log,
+ymin=0.001,
+ymax=0.1,
+yminorticks=true,
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Global (inf norm)},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=blue, mark=asterisk, mark options={solid, blue}]
+  table[row sep=crcr]{%
+64	0.0457099999999999\\
+96	0.0075400000000001\\
+128	0.0022899999999999\\
+160	0.00167000000000006\\
+};
+\addlegendentry{Diff}
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+64	0.048828125\\
+96	0.01220703125\\
+128	0.00542534722222222\\
+160	0.0030517578125\\
+};
+\addlegendentry{$\text{\textasciitilde{} 1 / N}^\text{2}$}
+
+\end{axis}
+
+\begin{axis}[%
+width=2.872in,
+height=3.566in,
+at={(5.529in,0.481in)},
+scale only axis,
+xmode=log,
+xmin=10,
+xmax=1000,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={N},
+ymode=log,
+ymin=0.001,
+ymax=0.1,
+yminorticks=true,
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Local (1/8)},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=blue, mark=asterisk, mark options={solid, blue}]
+  table[row sep=crcr]{%
+64	0.053895\\
+96	0.01954\\
+128	0.009909\\
+160	0.00597599999999998\\
+};
+\addlegendentry{Diff}
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+64	0.048828125\\
+96	0.01220703125\\
+128	0.00542534722222222\\
+160	0.0030517578125\\
+};
+\addlegendentry{$\text{\textasciitilde{} 1 / N}^\text{2}$}
+
+\end{axis}
+
+\begin{axis}[%
+width=2.872in,
+height=3.566in,
+at={(9.308in,0.481in)},
+scale only axis,
+xmode=log,
+xmin=10,
+xmax=1000,
+xminorticks=true,
+xlabel style={font=\color{white!15!black}},
+xlabel={N},
+ymode=log,
+ymin=0.001,
+ymax=0.1,
+yminorticks=true,
+axis background/.style={fill=white},
+title style={font=\bfseries},
+title={Local (3/8)},
+xmajorgrids,
+xminorgrids,
+ymajorgrids,
+yminorgrids,
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=blue, mark=asterisk, mark options={solid, blue}]
+  table[row sep=crcr]{%
+64	0.0111459999999999\\
+96	0.00793100000000002\\
+128	0.00500699999999998\\
+160	0.00334900000000005\\
+};
+\addlegendentry{Diff}
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+64	0.048828125\\
+96	0.01220703125\\
+128	0.00542534722222222\\
+160	0.0030517578125\\
+};
+\addlegendentry{$\text{\textasciitilde{} 1 / N}^\text{2}$}
+
+\end{axis}
+\end{tikzpicture}%
+\end{document}
