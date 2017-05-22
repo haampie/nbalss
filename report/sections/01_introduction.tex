@@ -28,16 +28,16 @@ We're looking for equilibria of~\eqref{eq:ode} where $F(\*u, p) = 0.$ In particu
   \item Compute $\dot\Gamma(s_0)$ explicitly (only once).
   \item Repeat for $k = 0, 1, \dots$ the predictor-corrector iteration for fixed $\Delta s$ until you reach a point of interest.
   \begin{description}
-    \item[Predict:] Compute the guess $$\Gamma^{(k+1)} := \Gamma(s_k) + \Delta s * \dot\Gamma(s_k).$$
-    \item[Correct:] Solve for fixed $\Delta s$ the equations \begin{equation}\begin{aligned}\label{eq:hoi}
+    \item[Predict:] Fix $\Delta s.$ Compute the guess $$\Gamma^{(k+1)} := \Gamma(s_k) + \Delta s * \dot\Gamma(s_k).$$
+    \item[Correct:] Set $s_{k+1} = s_k + \Delta s$ and solve the non-linear equations \begin{equation}\begin{aligned}\label{eq:hoi}
       F(\Gamma(s_{k+1})) &= 0, \\
-      \dot\Gamma^T(s_k)\Gamma(s_{k+1}) &= \Delta s - \dot\Gamma(s_k)^T\Gamma(s_k).
+      \dot\Gamma(s_k)^T\Gamma(s_{k+1}) &= \Delta s + \dot\Gamma(s_k)^T\Gamma(s_k).
     \end{aligned}
     \end{equation}
     where $\Gamma(s_{k+1})$ is the only unknown, via a Newton-Rhapson procedure with $\Gamma^{(k+1)}$ the initial guess.
   \end{description}
 \end{enumerate}
-In our case we have in step 2 the trivial solution at our disposal, but this requires that $\eta = 0$ initially. Step 3 is more involved: since $F(\Gamma(s)) = 0$ for all $s$ per definition, we differentiate with respect to $s$ and using the chain rule we find after evaluation in $s_0$
+In our case we have in step 2 the trivial solution at our disposal, but this requires that $\eta = 0$ initially. Step 3 is more involved: since $F(\Gamma(s)) = 0$ for all $s$ per definition, we differentiate with respect to $s$ and using the chain rule we find after evaluation in $s_0$ that
 \begin{equation}\label{eqn:null}
   \begin{bmatrix}
     DF_u(s_0) & DF_p(s_0)
