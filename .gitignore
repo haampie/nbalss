@@ -7,4 +7,4 @@ matlab2tikz
 *.aux
 .DS_Store
 !bifurcatie_met_plots.pdf
-!images/*.pdf
+!./report/images/*.pdf
