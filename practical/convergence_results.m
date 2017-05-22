@@ -7,7 +7,7 @@ function convergence_results
   een_achtste = [0.327567, 0.381462, 0.401002, 0.410911, 0.416887];
   drie_achtste = [0.500404, 0.489258, 0.481327, 0.476320, 0.472971];
 
-  second_order = 50 ./ x(1 : end - 1) .^ 2;
+  second_order = 1 ./ x(1 : end - 1) .^ 1;
 
   figure;
   diff1 = difference1(inf_norm);
