@@ -29,45 +29,52 @@ cells={anchor=west}}
 
 \begin{axis}[%
 width=4.585in,
-height=3.608in,
+height=2in,
 at={(0.769in,0.487in)},
 %scale only axis,
 xmin=-0.2,
 xmax=0.1,
-ymin=-5e-08,
-ymax=2.5e-07,
+ymin=-1,
+ymax=1,
 axis background/.style={fill=white},
+axis lines=middle,
 %axis x line*=origin,
 %axis y line*=origin,
 xmajorgrids,
 ymajorgrids,
-legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
+legend columns=-1,
+legend style={at={(0.5,0.97)}, anchor=center, legend cell align=left, align=left, draw=white!15!black,/tikz/every even column/.append style={column sep=0.1cm}},
+xticklabel style={
+        /pgf/number format/fixed,
+        /pgf/number format/precision=2
+},
+scaled x ticks=false
 ]
-\addplot[only marks, mark=+, mark options={}, mark size=1.5000pt, draw=mycolor1] table[row sep=crcr]{%
+\addplot[only marks, mark=+, mark options={}, mark size=3pt, draw=mycolor1] table[row sep=crcr]{%
 x	y\\
 -0.1585	-6.932e-09\\
 };
 \addlegendentry{Re = 29.14}
 
-\addplot[only marks, mark=asterisk, mark options={}, mark size=1.5000pt, draw=mycolor2] table[row sep=crcr]{%
+\addplot[only marks, mark=asterisk, mark options={}, mark size=3pt, draw=mycolor2] table[row sep=crcr]{%
 x	y\\
 -0.09538	-4.786e-11\\
 };
 \addlegendentry{Re = 29.29}
 
-\addplot[only marks, mark=o, mark options={}, mark size=1.5000pt, draw=mycolor3] table[row sep=crcr]{%axis y line*=origin,
+\addplot[only marks, mark=o, mark options={}, mark size=3pt, draw=mycolor3] table[row sep=crcr]{%axis y line*=origin,
 x	y\\
 -0.03375	-1.99e-11\\
 };
 \addlegendentry{Re = 29.43}
 
-\addplot[only marks, mark=x, mark options={}, mark size=1.5000pt, draw=mycolor4] table[row sep=crcr]{%
+\addplot[only marks, mark=x, mark options={}, mark size=3pt, draw=mycolor4] table[row sep=crcr]{%
 x	y\\
 0.02639	9.408e-10\\
 };
 \addlegendentry{Re = 29.57}
 
-\addplot[only marks, mark=+, mark options={}, mark size=1.5000pt, draw=mycolor5] table[row sep=crcr]{%
+\addplot[only marks, mark=+, mark options={}, mark size=3pt, draw=mycolor5] table[row sep=crcr]{%
 x	y\\
 0.05932	2.336e-07\\
 };
