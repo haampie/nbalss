@@ -6,7 +6,7 @@ We consider a simplified, homogeneous, two-dimensional, wind-driven ocean model 
   \left(\frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + v \frac{\partial}{\partial y}\right) \zeta + \beta \frac{\partial \psi}{\partial x} &= -\alpha \frac{\partial \tau_x}{\partial y} + \frac{1}{Re} \Delta \zeta & \text{in } [0, \infty) \times [0,1]^2, \\
   \zeta &= \Delta \psi & \text{in } [0, \infty) \times [0,1]^2, \\
   \psi = v &= 0 & \text{on } x = 0 \text{ and } x = 1, \\
-  \psi = \zeta &= 0 & \text{on } y = 0 \text{ and } y = 1
+  \psi = \zeta &= 0 & \text{on } y = 0 \text{ and } y = 1,
 \end{aligned}
 \end{equation}
 where $u = -\frac{\partial \psi}{\partial y}$ and $v = \frac{\partial \psi}{\partial x}$ and the wind-stress forcing is
@@ -42,7 +42,7 @@ In our case we have in step 2 the trivial solution at our disposal, but this req
   \begin{bmatrix}
     DF_u(s_0) & DF_p(s_0)
   \end{bmatrix}\Dot\Gamma(s_0)
-  = 0 \quad \text{ and } \quad \|\dot\Gamma(s_0)\| = 1
+  = 0 \quad \text{ and } \quad \|\dot\Gamma(s_0)\| = 1,
 \end{equation}
 where $DF_z$ denotes the Jacobion matrix of $F$ with respect to $z.$ Equation~\eqref{eqn:null} means $\dot\Gamma(s_0)$ is a unit vector in the null space of the $N \times (N + 1)$ dimensional matrix $$D := \begin{bmatrix} DF_u(s_0) & DF_p(s_0) \end{bmatrix}.$$ Under the assumption that $\Gamma(s_0)$ is not a bifurcation point, this matrix $D$ has full rank, so the null space is indeed one-dimensional and hence \eqref{eqn:null} has a unique solution. Computing the null space can be performed by bringing $D$ into row-echelon form as $\tilde{D}$ and solving the $(N + 1) \times (N + 1)$ augmented linear system of equations
 \begin{equation}
@@ -51,12 +51,12 @@ where $DF_z$ denotes the Jacobion matrix of $F$ with respect to $z.$ Equation~\e
   \end{bmatrix}
   \dot\Gamma(s_0)
   =
-  e_{N}
+  e_{N},
 \end{equation}
 where $e_{i}$ is the $i$th standard basis vector of length $i.$ 
 
 Lastly, we refer to the the lecture notes for the technical details of step 4, yet we will show how Equation~\eqref{eq:hoi} is obtained. Rather than requiring exactly $\|\dot\Gamma(s)\| = 1$ in the correction phase, we require only
 \begin{equation}
-  \|\dot\Gamma(s_k)\| \approx \dot\Gamma(s_k)^T \frac{\Gamma(s_{k+1}) - \Gamma(s_k)}{\Delta s} = 1
+  \|\dot\Gamma(s_k)\| \approx \dot\Gamma(s_k)^T \frac{\Gamma(s_{k+1}) - \Gamma(s_k)}{\Delta s} = 1,
 \end{equation}
 which explains the wording {\em pseudo}-arclength. After rewriting this, it can be seen to be equivalent to the second equation of~\eqref{eq:hoi}.
