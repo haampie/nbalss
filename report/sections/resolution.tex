@@ -1,38 +1,37 @@
 %!TEX root = ../report.tex
 \section{Changing grid resolution}
 
+In order to check whether the accuracy of the solutions is adequate, we change the resolution of the model. We have computed the steady states in $\eta = 1$ and $Re = 16$ for grid resolutions $32\times 32$, $64\times 64$, $96\times 96$, $128\times 128$ and $160\times 160$. In Figure~\ref{fig:grids}, the resulting streamfunctions are shown for three grid sizes. A quick look tells us that the shapes of the solutions are qualitatively the same. 
+
 \begin{figure}[h]
     \centering
-    \caption{$\psi$ at $Re = 16$ for different grid sizes}\label{fig:grids}
-    \centerline{
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\textwidth]{images/grid32.eps}
-        \caption{$32\times 32$}
-        \label{fig:nm32}
-    \end{subfigure}
-    ~
-    \begin{subfigure}[b]{0.6\textwidth}
-        \includegraphics[width=\textwidth]{images/grid64.eps}
-        \caption{$64\times 64$}
-        \label{fig:nm64}
-    \end{subfigure}
-    }
-    
     \begin{subfigure}[b]{0.6\textwidth}
         \includegraphics[width=\textwidth]{images/grid128.eps}
         \caption{$128\times 128$}
         \label{fig:nm128}
     \end{subfigure}
+    \centerline{
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{images/grid32.eps}
+        \caption{$32\times 32$}
+        \label{fig:nm32}
+    \end{subfigure}
+    ~
+    \begin{subfigure}[b]{0.5\textwidth}
+        \includegraphics[width=\textwidth]{images/grid64.eps}
+        \caption{$64\times 64$}
+        \label{fig:nm64}
+    \end{subfigure}
+    }
+    \caption{$\psi$ at $Re = 16$ for different grid sizes}\label{fig:grids}
     
 \end{figure}
 
 \begin{figure}
-	\centerline{\includegraphics[width=1.5\textwidth]{images/errors.pdf}}
+	\centerline{\includegraphics{images/errors.pdf}}
 	\caption{Differences to the extrapolant for multiple values of interest. We see clearly second order convergence in the global error; locally we see that the higher order terms still play a role when $n < 128.$}
 	\label{fig:errors}
 \end{figure}
-
-In order to check whether the accuracy of the solutions is adequate, we change the resolution of the model. We have computed the steady states in $\eta = 1$ and $Re = 16$ for grid resolutions $32\times 32$, $64\times 64$, $96\times 96$, $128\times 128$ and $160\times 160$. In Figure~\ref{fig:grids}, the resulting streamfunctions are shown for three grid sizes. A quick look tells us that the shapes of the solutions are roughly the same. 
 
 For a more accurate approach, we compute an approximate error using a higher-order guess for local values $\psi(\tfrac{1}{8}, \tfrac{1}{8}),$ $\psi(\tfrac{3}{8}, \tfrac{3}{8})$ and the global norm $\|\psi\|_\infty.$ The basic trick is as follows: given two $k$th order approximations $f(h)$ and $f(ah)$ to a value $f^*,$ we can compute a $(k+1)$th order approximation to $f^*$ as follows:
 \begin{align}

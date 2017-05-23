@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Pseudo-arclength continuation theory}{section.1}% 2
+\BOOKMARK [1][-]{section.2}{Spinup}{}% 3
+\BOOKMARK [1][-]{section.3}{Preconditioning}{}% 4
+\BOOKMARK [1][-]{section.4}{Changing grid resolution}{}% 5
+\BOOKMARK [1][-]{section.5}{Internal \(anti-\)symmetry}{}% 6
+\BOOKMARK [1][-]{section.6}{Pitchfork}{}% 7
+\BOOKMARK [2][-]{subsection.6.1}{Detection}{section.6}% 8
+\BOOKMARK [2][-]{subsection.6.2}{Finding its location and type}{section.6}% 9
+\BOOKMARK [1][-]{section.7}{Hopf bifurcation}{}% 10
+\BOOKMARK [1][-]{section.8}{Conclusion}{}% 11

@@ -1,6 +1,6 @@
 %!TEX root = ../report.tex
 \section{Introduction}
-We consider a simplified, homogeneous, two-dimensional, wind-driven ocean model in a square basin. After non-dimensionalizing the equations and assuming a constant density $\rho$ together with incompressibility, we can formulate the problem in terms of the stream function $\psi = \psi(t, x, y).$ This formulation basically eliminates the pressure term from the Navier-Stokes equations and automatically fulfills the continuity equation. [Something something boundary conditions.] Ultimately this leads to the following PDE:
+We consider a simplified, homogeneous, two-dimensional, wind-driven ocean model in a square basin. After non-dimensionalizing the equations and assuming a constant density $\rho$ together with incompressibility, we can formulate the problem in terms of the stream function $\psi = \psi(t, x, y)$ and a vorticy function $\zeta = \zeta(t, x, y).$ This formulation basically eliminates the pressure term from the Navier-Stokes equations and automatically fulfills the continuity equation under certain regularity conditions. We let $u$ and $v$ denote the horizontal and vertical velocity respectively. Lastly, we impose the kinematic condition $\psi = 0$ on the boundaries, slip conditions on the north-south boundaries and no-slip conditions on the east-west boundaries. Ultimately this leads to the following PDE:
 \begin{equation}\label{eq:pde}
 \begin{aligned}
   \left(\frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + v \frac{\partial}{\partial y}\right) \zeta + \beta \frac{\partial \psi}{\partial x} &= -\alpha \frac{\partial \tau_x}{\partial y} + \frac{1}{Re} \Delta \zeta & \text{in } [0, \infty) \times [0,1]^2, \\
@@ -14,7 +14,7 @@ where $u = -\frac{\partial \psi}{\partial y}$ and $v = \frac{\partial \psi}{\par
   \tau_x(t, x, y) = \frac{- \eta}{2 \pi} \cos{2\pi y}.
  \label{eq:tau}
 \end{equation}
-We keep $\alpha = \beta = 1000$ fixed, and start with $Re = 16$ and $\eta = 0,$ such that the trivial solution $\psi = 0$ satisfies~\eqref{eq:pde}. Furthermore, we discretize~\eqref{eq:pde} in space using a second-order central differences scheme on a uniform $128\times128$ grid so that the PDE reduces to a system of ODEs of the form
+We keep $\alpha = \beta = 1000$ fixed, and start with $Re = 16$ and $\eta = 0,$ such that the trivial solution $\psi = \zeta = 0$ satisfies~\eqref{eq:pde}. Furthermore, we discretize~\eqref{eq:pde} in space using a second-order central differences scheme on a uniform $128\times128$ grid so that the PDE reduces to a system of ODEs of the form
 \begin{equation}\label{eq:ode}
   M \frac{d \*u}{d t} = F(\*u, p)
 \end{equation}
