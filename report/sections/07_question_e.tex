@@ -18,9 +18,8 @@ At $Re \approx 31$, we bring back $\texttt{asym}$ to $0.$ Next we continue to $R
 
 \begin{figure}[p]
     \centering
-    \label{fig:pitch_detection}
     \centerline{\includegraphics[width=1.3\textwidth]{images/pitch_detection.pdf}}
-    \caption{Detection of the pitchfork.}
+    \caption{Detection of the pitchfork.}\label{fig:pitch_detection}
 \end{figure}
 
 \begin{figure}[p]
@@ -80,8 +79,10 @@ To find the exact location of the pitchfork bifurcation and to inspect stability
 \end{equation}
 where $\*u^*$ is a given equilibrium of the ODE~\eqref{eq:ode}.
 
-To solve the generalized eigenvalue problem~\eqref{eq:eigs}, we use an eigenvalue solver (JDQZ) with a real target $\tau$ near the origin. This way we can detect a change of sign in the eigenvalues, and use the secant process to find exactly at which Reynolds number the pitchfork occurs. In Figure~\ref{fig:eigenvaluespitch} we show how the eigenvalue closest to the origin moves past the imaginary axis. It turns out that the ``exact'' location of the pitchfork is at $Re_p \approx 29.5112$.
+To solve the generalized eigenvalue problem~\eqref{eq:eigs}, we use an eigenvalue solver (JDQZ) with a real\footnotemark[1] target $\tau$ near the origin. This way we can detect a change of sign in the eigenvalues, and use the secant process to find exactly at which Reynolds number the pitchfork occurs. In Figure~\ref{fig:eigenvaluespitch} we show how the eigenvalue closest to the origin moves past the imaginary axis. It turns out that the ``exact'' location of the pitchfork is at $Re_p \approx 29.5112$.
 
 Lastly, we use the eigenvalue solver to compute some eigenvalues on all branches away from the pitchfork and check the sign of the real part. It turns out that the pitchfork consists of three stable parts and one non-stable part, which fits in the category of {\em supercritical} pitchforks. 
+
+\footnotetext[1]{We could go for an imaginary target as well, but the solver expects that conjugate eigenpairs are found one after the other, so a real target ensures this is the case.}
 
 
